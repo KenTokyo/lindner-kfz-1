@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
@@ -93,8 +94,8 @@ export const Contact: React.FC = () => {
         <div className="border-t border-neutral-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-neutral-500 text-sm">
           <p>© {new Date().getFullYear()} KFZ-Meisterbetrieb Lindner. Alle Rechte vorbehalten.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-black transition-colors">Impressum</a>
-            <a href="#" className="hover:text-black transition-colors">Datenschutz</a>
+            <Link to="/impressum" className="hover:text-black transition-colors">Impressum</Link>
+            <Link to="/datenschutz" className="hover:text-black transition-colors">Datenschutz</Link>
           </div>
         </div>
 

@@ -1,57 +1,72 @@
 <!DOCTYPE html>
-<html lang="de" class="scroll-smooth">
+<html lang="de">
 
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lindner KFZ-Meisterbetrieb Berlin</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>KFZ Lindner Berlin – Karosserie, Lack & Autoservice</title>
+    <meta name="description" content="KFZ Lindner in Berlin-Blankenfelde – Karosserie, Lack & Autoservice unter einem Dach. Unkomplizierte Terminanfrage, klare Abläufe, saubere Arbeit." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="KFZ Lindner Berlin" />
+    <meta property="og:title" content="KFZ Lindner Berlin – Karosserie, Lack & Autoservice" />
+    <meta property="og:description" content="Karosserie, Lack & Autoservice unter einem Dach in Berlin-Blankenfelde. Unkomplizierte Terminanfrage – wir melden uns." />
+    <meta property="og:url" content="https://www.autoservice-lindner.de/" />
+    <!-- <meta property="og:image" content="https://www.autoservice-lindner.de/og-image.jpg" /> -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="KFZ Lindner Berlin – Karosserie, Lack & Autoservice" />
+    <meta name="twitter:description" content="Karosserie, Lack & Autoservice unter einem Dach in Berlin-Blankenfelde. Unkomplizierte Terminanfrage – wir melden uns." />
+    <!-- <meta name="twitter:image" content="https://www.autoservice-lindner.de/og-image.jpg" /> -->
+
+    <!-- Favicon -->
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Canonical -->
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.autoservice-lindner.de/" />
+
+    <!-- Preload hero image for LCP -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2600&auto=format&fit=crop" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet">
 
-    <style>
-      body {
-        font-family: 'Manrope', sans-serif;
-        background-color: #ffffff;
-        color: #0a0a0a;
-      }
-
-      html {
-        scroll-padding-top: 120px;
-      }
-
-      /* Custom scrollbar for webkit */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: #f5f5f5;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: #ccc;
-        border-radius: 4px;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: #999;
-      }
-
-    </style>
-    <script type="importmap">
-{
-  "imports": {
-    "framer-motion": "https://esm.sh/framer-motion@^12.24.10",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
-  }
-}
-</script>
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRepair",
+      "name": "KFZ Lindner",
+      "alternateName": "Autoservice Lindner",
+      "description": "Karosserie- und Lackierbetrieb sowie Autoservice in Berlin-Blankenfelde. Unfallinstandsetzung, Lackierung, Inspektion und Mechanik – alles unter einem Dach.",
+      "url": "https://www.autoservice-lindner.de",
+      "telephone": "+4930913 1252",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hauptstraße 43",
+        "addressLocality": "Berlin",
+        "addressRegion": "Berlin",
+        "postalCode": "13159",
+        "addressCountry": "DE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "52.6370",
+        "longitude": "13.3890"
+      },
+      "priceRange": "$$",
+      "image": "https://www.autoservice-lindner.de/og-image.jpg",
+      "sameAs": []
+    }
+    </script>
   </head>
 
   <body>
