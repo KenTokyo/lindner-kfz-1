@@ -45,7 +45,7 @@ export const HomePage: React.FC = () => {
       <FadeBlur><QuickChoice onSelect={(category) => openTerminanfrage(category)} /></FadeBlur>
       <FadeBlur><Trustbar /></FadeBlur>
       <FadeBlur><LeistungenPreview /></FadeBlur>
-      <FadeBlur><ProcessSteps /></FadeBlur>
+      <ProcessSteps />
       <FadeBlur><WhyLindner /></FadeBlur>
       <FadeBlur><ReviewCards /></FadeBlur>
       <FadeBlur><KarriereTeaser /></FadeBlur>

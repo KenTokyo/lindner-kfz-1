@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { MousePointerClick, Send, PhoneCall, CalendarCheck, PackageCheck } from 'lucide-react';
 
 const steps = [
@@ -9,7 +10,7 @@ const steps = [
   },
   {
     icon: Send,
-    title: 'Kurze Terminanfrage senden',
+    title: 'Anfrage senden',
     description: 'Name, Kontakt und kurze Beschreibung – fertig in unter einer Minute.',
   },
   {
@@ -24,183 +25,262 @@ const steps = [
   },
   {
     icon: PackageCheck,
-    title: 'Fertigstellung & Abholung',
+    title: 'Abholung',
     description: 'Klar kommuniziert – ohne Überraschungen.',
   },
 ];
 
 export const ProcessSteps: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+
   return (
     <section
       id="process"
-      className="py-24 relative overflow-hidden"
+      ref={sectionRef}
+      className="py-20 md:py-28 relative overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #ffffff 0%, #f5f5f5 50%, #ffffff 100%)',
+        background: 'linear-gradient(180deg, #ffffff 0%, #fafafa 50%, #ffffff 100%)',
       }}
     >
-      {/* Subtle decorative background dots */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #171717 1px, transparent 1px)',
-          backgroundSize: '24px 24px',
-        }}
-      />
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 mb-4">
-            So läuft's ab
-          </h2>
-          <p className="text-neutral-600 max-w-2xl mx-auto text-lg">
-            Von der Anfrage bis zur Abholung – in 5 klaren Schritten.
+      <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-14 md:mb-20"
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+        >
+          <p className="text-sm font-semibold tracking-widest uppercase text-neutral-400 mb-3">
+            Ablauf
           </p>
-        </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-3">
+            In 5 Schritten zum Ziel
+          </h2>
+          <p className="text-neutral-500 max-w-lg mx-auto">
+            Von der Anfrage bis zur Abholung – einfach und transparent.
+          </p>
+        </motion.div>
 
-        {/* Desktop layout: horizontal continuous connecting line */}
-        <div className="hidden lg:block relative">
-          {/* Continuous dashed line spanning across all steps */}
-          <div className="absolute top-[88px] left-[10%] right-[10%] border-t-2 border-dashed border-neutral-300 z-0" />
+        {/* Desktop: Horizontal Timeline */}
+        <div className="hidden lg:block">
+          <div className="relative">
+            {/* Timeline track (background) */}
+            <div className="absolute top-[28px] left-0 right-0 h-[2px] bg-neutral-200 z-0" />
 
-          <div className="grid grid-cols-5 gap-6 relative z-10">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              const isEven = index % 2 === 0;
-              return (
-                <div
-                  key={step.title}
-                  className="relative group"
-                >
-                  <div
-                    className={`relative bg-white border border-neutral-100 rounded-2xl p-6 pt-10 text-center
-                      shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300
-                      ${isEven ? 'mt-0' : 'mt-8'}`}
+            {/* Animated progress line */}
+            <motion.div
+              className="absolute top-[28px] left-0 h-[2px] bg-neutral-900 z-[1] origin-left"
+              initial={{ scaleX: 0 }}
+              animate={isInView ? { scaleX: 1 } : {}}
+              transition={{ duration: 1.4, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            />
+
+            {/* Steps */}
+            <div className="grid grid-cols-5 relative z-10">
+              {steps.map((step, index) => {
+                const Icon = step.icon;
+                const delay = 0.15 + index * 0.2;
+
+                return (
+                  <motion.div
+                    key={step.title}
+                    className="flex flex-col items-center text-center group"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{
+                      duration: 0.5,
+                      delay,
+                      ease: [0.25, 0.1, 0.25, 1],
+                    }}
                   >
-                    {/* Large watermark step number behind the card content */}
-                    <span
-                      className="absolute -top-4 left-1/2 -translate-x-1/2 text-[96px] font-black leading-none
-                        text-neutral-900/[0.04] select-none pointer-events-none z-0
-                        group-hover:text-neutral-900/[0.07] transition-colors duration-300"
+                    {/* Node on timeline */}
+                    <motion.div
+                      className="relative mb-6"
+                      initial={{ scale: 0 }}
+                      animate={isInView ? { scale: 1 } : {}}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 300,
+                        damping: 20,
+                        delay: delay + 0.1,
+                      }}
                     >
-                      {index + 1}
+                      {/* Outer ring pulse */}
+                      <motion.div
+                        className="absolute inset-0 rounded-full bg-neutral-900/10"
+                        initial={{ scale: 1, opacity: 0 }}
+                        animate={isInView ? { scale: [1, 1.8, 1.8], opacity: [0, 0.3, 0] } : {}}
+                        transition={{
+                          duration: 0.8,
+                          delay: delay + 0.2,
+                          ease: 'easeOut',
+                        }}
+                      />
+                      <div
+                        className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white
+                          shadow-[0_2px_16px_rgba(0,0,0,0.15)]
+                          group-hover:shadow-[0_4px_24px_rgba(0,0,0,0.25)]
+                          group-hover:scale-110 transition-all duration-300 relative"
+                      >
+                        <Icon size={22} strokeWidth={1.8} />
+                      </div>
+                    </motion.div>
+
+                    {/* Step number */}
+                    <span className="text-[11px] font-bold tracking-wider uppercase text-neutral-300 mb-2
+                      group-hover:text-neutral-400 transition-colors duration-300">
+                      Schritt {index + 1}
                     </span>
 
-                    {/* Icon container with glow effect */}
-                    <div className="relative z-10 mx-auto mb-5">
-                      <div
-                        className="w-14 h-14 bg-neutral-900 rounded-2xl flex items-center justify-center mx-auto text-white
-                          shadow-[0_4px_20px_rgba(23,23,23,0.25)]
-                          group-hover:shadow-[0_4px_28px_rgba(23,23,23,0.4)]
-                          group-hover:scale-110 transition-all duration-300"
-                      >
-                        <Icon size={26} />
-                      </div>
-                    </div>
+                    {/* Title */}
+                    <h3 className="text-[15px] font-semibold text-neutral-900 mb-1.5 leading-tight">
+                      {step.title}
+                    </h3>
 
-                    {/* Text content */}
-                    <div className="relative z-10">
-                      <h3 className="text-lg font-bold text-neutral-900 mb-2">
-                        {step.title}
-                      </h3>
-                      <p className="text-neutral-500 text-sm leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+                    {/* Description */}
+                    <p className="text-[13px] text-neutral-400 leading-relaxed max-w-[180px]
+                      group-hover:text-neutral-500 transition-colors duration-300">
+                      {step.description}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
-        {/* Tablet layout: 3-column grid */}
-        <div className="hidden md:grid lg:hidden grid-cols-3 gap-6 relative">
-          {steps.map((step, index) => {
-            const Icon = step.icon;
-            return (
-              <div
-                key={step.title}
-                className="relative group"
-              >
-                <div className="relative bg-white border border-neutral-100 rounded-2xl p-6 pt-10 text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                  {/* Large watermark step number */}
-                  <span
-                    className="absolute -top-4 left-1/2 -translate-x-1/2 text-[96px] font-black leading-none
-                      text-neutral-900/[0.04] select-none pointer-events-none z-0
-                      group-hover:text-neutral-900/[0.07] transition-colors duration-300"
+        {/* Tablet: Compact horizontal */}
+        <div className="hidden md:block lg:hidden">
+          <div className="relative">
+            <div className="absolute top-[28px] left-0 right-0 h-[2px] bg-neutral-200 z-0" />
+            <motion.div
+              className="absolute top-[28px] left-0 h-[2px] bg-neutral-900 z-[1] origin-left"
+              initial={{ scaleX: 0 }}
+              animate={isInView ? { scaleX: 1 } : {}}
+              transition={{ duration: 1.4, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            />
+
+            {/* First row: 3 steps */}
+            <div className="grid grid-cols-3 gap-4 relative z-10 mb-10">
+              {steps.slice(0, 3).map((step, index) => {
+                const Icon = step.icon;
+                const delay = 0.15 + index * 0.2;
+                return (
+                  <motion.div
+                    key={step.title}
+                    className="flex flex-col items-center text-center group"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
                   >
-                    {index + 1}
-                  </span>
-
-                  {/* Icon container */}
-                  <div className="relative z-10 mx-auto mb-5">
-                    <div
-                      className="w-14 h-14 bg-neutral-900 rounded-2xl flex items-center justify-center mx-auto text-white
-                        shadow-[0_4px_20px_rgba(23,23,23,0.25)]
-                        group-hover:shadow-[0_4px_28px_rgba(23,23,23,0.4)]
-                        group-hover:scale-110 transition-all duration-300"
+                    <motion.div
+                      className="relative mb-5"
+                      initial={{ scale: 0 }}
+                      animate={isInView ? { scale: 1 } : {}}
+                      transition={{ type: 'spring', stiffness: 300, damping: 20, delay: delay + 0.1 }}
                     >
-                      <Icon size={26} />
-                    </div>
-                  </div>
+                      <div className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white shadow-[0_2px_16px_rgba(0,0,0,0.15)] group-hover:shadow-[0_4px_24px_rgba(0,0,0,0.25)] group-hover:scale-110 transition-all duration-300">
+                        <Icon size={22} strokeWidth={1.8} />
+                      </div>
+                    </motion.div>
+                    <span className="text-[11px] font-bold tracking-wider uppercase text-neutral-300 mb-1.5">
+                      Schritt {index + 1}
+                    </span>
+                    <h3 className="text-[15px] font-semibold text-neutral-900 mb-1">{step.title}</h3>
+                    <p className="text-[13px] text-neutral-400 leading-relaxed max-w-[200px]">{step.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
 
-                  {/* Text content */}
-                  <div className="relative z-10">
-                    <h3 className="text-lg font-bold text-neutral-900 mb-2">
+            {/* Second row: 2 steps centered */}
+            <div className="grid grid-cols-2 gap-4 max-w-md mx-auto relative z-10">
+              {steps.slice(3).map((step, index) => {
+                const Icon = step.icon;
+                const realIndex = index + 3;
+                const delay = 0.15 + realIndex * 0.2;
+                return (
+                  <motion.div
+                    key={step.title}
+                    className="flex flex-col items-center text-center group"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
+                  >
+                    <motion.div
+                      className="relative mb-5"
+                      initial={{ scale: 0 }}
+                      animate={isInView ? { scale: 1 } : {}}
+                      transition={{ type: 'spring', stiffness: 300, damping: 20, delay: delay + 0.1 }}
+                    >
+                      <div className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white shadow-[0_2px_16px_rgba(0,0,0,0.15)] group-hover:shadow-[0_4px_24px_rgba(0,0,0,0.25)] group-hover:scale-110 transition-all duration-300">
+                        <Icon size={22} strokeWidth={1.8} />
+                      </div>
+                    </motion.div>
+                    <span className="text-[11px] font-bold tracking-wider uppercase text-neutral-300 mb-1.5">
+                      Schritt {realIndex + 1}
+                    </span>
+                    <h3 className="text-[15px] font-semibold text-neutral-900 mb-1">{step.title}</h3>
+                    <p className="text-[13px] text-neutral-400 leading-relaxed max-w-[200px]">{step.description}</p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile: Vertical animated timeline */}
+        <div className="md:hidden relative">
+          {/* Track */}
+          <div className="absolute top-0 bottom-0 left-[27px] w-[2px] bg-neutral-200 z-0" />
+
+          {/* Animated progress line */}
+          <motion.div
+            className="absolute top-0 left-[27px] w-[2px] bg-neutral-900 z-[1] origin-top"
+            initial={{ scaleY: 0 }}
+            animate={isInView ? { scaleY: 1 } : {}}
+            transition={{ duration: 1.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+          />
+
+          <div className="space-y-8 relative z-10">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              const delay = 0.1 + index * 0.15;
+
+              return (
+                <motion.div
+                  key={step.title}
+                  className="flex items-start gap-5 group"
+                  initial={{ opacity: 0, x: -16 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                  {/* Node */}
+                  <motion.div
+                    className="flex-shrink-0"
+                    initial={{ scale: 0 }}
+                    animate={isInView ? { scale: 1 } : {}}
+                    transition={{ type: 'spring', stiffness: 300, damping: 20, delay: delay + 0.05 }}
+                  >
+                    <div className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white shadow-[0_2px_16px_rgba(0,0,0,0.15)]">
+                      <Icon size={22} strokeWidth={1.8} />
+                    </div>
+                  </motion.div>
+
+                  {/* Content */}
+                  <div className="pt-2.5">
+                    <span className="text-[11px] font-bold tracking-wider uppercase text-neutral-300 block mb-1">
+                      Schritt {index + 1}
+                    </span>
+                    <h3 className="text-base font-semibold text-neutral-900 mb-1">
                       {step.title}
                     </h3>
-                    <p className="text-neutral-500 text-sm leading-relaxed">
+                    <p className="text-[13px] text-neutral-400 leading-relaxed">
                       {step.description}
                     </p>
                   </div>
-                </div>
-
-                {/* Connector arrow between cards (not on last item in row) */}
-                {index < steps.length - 1 && index !== 2 && (
-                  <div className="absolute top-1/2 -right-3 translate-x-0 -translate-y-1/2 w-6 border-t-2 border-dashed border-neutral-300 z-20" />
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Mobile layout: vertical timeline */}
-        <div className="md:hidden relative">
-          {/* Vertical connecting line */}
-          <div className="absolute top-0 bottom-0 left-8 w-0.5 bg-gradient-to-b from-neutral-200 via-neutral-300 to-neutral-200 z-0" />
-
-          <div className="space-y-6 relative z-10">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              return (
-                <div
-                  key={step.title}
-                  className="relative flex items-start gap-5 group"
-                >
-                  {/* Timeline node: step number + icon stacked */}
-                  <div className="relative flex-shrink-0 flex flex-col items-center">
-                    {/* Step number badge */}
-                    <span className="w-16 h-16 flex items-center justify-center rounded-2xl bg-neutral-900 text-white text-lg font-bold shadow-[0_4px_20px_rgba(23,23,23,0.25)] group-hover:shadow-[0_4px_28px_rgba(23,23,23,0.4)] group-hover:scale-110 transition-all duration-300">
-                      <Icon size={26} />
-                    </span>
-                  </div>
-
-                  {/* Content card */}
-                  <div className="relative flex-1 bg-white border border-neutral-100 rounded-2xl p-5 shadow-sm group-hover:shadow-lg group-hover:-translate-y-0.5 transition-all duration-300">
-                    {/* Watermark number in card */}
-                    <span className="absolute top-2 right-4 text-[56px] font-black leading-none text-neutral-900/[0.04] select-none pointer-events-none group-hover:text-neutral-900/[0.07] transition-colors duration-300">
-                      {index + 1}
-                    </span>
-
-                    <div className="relative z-10">
-                      <h3 className="text-lg font-bold text-neutral-900 mb-1">
-                        {step.title}
-                      </h3>
-                      <p className="text-neutral-500 text-sm leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
