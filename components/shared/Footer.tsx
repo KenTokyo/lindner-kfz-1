@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
             <img
               src="/Lindner Logo_weiss.png"
               alt="Lindner KFZ Logo"
-              className="h-7 w-auto"
+              className="h-24 w-auto"
             />
             <p className="text-sm text-neutral-500 mt-2 max-w-xs">
               Karosserie & Lack und Autoservice – unter einem Dach in Berlin-Blankenfelde.

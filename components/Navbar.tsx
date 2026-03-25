@@ -99,7 +99,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
               <img
                 src="/Lindner Logo_weiss.png"
                 alt="Lindner KFZ Logo"
-                className="h-8 w-auto transition-all duration-300"
+                className="h-14 w-auto transition-all duration-300"
                 style={{ filter: showScrolledStyle ? 'invert(1)' : 'none' }}
               />
             </a>
