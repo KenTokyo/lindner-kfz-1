@@ -8,9 +8,11 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
           {/* Brand */}
           <div>
-            <span className="text-xl font-bold text-white tracking-tighter">
-              LINDNER <span className="font-light text-neutral-500">KFZ</span>
-            </span>
+            <img
+              src="/Lindner Logo_weiss.png"
+              alt="Lindner KFZ Logo"
+              className="h-7 w-auto"
+            />
             <p className="text-sm text-neutral-500 mt-2 max-w-xs">
               Karosserie & Lack und Autoservice – unter einem Dach in Berlin-Blankenfelde.
             </p>

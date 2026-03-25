@@ -95,10 +95,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
             <a
               href="/"
               onClick={handleLogoClick}
-              className="text-2xl font-bold tracking-tighter"
-              style={{ color: showScrolledStyle ? 'black' : 'white' }}
             >
-              LINDNER <span className={`font-light ${showScrolledStyle ? 'text-neutral-500' : 'text-neutral-300'}`}>KFZ</span>
+              <img
+                src="/Lindner Logo_weiss.png"
+                alt="Lindner KFZ Logo"
+                className="h-8 w-auto transition-all duration-300"
+                style={{ filter: showScrolledStyle ? 'invert(1)' : 'none' }}
+              />
             </a>
           </div>
 
