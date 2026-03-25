@@ -16,7 +16,7 @@ export const DienstleistungenPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-28 pb-24 min-h-screen">
+    <div className="pt-40 pb-24 min-h-screen">
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
         <motion.div
