@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { motion, useScroll, useTransform, AnimatePresence, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, AnimatePresence, useMotionValueEvent } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
 
 interface NavItem {
@@ -10,11 +10,8 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: 'Leistungen', href: '#services', type: 'hash' },
-  { label: 'Ablauf', href: '#process', type: 'hash' },
-  { label: 'Bewertungen', href: '#reviews', type: 'hash' },
+  { label: 'Dienstleistungen', href: '/dienstleistungen', type: 'route' },
   { label: 'Karriere', href: '/karriere', type: 'route' },
-  { label: 'Kontakt', href: '#contact', type: 'hash' },
 ];
 
 interface NavbarProps {
@@ -28,31 +25,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const width = useTransform(scrollY, [0, 150], ['100%', '92%']);
-  const top = useTransform(scrollY, [0, 150], ['0px', '20px']);
-  const borderRadius = useTransform(scrollY, [0, 150], ['0px', '20px']);
-  const paddingX = useTransform(scrollY, [0, 150], ['3rem', '1.5rem']);
-
-  const backgroundColor = useTransform(
-    scrollY,
-    [0, 150],
-    ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.95)']
-  );
-
-  const backdropFilter = useTransform(scrollY, [0, 150], ['blur(0px)', 'blur(12px)']);
-
-  const shadow = useTransform(
-    scrollY,
-    [0, 150],
-    ['0px 0px 0px rgba(0,0,0,0)', '0px 8px 32px rgba(0,0,0,0.12)']
-  );
-
   useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 100) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
+    setIsScrolled(latest > 80);
   });
 
   const scrollToElement = (targetId: string) => {
@@ -99,17 +73,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
       <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
         <motion.nav
           aria-label="Hauptnavigation"
-          style={{
-            width,
-            marginTop: top,
-            borderRadius,
-            backgroundColor,
-            backdropFilter,
-            boxShadow: shadow,
-            paddingLeft: paddingX,
-            paddingRight: paddingX,
-            height: '5rem'
+          animate={{
+            width: isScrolled ? '92%' : '100%',
+            marginTop: isScrolled ? '20px' : '0px',
+            borderRadius: isScrolled ? '20px' : '0px',
+            backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0)',
+            backdropFilter: isScrolled ? 'blur(12px)' : 'blur(0px)',
+            boxShadow: isScrolled ? '0px 8px 32px rgba(0,0,0,0.12)' : '0px 0px 0px rgba(0,0,0,0)',
+            paddingLeft: isScrolled ? '1.5rem' : '3rem',
+            paddingRight: isScrolled ? '1.5rem' : '3rem',
           }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          style={{ height: '5rem' }}
           className="relative pointer-events-auto flex items-center justify-between max-w-[1400px]"
         >
           {/* Logo */}
