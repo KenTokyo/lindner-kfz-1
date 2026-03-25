@@ -190,9 +190,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
                 onTerminanfrageClick?.();
               }}
             >
-              <Phone size={20} />
               Terminanfrage
             </button>
+            <motion.a
+              href="tel:0309131252"
+              className="flex justify-center items-center gap-3 px-6 py-4 text-lg font-bold text-white bg-emerald-500 rounded-lg w-full"
+              whileTap={{ scale: 0.97 }}
+            >
+              <Phone size={20} />
+              030 913 12 52
+            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>

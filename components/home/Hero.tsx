@@ -105,7 +105,7 @@ export const Hero: React.FC<HeroProps> = ({ onTerminanfrageClick }) => {
             className="text-lg md:text-xl text-neutral-50 max-w-2xl mb-10 leading-relaxed font-medium drop-shadow-md"
           >
             Unkomplizierte Terminanfrage. Klare Abläufe. Saubere Arbeit –
-            alles unter einem Dach.
+            alles aus einer Hand.
           </motion.p>
 
           {/* Buttons with staggered animation */}
