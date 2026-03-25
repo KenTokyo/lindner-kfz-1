@@ -10,6 +10,7 @@ import { WhyLindner } from '../components/home/WhyLindner';
 import { ReviewCards } from '../components/home/ReviewCards';
 import { KarriereTeaser } from '../components/home/KarriereTeaser';
 import { ContactSection } from '../components/home/ContactSection';
+import { FadeBlur } from '../components/shared/FadeBlur';
 
 export const HomePage: React.FC = () => {
   const location = useLocation();
@@ -41,14 +42,14 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <Hero onTerminanfrageClick={() => openTerminanfrage()} />
-      <QuickChoice onSelect={(category) => openTerminanfrage(category)} />
-      <Trustbar />
-      <LeistungenPreview />
-      <ProcessSteps />
-      <WhyLindner />
-      <ReviewCards />
-      <KarriereTeaser />
-      <ContactSection />
+      <FadeBlur><QuickChoice onSelect={(category) => openTerminanfrage(category)} /></FadeBlur>
+      <FadeBlur><Trustbar /></FadeBlur>
+      <FadeBlur><LeistungenPreview /></FadeBlur>
+      <FadeBlur><ProcessSteps /></FadeBlur>
+      <FadeBlur><WhyLindner /></FadeBlur>
+      <FadeBlur><ReviewCards /></FadeBlur>
+      <FadeBlur><KarriereTeaser /></FadeBlur>
+      <FadeBlur><ContactSection /></FadeBlur>
     </>
   );
 };

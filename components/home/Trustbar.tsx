@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ShieldCheck, Award, CheckCircle } from 'lucide-react';
 
 const partners = [
@@ -24,12 +23,7 @@ export const Trustbar: React.FC = () => {
   return (
     <section className="py-10 bg-white border-y border-neutral-100">
       <div className="max-w-5xl mx-auto px-6 md:px-12">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap items-center justify-center gap-8 md:gap-14"
-        >
+        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
           {partners.map((partner) => {
             const Icon = partner.icon;
             return (
@@ -44,7 +38,7 @@ export const Trustbar: React.FC = () => {
               </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

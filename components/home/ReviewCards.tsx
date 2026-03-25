@@ -7,28 +7,19 @@ export const ReviewCards: React.FC = () => {
   return (
     <section id="reviews" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 mb-4">
             Ausgewählte Stimmen
           </h2>
           <p className="text-neutral-600 max-w-2xl mx-auto text-lg">
             Was unsere Kunden über uns sagen.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reviews.map((review, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
               whileHover={{ y: -4, boxShadow: '0 20px 40px -12px rgba(0,0,0,0.12)' }}
               className={`relative overflow-hidden rounded-2xl p-7 border border-neutral-100 flex flex-col transition-colors duration-300 ${
                 index % 2 === 0 ? 'bg-white' : 'bg-neutral-50'

@@ -6,12 +6,7 @@ export const ContactSection: React.FC = () => {
   return (
     <section id="contact" className="py-24 bg-neutral-50">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <h2 className="text-4xl md:text-6xl font-bold text-neutral-900 mb-4">
             Kontakt & Standort
           </h2>
@@ -19,15 +14,11 @@ export const ContactSection: React.FC = () => {
             Besuchen Sie uns in Berlin-Blankenfelde – Karosserie & Lack und
             Autoservice, alles an einem Standort.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <div>
             {/* "Unter einem Dach" hint */}
             <div className="flex items-center gap-4 mb-10 p-5 bg-white rounded-xl border border-neutral-100 border-l-4 border-l-neutral-900 shadow-sm">
               <div className="p-2.5 bg-neutral-900 rounded-lg shrink-0">
@@ -100,15 +91,10 @@ export const ContactSection: React.FC = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Map Placeholder */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="h-full min-h-[450px] w-full rounded-2xl overflow-hidden relative shadow-2xl"
-          >
+          <div className="h-full min-h-[450px] w-full rounded-2xl overflow-hidden relative shadow-2xl">
             {/* Background aerial image */}
             <img
               src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800&auto=format&fit=crop"
@@ -129,7 +115,6 @@ export const ContactSection: React.FC = () => {
                   <div className="bg-neutral-900 p-4 rounded-full shadow-xl">
                     <MapPin className="text-white w-8 h-8" />
                   </div>
-                  {/* Pin shadow that scales with bounce */}
                 </motion.div>
                 <div className="w-4 h-1.5 bg-black/30 rounded-full mt-2 blur-[2px]" />
               </div>
@@ -147,7 +132,7 @@ export const ContactSection: React.FC = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

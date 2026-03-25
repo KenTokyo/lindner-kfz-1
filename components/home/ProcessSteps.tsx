@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { MousePointerClick, Send, PhoneCall, CalendarCheck, PackageCheck } from 'lucide-react';
 
 const steps = [
@@ -48,19 +47,14 @@ export const ProcessSteps: React.FC = () => {
       />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 mb-4">
             So läuft's ab
           </h2>
           <p className="text-neutral-600 max-w-2xl mx-auto text-lg">
             Von der Anfrage bis zur Abholung – in 5 klaren Schritten.
           </p>
-        </motion.div>
+        </div>
 
         {/* Desktop layout: horizontal continuous connecting line */}
         <div className="hidden lg:block relative">
@@ -72,12 +66,8 @@ export const ProcessSteps: React.FC = () => {
               const Icon = step.icon;
               const isEven = index % 2 === 0;
               return (
-                <motion.div
+                <div
                   key={step.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.12, duration: 0.5 }}
                   className="relative group"
                 >
                   <div
@@ -116,7 +106,7 @@ export const ProcessSteps: React.FC = () => {
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
@@ -127,12 +117,8 @@ export const ProcessSteps: React.FC = () => {
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <motion.div
+              <div
                 key={step.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
                 className="relative group"
               >
                 <div className="relative bg-white border border-neutral-100 rounded-2xl p-6 pt-10 text-center shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
@@ -172,7 +158,7 @@ export const ProcessSteps: React.FC = () => {
                 {index < steps.length - 1 && index !== 2 && (
                   <div className="absolute top-1/2 -right-3 translate-x-0 -translate-y-1/2 w-6 border-t-2 border-dashed border-neutral-300 z-20" />
                 )}
-              </motion.div>
+              </div>
             );
           })}
         </div>
@@ -186,12 +172,8 @@ export const ProcessSteps: React.FC = () => {
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <motion.div
+                <div
                   key={step.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.4 }}
                   className="relative flex items-start gap-5 group"
                 >
                   {/* Timeline node: step number + icon stacked */}
@@ -218,7 +200,7 @@ export const ProcessSteps: React.FC = () => {
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

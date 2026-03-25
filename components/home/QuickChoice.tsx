@@ -30,12 +30,7 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
       </div>
 
       <div className="relative max-w-5xl mx-auto px-6 md:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Worum geht es?
           </h2>
@@ -43,7 +38,7 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
             Wählen Sie Ihren Bereich – wir leiten Ihre Anfrage direkt richtig
             weiter.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
           {/* Decorative divider between cards (visible on md+) */}
@@ -59,10 +54,6 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
 
           {/* Karosserie & Lack */}
           <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
             whileHover={{ scale: 1.02, y: -4 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleClick('karosserie')}
@@ -86,26 +77,15 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
               </p>
               <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-neutral-900">
                 <span>Terminanfrage starten</span>
-                <motion.span
-                  className="inline-block"
-                  initial={false}
-                  animate={{ x: 0 }}
-                  whileHover={{ x: 0 }}
-                >
-                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
-                    &rarr;
-                  </span>
-                </motion.span>
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
+                  &rarr;
+                </span>
               </div>
             </div>
           </motion.button>
 
           {/* Autoservice */}
           <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
             whileHover={{ scale: 1.02, y: -4 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleClick('autoservice')}
@@ -129,16 +109,9 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
               </p>
               <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-neutral-900">
                 <span>Terminanfrage starten</span>
-                <motion.span
-                  className="inline-block"
-                  initial={false}
-                  animate={{ x: 0 }}
-                  whileHover={{ x: 0 }}
-                >
-                  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
-                    &rarr;
-                  </span>
-                </motion.span>
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
+                  &rarr;
+                </span>
               </div>
             </div>
           </motion.button>

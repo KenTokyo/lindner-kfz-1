@@ -32,34 +32,24 @@ export const KarriereTeaser: React.FC = () => {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       {/* Large watermark wrench icon on the right */}
-      <motion.div
-        className="absolute -right-12 md:right-8 top-1/2 -translate-y-1/2 pointer-events-none select-none"
-        initial={{ opacity: 0, rotate: -20, scale: 0.8 }}
-        whileInView={{ opacity: 1, rotate: -15, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.2, ease: 'easeOut', delay: 0.3 }}
-      >
+      <div className="absolute -right-12 md:right-8 top-1/2 -translate-y-1/2 pointer-events-none select-none">
         <Wrench
           size={280}
           strokeWidth={0.6}
           className="text-white/[0.04] md:text-white/[0.035]"
+          style={{ transform: 'rotate(-15deg)' }}
         />
-      </motion.div>
+      </div>
 
       {/* Secondary smaller wrench, offset */}
-      <motion.div
-        className="absolute -right-4 md:right-24 top-1/2 -translate-y-[30%] pointer-events-none select-none hidden md:block"
-        initial={{ opacity: 0, rotate: 10, scale: 0.8 }}
-        whileInView={{ opacity: 1, rotate: 15, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.2, ease: 'easeOut', delay: 0.5 }}
-      >
+      <div className="absolute -right-4 md:right-24 top-1/2 -translate-y-[30%] pointer-events-none select-none hidden md:block">
         <Wrench
           size={140}
           strokeWidth={0.8}
           className="text-white/[0.025]"
+          style={{ transform: 'rotate(15deg)' }}
         />
-      </motion.div>
+      </div>
 
       {/* Decorative gradient glow on the left */}
       <div
@@ -73,22 +63,10 @@ export const KarriereTeaser: React.FC = () => {
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-12 md:gap-16">
           {/* Left content block */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="flex-1 max-w-2xl"
-          >
-            {/* Animated accent line + label */}
+          <div className="flex-1 max-w-2xl">
+            {/* Accent line + label */}
             <div className="flex items-center gap-3 mb-6">
-              <motion.div
-                className="h-px bg-white/40"
-                initial={{ width: 0 }}
-                whileInView={{ width: 48 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-              />
+              <div className="h-px w-12 bg-white/40" />
               <span className="text-xs uppercase tracking-[0.2em] text-neutral-400 font-medium">
                 Werde Teil des Teams
               </span>
@@ -109,15 +87,9 @@ export const KarriereTeaser: React.FC = () => {
 
             {/* Icon + Heading row */}
             <div className="flex items-start gap-5 mb-4">
-              <motion.div
-                className="w-14 h-14 bg-white/[0.07] border border-white/[0.08] rounded-2xl flex items-center justify-center shrink-0 backdrop-blur-sm"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.15 }}
-              >
+              <div className="w-14 h-14 bg-white/[0.07] border border-white/[0.08] rounded-2xl flex items-center justify-center shrink-0 backdrop-blur-sm">
                 <Wrench size={26} className="text-white/90" />
-              </motion.div>
+              </div>
               <div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
                   Karriere bei Lindner
@@ -126,26 +98,14 @@ export const KarriereTeaser: React.FC = () => {
             </div>
 
             {/* Description text */}
-            <motion.p
-              className="text-neutral-400 text-lg md:text-xl leading-relaxed ml-0 md:ml-[76px]"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
+            <p className="text-neutral-400 text-lg md:text-xl leading-relaxed ml-0 md:ml-[76px]">
               Kurze Bewerbung, auch initiativ – wir suchen Verstärkung in
               Karosserie, Lack und Autoservice.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
           {/* CTA button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="shrink-0"
-          >
+          <div className="shrink-0">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
@@ -162,7 +122,7 @@ export const KarriereTeaser: React.FC = () => {
                 />
               </Link>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

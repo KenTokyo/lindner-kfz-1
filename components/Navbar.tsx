@@ -25,6 +25,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const isSubpage = location.pathname !== '/';
+  const showScrolledStyle = isScrolled || isSubpage;
+
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 80);
   });
@@ -74,14 +77,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
         <motion.nav
           aria-label="Hauptnavigation"
           animate={{
-            width: isScrolled ? '92%' : '100%',
-            marginTop: isScrolled ? '20px' : '0px',
-            borderRadius: isScrolled ? '20px' : '0px',
-            backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0)',
-            backdropFilter: isScrolled ? 'blur(12px)' : 'blur(0px)',
-            boxShadow: isScrolled ? '0px 8px 32px rgba(0,0,0,0.12)' : '0px 0px 0px rgba(0,0,0,0)',
-            paddingLeft: isScrolled ? '1.5rem' : '3rem',
-            paddingRight: isScrolled ? '1.5rem' : '3rem',
+            width: showScrolledStyle ? '92%' : '100%',
+            marginTop: showScrolledStyle ? '20px' : '0px',
+            borderRadius: showScrolledStyle ? '20px' : '0px',
+            backgroundColor: showScrolledStyle ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0)',
+            backdropFilter: showScrolledStyle ? 'blur(12px)' : 'blur(0px)',
+            boxShadow: showScrolledStyle ? '0px 8px 32px rgba(0,0,0,0.12)' : '0px 0px 0px rgba(0,0,0,0)',
+            paddingLeft: showScrolledStyle ? '1.5rem' : '3rem',
+            paddingRight: showScrolledStyle ? '1.5rem' : '3rem',
           }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           style={{ height: '5rem' }}
@@ -93,9 +96,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
               href="/"
               onClick={handleLogoClick}
               className="text-2xl font-bold tracking-tighter"
-              style={{ color: isScrolled ? 'black' : 'white' }}
+              style={{ color: showScrolledStyle ? 'black' : 'white' }}
             >
-              LINDNER <span className={`font-light ${isScrolled ? 'text-neutral-500' : 'text-neutral-300'}`}>KFZ</span>
+              LINDNER <span className={`font-light ${showScrolledStyle ? 'text-neutral-500' : 'text-neutral-300'}`}>KFZ</span>
             </a>
           </div>
 
@@ -107,19 +110,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item)}
                 className="text-sm font-medium transition-colors uppercase tracking-wide relative group"
-                style={{ color: isScrolled ? '#333' : '#eee' }}
+                style={{ color: showScrolledStyle ? '#333' : '#eee' }}
               >
                 {item.label}
                 <span
                   className="absolute -bottom-1 left-0 w-0 h-0.5 transition-all group-hover:w-full"
-                  style={{ backgroundColor: isScrolled ? 'black' : 'white' }}
+                  style={{ backgroundColor: showScrolledStyle ? 'black' : 'white' }}
                 />
               </a>
             ))}
             <button
               onClick={onTerminanfrageClick}
               className={`flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full transition-all cursor-pointer ${
-                isScrolled
+                showScrolledStyle
                   ? 'bg-black text-white hover:bg-neutral-800'
                   : 'bg-white text-black hover:bg-neutral-200'
               }`}
@@ -132,7 +135,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
           {/* Mobile Toggle */}
           <button
             className="md:hidden p-2 -mr-2"
-            style={{ color: isScrolled ? 'black' : 'white' }}
+            style={{ color: showScrolledStyle ? 'black' : 'white' }}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? 'Menü schließen' : 'Menü öffnen'}
             aria-expanded={isMobileMenuOpen}

@@ -1,0 +1,154 @@
+$(".close-overlay a").click(function() {
+        $.magnificPopup.close()
+});
+
+$(function() {
+	if (!$('body').hasClass('edit')) {
+	    viewport.debounce('animation.end', 0, function() { viewport.jQuery('html, body').stop(true); });
+		var $overlay = $('#ed-2472717');
+		if ($overlay.length) {
+			$overlay[0].element.observe('animation.start', function() {
+				$('#bgvideo').get(0).pause();
+				$('#normalvideo').get(0).play();
+			});
+			
+			$overlay[0].element.observe('animation.end', function() {
+				$('#bgvideo').get(0).play();
+				$('#normalvideo').get(0).pause();
+			});
+		} 
+		
+		if (!$('body').hasClass('index')) {
+			$('html,body').delay(1000).animate({
+				scrollTop: $('.ed-headline h2').first().offset().top - 140
+			});
+
+			$('.ed-menu li:first a').attr('href', '/');
+		}
+		// Smooth scroll
+		$('.ed-menu a, .button, a').not('.wv-link-elm').click(function(e) {
+			if ($(this.hash).length) {
+				e.preventDefault();
+				viewport.scrollTo($(this.hash), 'top', 500, -60);
+			}
+		});
+
+		// Fix menu
+		$(window).scroll(function() {
+			if (viewport.getScrollTop() >= $('.banner').height() - $('.menuWrapper').height()) {
+				$('.menuWrapper').addClass('sticky');
+			} else {
+				$('.menuWrapper').removeClass('sticky');
+			}
+		});
+
+		// Menu active on scroll
+		if ($('body').hasClass('index')) {
+			var menuReverse = $($('.ed-menu ul li a').get().reverse());
+			var menuSections = [];
+			menuReverse.each(function() {
+				menuSections.push($(this.hash));
+			});
+			$(window).scroll(function() {
+				menuReverse.removeClass('active').trigger('mouseout').trigger('mouseleave');
+				menuReverse.each(function(i) {
+					if (menuSections[i] && viewport.getScrollTop() > (menuSections[i].offset().top - viewport.getHeight() / 2)) {
+						$(this).addClass('active');
+
+						return false;
+					}
+				});
+			});
+		}
+	}
+
+	if ($('body').hasClass('edit')) {
+		$("#bgvideo").get(0).pause();
+	}
+
+	if (!$('body').hasClass('edit')) {
+		$("#bgvideo").attr('autoplay', true);
+		setInterval(function() {
+			var bgvideocurrenttime = $('#bgvideo').get(0).currentTime;
+			if (bgvideocurrenttime > '7.0000000' && bgvideocurrenttime < '11.000000') {
+				$('.logoWrapper').fadeOut();
+			} else if (bgvideocurrenttime > '100.0000000') {
+				$('.logoWrapper').fadeOut();
+			} else {
+				$('.logoWrapper').fadeIn();
+			}
+		}, 100);
+	}
+});
+
+/* JS for preset "Cookie Consent Bar-CMS-V2" */
+
+$(function() {
+	$('#cookieClose').click(function(e) {
+		e.preventDefault();
+		createCookie('cookieConsentBar', "rejected", 0.5);
+		$('.cookie-consent-bar').hide();
+	});
+
+	$('#acceptCookie').click(function(e) {
+		e.preventDefault();
+		createCookie('cookieConsentBar', "accepted", 0.5);
+		$('.cookie-consent-bar').hide();
+		ThirdPartyScripts.unblock();
+	});
+
+	var preview = false;
+	
+	var listener = function() {
+		if (!preview && document.body.classList.contains('preview')) {
+			console.log("entering preview");
+			preview = true;
+		} else if (preview && !document.body.classList.contains('preview')) {
+			console.log("leaving preview");
+			$('.cookie-consent-bar').show();
+			preview = false;
+		}
+		requestAnimationFrame(listener);
+	};
+	
+	requestAnimationFrame(listener);
+
+	if (document.body.classList.contains('edit') || document.body.classList.contains('preview')) {
+		return;
+	}
+
+	
+	// Cookie bar
+	if (readCookie('cookieConsentBar') == "accepted") {
+		$('.cookie-consent-bar').hide();
+		window.setTimeout(function() {
+			ThirdPartyScripts.unblock();
+		}, 100);
+	} else if (readCookie('cookieConsentBar') == "rejected") {
+		$('.cookie-consent-bar').hide();
+	} else {
+		$('.cookie-consent-bar').show();
+	}
+	
+	function readCookie(name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+			if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+		}
+		return null;
+	}   
+    
+	function createCookie(name, value, days) {
+		if (days) {
+			var date = new Date();
+			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+			var expires = "; expires=" + date.toGMTString();
+		} else expires = "";
+		document.cookie = name + "=" + value + expires + "; path=/";
+	}
+});   
+
+/* End JS for preset "Cookie Consent Bar-CMS-V2" */
