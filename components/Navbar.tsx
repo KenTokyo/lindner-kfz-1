@@ -130,9 +130,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
                   : 'bg-white text-black hover:bg-neutral-200'
               }`}
             >
-              <Phone size={16} />
               <span>Terminanfrage</span>
             </button>
+            <motion.a
+              href="tel:0309131252"
+              className="relative flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full cursor-pointer overflow-hidden bg-emerald-500 text-white"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <motion.span
+                className="absolute inset-0 rounded-full bg-emerald-400"
+                initial={{ scale: 0, opacity: 0.5 }}
+                whileHover={{ scale: 1.5, opacity: 0 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+              />
+              <Phone size={15} className="relative z-10" />
+              <span className="relative z-10">030 913 12 52</span>
+            </motion.a>
           </div>
 
           {/* Mobile Toggle */}

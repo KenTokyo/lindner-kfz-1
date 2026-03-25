@@ -67,7 +67,7 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
             <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-neutral-100/60 to-transparent rounded-bl-[3rem] rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             <div className="relative">
-              <div className="w-16 h-16 bg-neutral-900 rounded-2xl flex items-center justify-center mb-6 shadow-[0_4px_14px_rgba(23,23,23,0.25)] group-hover:shadow-[0_6px_20px_rgba(23,23,23,0.35),0_0_0_4px_rgba(23,23,23,0.06)] group-hover:bg-neutral-800 transition-all duration-300">
+              <div className="w-16 h-16 bg-neutral-900 rounded-2xl flex items-center justify-center mb-6 shadow-[0_4px_14px_rgba(23,23,23,0.25)] group-hover:shadow-[0_6px_20px_rgba(23,23,23,0.35),0_0_0_4px_rgba(23,23,23,0.06)] group-hover:bg-neutral-800 transition-all duration-500 delay-75 ease-out">
                 <Paintbrush className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-2xl font-bold mb-3">Karosserie & Lack</h3>
@@ -99,7 +99,7 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
             <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-neutral-100/60 to-transparent rounded-bl-[3rem] rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
             <div className="relative">
-              <div className="w-16 h-16 bg-neutral-900 rounded-2xl flex items-center justify-center mb-6 shadow-[0_4px_14px_rgba(23,23,23,0.25)] group-hover:shadow-[0_6px_20px_rgba(23,23,23,0.35),0_0_0_4px_rgba(23,23,23,0.06)] group-hover:bg-neutral-800 transition-all duration-300">
+              <div className="w-16 h-16 bg-neutral-900 rounded-2xl flex items-center justify-center mb-6 shadow-[0_4px_14px_rgba(23,23,23,0.25)] group-hover:shadow-[0_6px_20px_rgba(23,23,23,0.35),0_0_0_4px_rgba(23,23,23,0.06)] group-hover:bg-neutral-800 transition-all duration-500 delay-75 ease-out">
                 <Wrench className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-2xl font-bold mb-3">Autoservice</h3>

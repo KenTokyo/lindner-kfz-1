@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { MousePointerClick, Send, PhoneCall, CalendarCheck, PackageCheck } from 'lucide-react';
 
@@ -33,6 +33,26 @@ const steps = [
 export const ProcessSteps: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [initialAnimDone, setInitialAnimDone] = useState(false);
+
+  // Mark initial animation as done after it completes
+  useEffect(() => {
+    if (isInView) {
+      const t = setTimeout(() => setInitialAnimDone(true), 1800);
+      return () => clearTimeout(t);
+    }
+  }, [isInView]);
+
+  // Progress fill width: fills to hovered step center, or 100% when not hovering
+  const getProgressWidth = (): string => {
+    if (!isInView) return '0%';
+    if (hoveredIndex !== null && initialAnimDone) {
+      // Center of each column in 5-col grid: 10%, 30%, 50%, 70%, 90%
+      return `${hoveredIndex * 20 + 10}%`;
+    }
+    return '100%';
+  };
 
   return (
     <section
@@ -68,12 +88,16 @@ export const ProcessSteps: React.FC = () => {
             {/* Timeline track (background) */}
             <div className="absolute top-[28px] left-0 right-0 h-[2px] bg-neutral-200 z-0" />
 
-            {/* Animated progress line */}
+            {/* Active progress fill – follows hover */}
             <motion.div
-              className="absolute top-[28px] left-0 h-[2px] bg-neutral-900 z-[1] origin-left"
-              initial={{ scaleX: 0 }}
-              animate={isInView ? { scaleX: 1 } : {}}
-              transition={{ duration: 1.4, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              className="absolute top-[27px] left-0 h-[3px] bg-neutral-900 z-[1] rounded-full"
+              initial={{ width: '0%' }}
+              animate={{ width: getProgressWidth() }}
+              transition={
+                initialAnimDone
+                  ? { duration: 0.5, ease: [0.33, 1, 0.68, 1] }
+                  : { duration: 1.4, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }
+              }
             />
 
             {/* Steps */}
@@ -82,10 +106,19 @@ export const ProcessSteps: React.FC = () => {
                 const Icon = step.icon;
                 const delay = 0.15 + index * 0.2;
 
+                // Determine active state: when hovering, steps up to hovered are active
+                const isActive =
+                  !initialAnimDone || hoveredIndex === null
+                    ? true
+                    : index <= hoveredIndex;
+                const isHovered = hoveredIndex === index;
+
                 return (
                   <motion.div
                     key={step.title}
-                    className="flex flex-col items-center text-center group"
+                    className="flex flex-col items-center text-center cursor-pointer"
+                    onMouseEnter={() => initialAnimDone && setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{
@@ -106,41 +139,93 @@ export const ProcessSteps: React.FC = () => {
                         delay: delay + 0.1,
                       }}
                     >
-                      {/* Outer ring pulse */}
+                      {/* Pulse ring on initial appear */}
                       <motion.div
                         className="absolute inset-0 rounded-full bg-neutral-900/10"
                         initial={{ scale: 1, opacity: 0 }}
-                        animate={isInView ? { scale: [1, 1.8, 1.8], opacity: [0, 0.3, 0] } : {}}
+                        animate={
+                          isInView
+                            ? { scale: [1, 1.8, 1.8], opacity: [0, 0.3, 0] }
+                            : {}
+                        }
                         transition={{
                           duration: 0.8,
                           delay: delay + 0.2,
                           ease: 'easeOut',
                         }}
                       />
+
+                      {/* Glow ring on hover */}
                       <div
-                        className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white
-                          shadow-[0_2px_16px_rgba(0,0,0,0.15)]
-                          group-hover:shadow-[0_4px_24px_rgba(0,0,0,0.25)]
-                          group-hover:scale-110 transition-all duration-300 relative"
+                        className="absolute inset-[-4px] rounded-full"
+                        style={{
+                          background: isHovered
+                            ? 'rgba(23,23,23,0.08)'
+                            : 'transparent',
+                          transform: isHovered ? 'scale(1.15)' : 'scale(1)',
+                          transition: 'all 0.4s cubic-bezier(0.25,0.1,0.25,1) 0.1s',
+                        }}
+                      />
+
+                      <div
+                        className="w-14 h-14 rounded-full flex items-center justify-center text-white relative"
+                        style={{
+                          backgroundColor: isActive
+                            ? 'rgb(23,23,23)'
+                            : 'rgb(163,163,163)',
+                          transform: isHovered ? 'scale(1.15)' : 'scale(1)',
+                          boxShadow: isHovered
+                            ? '0 6px 28px rgba(0,0,0,0.3)'
+                            : isActive
+                              ? '0 2px 16px rgba(0,0,0,0.15)'
+                              : '0 1px 8px rgba(0,0,0,0.08)',
+                          transition: 'transform 0.4s cubic-bezier(0.25,0.1,0.25,1) 0.1s, background-color 0.4s cubic-bezier(0.25,0.1,0.25,1) 0.08s, box-shadow 0.4s cubic-bezier(0.25,0.1,0.25,1) 0.08s',
+                        }}
                       >
                         <Icon size={22} strokeWidth={1.8} />
                       </div>
                     </motion.div>
 
-                    {/* Step number */}
-                    <span className="text-[11px] font-bold tracking-wider uppercase text-neutral-300 mb-2
-                      group-hover:text-neutral-400 transition-colors duration-300">
+                    {/* Step label */}
+                    <span
+                      className="text-[11px] font-bold tracking-wider uppercase mb-2"
+                      style={{
+                        color: isActive
+                          ? isHovered
+                            ? 'rgb(64,64,64)'
+                            : 'rgb(163,163,163)'
+                          : 'rgb(212,212,212)',
+                        transition: 'color 0.35s cubic-bezier(0.25,0.1,0.25,1) 0.06s',
+                      }}
+                    >
                       Schritt {index + 1}
                     </span>
 
                     {/* Title */}
-                    <h3 className="text-[15px] font-semibold text-neutral-900 mb-1.5 leading-tight">
+                    <h3
+                      className="text-[15px] font-semibold mb-1.5 leading-tight"
+                      style={{
+                        color: isActive
+                          ? 'rgb(23,23,23)'
+                          : 'rgb(163,163,163)',
+                        transition: 'color 0.35s cubic-bezier(0.25,0.1,0.25,1) 0.06s',
+                      }}
+                    >
                       {step.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-[13px] text-neutral-400 leading-relaxed max-w-[180px]
-                      group-hover:text-neutral-500 transition-colors duration-300">
+                    <p
+                      className="text-[13px] leading-relaxed max-w-[180px]"
+                      style={{
+                        color: isActive
+                          ? isHovered
+                            ? 'rgb(115,115,115)'
+                            : 'rgb(163,163,163)'
+                          : 'rgb(212,212,212)',
+                        transition: 'color 0.35s cubic-bezier(0.25,0.1,0.25,1) 0.06s',
+                      }}
+                    >
                       {step.description}
                     </p>
                   </motion.div>
@@ -155,10 +240,14 @@ export const ProcessSteps: React.FC = () => {
           <div className="relative">
             <div className="absolute top-[28px] left-0 right-0 h-[2px] bg-neutral-200 z-0" />
             <motion.div
-              className="absolute top-[28px] left-0 h-[2px] bg-neutral-900 z-[1] origin-left"
+              className="absolute top-[27px] left-0 h-[3px] bg-neutral-900 z-[1] rounded-full origin-left"
               initial={{ scaleX: 0 }}
               animate={isInView ? { scaleX: 1 } : {}}
-              transition={{ duration: 1.4, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{
+                duration: 1.4,
+                delay: 0.3,
+                ease: [0.25, 0.1, 0.25, 1],
+              }}
             />
 
             {/* First row: 3 steps */}
@@ -172,23 +261,36 @@ export const ProcessSteps: React.FC = () => {
                     className="flex flex-col items-center text-center group"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
+                    transition={{
+                      duration: 0.5,
+                      delay,
+                      ease: [0.25, 0.1, 0.25, 1],
+                    }}
                   >
                     <motion.div
                       className="relative mb-5"
                       initial={{ scale: 0 }}
                       animate={isInView ? { scale: 1 } : {}}
-                      transition={{ type: 'spring', stiffness: 300, damping: 20, delay: delay + 0.1 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 300,
+                        damping: 20,
+                        delay: delay + 0.1,
+                      }}
                     >
-                      <div className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white shadow-[0_2px_16px_rgba(0,0,0,0.15)] group-hover:shadow-[0_4px_24px_rgba(0,0,0,0.25)] group-hover:scale-110 transition-all duration-300">
+                      <div className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white shadow-[0_2px_16px_rgba(0,0,0,0.15)] group-hover:shadow-[0_4px_24px_rgba(0,0,0,0.25)] group-hover:scale-110 transition-all duration-[400ms] delay-[100ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                         <Icon size={22} strokeWidth={1.8} />
                       </div>
                     </motion.div>
-                    <span className="text-[11px] font-bold tracking-wider uppercase text-neutral-300 mb-1.5">
+                    <span className="text-[11px] font-bold tracking-wider uppercase text-neutral-300 mb-1.5 group-hover:text-neutral-400 transition-colors duration-[400ms] delay-[100ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                       Schritt {index + 1}
                     </span>
-                    <h3 className="text-[15px] font-semibold text-neutral-900 mb-1">{step.title}</h3>
-                    <p className="text-[13px] text-neutral-400 leading-relaxed max-w-[200px]">{step.description}</p>
+                    <h3 className="text-[15px] font-semibold text-neutral-900 mb-1">
+                      {step.title}
+                    </h3>
+                    <p className="text-[13px] text-neutral-400 leading-relaxed max-w-[200px]">
+                      {step.description}
+                    </p>
                   </motion.div>
                 );
               })}
@@ -206,23 +308,36 @@ export const ProcessSteps: React.FC = () => {
                     className="flex flex-col items-center text-center group"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
+                    transition={{
+                      duration: 0.5,
+                      delay,
+                      ease: [0.25, 0.1, 0.25, 1],
+                    }}
                   >
                     <motion.div
                       className="relative mb-5"
                       initial={{ scale: 0 }}
                       animate={isInView ? { scale: 1 } : {}}
-                      transition={{ type: 'spring', stiffness: 300, damping: 20, delay: delay + 0.1 }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 300,
+                        damping: 20,
+                        delay: delay + 0.1,
+                      }}
                     >
-                      <div className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white shadow-[0_2px_16px_rgba(0,0,0,0.15)] group-hover:shadow-[0_4px_24px_rgba(0,0,0,0.25)] group-hover:scale-110 transition-all duration-300">
+                      <div className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white shadow-[0_2px_16px_rgba(0,0,0,0.15)] group-hover:shadow-[0_4px_24px_rgba(0,0,0,0.25)] group-hover:scale-110 transition-all duration-[400ms] delay-[100ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                         <Icon size={22} strokeWidth={1.8} />
                       </div>
                     </motion.div>
-                    <span className="text-[11px] font-bold tracking-wider uppercase text-neutral-300 mb-1.5">
+                    <span className="text-[11px] font-bold tracking-wider uppercase text-neutral-300 mb-1.5 group-hover:text-neutral-400 transition-colors duration-[400ms] delay-[100ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                       Schritt {realIndex + 1}
                     </span>
-                    <h3 className="text-[15px] font-semibold text-neutral-900 mb-1">{step.title}</h3>
-                    <p className="text-[13px] text-neutral-400 leading-relaxed max-w-[200px]">{step.description}</p>
+                    <h3 className="text-[15px] font-semibold text-neutral-900 mb-1">
+                      {step.title}
+                    </h3>
+                    <p className="text-[13px] text-neutral-400 leading-relaxed max-w-[200px]">
+                      {step.description}
+                    </p>
                   </motion.div>
                 );
               })}
@@ -237,10 +352,14 @@ export const ProcessSteps: React.FC = () => {
 
           {/* Animated progress line */}
           <motion.div
-            className="absolute top-0 left-[27px] w-[2px] bg-neutral-900 z-[1] origin-top"
+            className="absolute top-0 left-[27px] w-[3px] -ml-[0.5px] bg-neutral-900 z-[1] rounded-full origin-top"
             initial={{ scaleY: 0 }}
             animate={isInView ? { scaleY: 1 } : {}}
-            transition={{ duration: 1.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{
+              duration: 1.6,
+              delay: 0.2,
+              ease: [0.25, 0.1, 0.25, 1],
+            }}
           />
 
           <div className="space-y-8 relative z-10">
@@ -254,14 +373,23 @@ export const ProcessSteps: React.FC = () => {
                   className="flex items-start gap-5 group"
                   initial={{ opacity: 0, x: -16 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
+                  transition={{
+                    duration: 0.5,
+                    delay,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  }}
                 >
                   {/* Node */}
                   <motion.div
                     className="flex-shrink-0"
                     initial={{ scale: 0 }}
                     animate={isInView ? { scale: 1 } : {}}
-                    transition={{ type: 'spring', stiffness: 300, damping: 20, delay: delay + 0.05 }}
+                    transition={{
+                      type: 'spring',
+                      stiffness: 300,
+                      damping: 20,
+                      delay: delay + 0.05,
+                    }}
                   >
                     <div className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white shadow-[0_2px_16px_rgba(0,0,0,0.15)]">
                       <Icon size={22} strokeWidth={1.8} />

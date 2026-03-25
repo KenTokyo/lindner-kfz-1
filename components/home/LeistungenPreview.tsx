@@ -36,10 +36,11 @@ export const LeistungenPreview: React.FC = () => {
                       key={service.title}
                       whileHover={{ y: -6 }}
                       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                      className="group p-6 bg-white border border-neutral-100 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300 cursor-default"
+                      className="group p-6 bg-white border border-neutral-100 rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-[400ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] cursor-default"
                     >
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-neutral-100 rounded-xl flex items-center justify-center shrink-0 text-neutral-900 group-hover:bg-neutral-900 group-hover:text-white transition-colors duration-300">
+                        <div className="w-12 h-12 bg-neutral-100 rounded-xl flex items-center justify-center shrink-0 text-neutral-900 group-hover:bg-neutral-900 group-hover:text-white group-hover:shadow-[0_4px_16px_rgba(23,23,23,0.2)]"
+                          style={{ transition: 'background-color 0.35s cubic-bezier(0.25,0.1,0.25,1) 0.1s, color 0.35s cubic-bezier(0.25,0.1,0.25,1) 0.1s, box-shadow 0.35s cubic-bezier(0.25,0.1,0.25,1) 0.1s' }}>
                           <Icon size={24} />
                         </div>
                         <div>
