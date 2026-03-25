@@ -12,6 +12,7 @@ const reasons = [
     icon: Users,
     title: 'Familienbetrieb',
     description: 'Verlässlich, unkompliziert, direkt – seit Jahren in Berlin.',
+    accented: true,
   },
   {
     icon: MessageCircle,
@@ -24,41 +25,91 @@ export const WhyLindner: React.FC = () => {
   return (
     <section id="about" className="py-24 bg-neutral-50">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 mb-4">
-            Warum Kunden zu Lindner kommen
-          </h2>
-        </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* LEFT COLUMN - Text content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+          >
+            <p className="text-sm font-semibold uppercase tracking-widest text-neutral-500 mb-3">
+              Über uns
+            </p>
+            <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 mb-10 leading-tight">
+              Warum Kunden zu Lindner kommen
+            </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {reasons.map((reason, index) => {
-            const Icon = reason.icon;
-            return (
-              <motion.div
-                key={reason.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.12 }}
-                className="text-center p-8 bg-white rounded-2xl border border-neutral-100"
-              >
-                <div className="w-14 h-14 bg-neutral-100 rounded-2xl flex items-center justify-center mx-auto mb-6 text-neutral-900">
-                  <Icon size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-neutral-900 mb-3">
-                  {reason.title}
-                </h3>
-                <p className="text-neutral-500 leading-relaxed">
-                  {reason.description}
-                </p>
-              </motion.div>
-            );
-          })}
+            <div className="space-y-8">
+              {reasons.map((reason, index) => {
+                const Icon = reason.icon;
+                return (
+                  <motion.div
+                    key={reason.title}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + index * 0.15, duration: 0.5 }}
+                    className="flex items-start gap-5"
+                  >
+                    <div className="flex-shrink-0 w-12 h-12 bg-neutral-900 rounded-xl flex items-center justify-center text-white">
+                      <Icon size={22} />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-neutral-900 mb-1">
+                        {reason.title}
+                      </h3>
+                      {'accented' in reason && reason.accented ? (
+                        <p className="text-neutral-500 leading-relaxed border-l-4 border-neutral-900 pl-4">
+                          {reason.description}
+                        </p>
+                      ) : (
+                        <p className="text-neutral-500 leading-relaxed">
+                          {reason.description}
+                        </p>
+                      )}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* RIGHT COLUMN - Image with floating badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
+              <img
+                src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop"
+                alt="Lindner KFZ Werkstatt Berlin"
+                className="w-full h-[500px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                loading="lazy"
+              />
+              {/* Subtle gradient overlay for depth */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+            </div>
+
+            {/* Floating badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="absolute -bottom-6 -left-6 bg-neutral-900 text-white px-6 py-4 rounded-2xl shadow-xl"
+            >
+              <span className="block text-2xl font-bold leading-tight">
+                Seit 2011
+              </span>
+              <span className="block text-sm text-neutral-400">
+                Meisterbetrieb in Berlin
+              </span>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

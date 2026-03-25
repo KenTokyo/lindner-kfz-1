@@ -21,7 +21,7 @@ export const ReviewCards: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {reviews.map((review, index) => (
             <motion.div
               key={index}
@@ -29,23 +29,46 @@ export const ReviewCards: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-neutral-50 rounded-2xl p-6 border border-neutral-100 flex flex-col"
+              whileHover={{ y: -4, boxShadow: '0 20px 40px -12px rgba(0,0,0,0.12)' }}
+              className={`relative overflow-hidden rounded-2xl p-7 border border-neutral-100 flex flex-col transition-colors duration-300 ${
+                index % 2 === 0 ? 'bg-white' : 'bg-neutral-50'
+              }`}
             >
-              <Quote size={24} className="text-neutral-200 mb-4 shrink-0" />
+              {/* Gradient accent line at top */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-neutral-900 via-neutral-600 to-neutral-300" />
 
-              <p className="text-neutral-700 leading-relaxed mb-6 flex-grow">
-                „{review.quote}"
+              {/* Decorative watermark quote icon */}
+              <Quote
+                size={48}
+                className="absolute top-4 right-4 text-neutral-100 pointer-events-none"
+                strokeWidth={1.5}
+              />
+
+              <p className="relative text-neutral-700 leading-relaxed mb-8 flex-grow text-[15px]">
+                &bdquo;{review.quote}&ldquo;
               </p>
 
-              <div className="mt-auto">
-                <div className="flex gap-0.5 mb-3">
+              <div className="relative mt-auto">
+                {/* Star rating with subtle glow background */}
+                <div className="inline-flex gap-0.5 mb-4 px-2.5 py-1 rounded-full bg-amber-50">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
                   ))}
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="font-bold text-neutral-900 text-sm">{review.name}</span>
-                  <span className="text-xs text-neutral-400">{review.source}</span>
+
+                <div className="flex items-center gap-3">
+                  {/* Initials avatar circle */}
+                  <div className="w-9 h-9 rounded-full bg-neutral-900 text-white flex items-center justify-center text-sm font-semibold shrink-0">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-bold text-neutral-900 text-sm leading-tight">
+                      {review.name}
+                    </span>
+                    <span className="text-xs text-neutral-400 mt-0.5">
+                      {review.source}
+                    </span>
+                  </div>
                 </div>
               </div>
             </motion.div>

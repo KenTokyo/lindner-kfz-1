@@ -29,9 +29,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
   const navigate = useNavigate();
 
   const width = useTransform(scrollY, [0, 150], ['100%', '92%']);
-  const top = useTransform(scrollY, [0, 150], ['0px', '40px']);
-  const borderRadius = useTransform(scrollY, [0, 150], ['0px', '24px']);
-  const paddingX = useTransform(scrollY, [0, 150], ['1.5rem', '1.5rem']);
+  const top = useTransform(scrollY, [0, 150], ['0px', '20px']);
+  const borderRadius = useTransform(scrollY, [0, 150], ['0px', '20px']);
+  const paddingX = useTransform(scrollY, [0, 150], ['3rem', '1.5rem']);
 
   const backgroundColor = useTransform(
     scrollY,
@@ -44,7 +44,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
   const shadow = useTransform(
     scrollY,
     [0, 150],
-    ['0px 0px 0px rgba(0,0,0,0)', '0px 10px 30px rgba(0,0,0,0.1)']
+    ['0px 0px 0px rgba(0,0,0,0)', '0px 8px 32px rgba(0,0,0,0.12)']
   );
 
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -101,7 +101,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
           aria-label="Hauptnavigation"
           style={{
             width,
-            top,
+            marginTop: top,
             borderRadius,
             backgroundColor,
             backdropFilter,
@@ -110,7 +110,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
             paddingRight: paddingX,
             height: '5rem'
           }}
-          className="relative pointer-events-auto flex items-center justify-between transition-all duration-300 max-w-[1400px] mx-auto"
+          className="relative pointer-events-auto flex items-center justify-between max-w-[1400px]"
         >
           {/* Logo */}
           <div className="flex items-center gap-2">
