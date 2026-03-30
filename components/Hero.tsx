@@ -5,13 +5,19 @@ import { ArrowDown } from 'lucide-react';
 export const Hero: React.FC = () => {
   return (
     <section id="home" className="relative h-screen w-full overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2600&auto=format&fit=crop" // Bright, clean workshop/car environment
-          alt="Luxury Car Interior"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="none"
           className="w-full h-full object-cover"
-        />
+          style={{ willChange: 'auto' }}
+        >
+          <source src="/Lindner-Bilder/hero-video.mp4" type="video/mp4" />
+        </video>
         {/* Gradient Overlay Strategy:
             1. Left-to-right gradient to darken text area without dimming the whole image
             2. Bottom-to-top gradient for general depth
