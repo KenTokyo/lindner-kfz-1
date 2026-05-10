@@ -4,6 +4,7 @@ export interface ServiceData {
   title: string;
   description: string;
   icon: LucideIcon;
+  image?: string;
   note?: string;
   detailDescription?: string;
   benefits?: string[];
@@ -24,6 +25,7 @@ export const serviceCategories: ServiceCategory[] = [
         title: 'Unfallinstandsetzung',
         description: 'Fachgerechte Reparatur nach Herstellervorgaben – von der Begutachtung bis zur Fertigstellung.',
         icon: Car,
+        image: '/Lindner-Bilder/Service/Lindner - Unfallinstandsetzung.png',
         detailDescription: 'Nach einem Unfall übernehmen wir die komplette Instandsetzung Ihres Fahrzeugs. Von der ersten Begutachtung über die Karosserie- und Lackierarbeiten bis zur finalen Qualitätskontrolle – alles aus einer Hand, nach Herstellervorgaben.',
         benefits: [
           'Komplette Abwicklung von Begutachtung bis Fertigstellung',
@@ -35,6 +37,7 @@ export const serviceCategories: ServiceCategory[] = [
         title: 'Karosseriearbeiten',
         description: 'Professionelle Karosseriearbeiten aller Art – präzise und termingerecht.',
         icon: Settings,
+        image: '/Lindner-Bilder/Service/Lindner - Karosseriearbeiten.png',
         detailDescription: 'Ob Beulen, Verformungen oder strukturelle Schäden – wir bringen Ihre Karosserie wieder in Form. Mit modernem Werkzeug und Erfahrung arbeiten wir präzise und termingerecht.',
         benefits: [
           'Präzise Arbeiten mit modernem Werkzeug',
@@ -46,6 +49,7 @@ export const serviceCategories: ServiceCategory[] = [
         title: 'Lackierung',
         description: 'Hochwertige Lackierungen mit Glasurit-Lacksystemen – Teil- und Komplettlackierung.',
         icon: Paintbrush,
+        image: '/Lindner-Bilder/Service/Lindner - Lackierarbeiten.png',
         detailDescription: 'Wir lackieren Ihr Fahrzeug mit hochwertigen Glasurit-Lacksystemen – ob Teillackierung, Spotrepair oder Komplettlackierung. Farbton und Qualität stimmen, das Ergebnis überzeugt.',
         benefits: [
           'Glasurit-Lacksysteme für langlebige Ergebnisse',
@@ -57,6 +61,7 @@ export const serviceCategories: ServiceCategory[] = [
         title: 'Oldtimer',
         description: 'Lack- und Aufbereitungsarbeiten für klassische Fahrzeuge.',
         icon: Cog,
+        image: '/Lindner-Bilder/Service/Lindner - Oldtimer.png',
         note: 'Auf Anfrage',
         detailDescription: 'Für klassische Fahrzeuge bieten wir Lack- und Aufbereitungsarbeiten nach individueller Absprache an. Sprechen Sie uns an – wir prüfen gemeinsam, was möglich ist.',
         benefits: [
@@ -75,6 +80,7 @@ export const serviceCategories: ServiceCategory[] = [
         title: 'Inspektion & Service',
         description: 'Regelmäßige Wartung und Inspektion für alle Marken – zuverlässig und transparent.',
         icon: ClipboardCheck,
+        image: '/Lindner-Bilder/Service/Lindner - Service - 1.png',
         detailDescription: 'Regelmäßige Wartung hält Ihr Fahrzeug sicher und wertbeständig. Wir führen Inspektionen und Servicearbeiten für alle Marken durch – transparent, zuverlässig und ohne unnötige Extras.',
         benefits: [
           'Inspektionen für alle Marken',
@@ -86,6 +92,7 @@ export const serviceCategories: ServiceCategory[] = [
         title: 'Mechanik & Reparaturen',
         description: 'Mechanische Reparaturen aller Art – schnelle Diagnose, saubere Umsetzung.',
         icon: Wrench,
+        image: '/Lindner-Bilder/Service/Lindner - Mechanik.png',
         detailDescription: 'Von der Diagnose bis zur fertigen Reparatur – wir kümmern uns um mechanische Anliegen aller Art. Schnelle Fehlersuche, saubere Umsetzung, klare Absprache.',
         benefits: [
           'Schnelle und gründliche Fehlerdiagnose',
