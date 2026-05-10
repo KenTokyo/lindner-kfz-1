@@ -22,59 +22,66 @@ const partners = [
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-neutral-900 text-neutral-400">
-      {/* Trustbar Integrated in Footer */}
-      <div className="border-b border-neutral-800 bg-neutral-800/50 py-8">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
+    <footer className="bg-[#0a0a0a] text-white pt-20 pb-10 selection:bg-white selection:text-black">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col min-h-[60vh] justify-between">
+        
+        {/* Top: Partners / Trust */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center border-b border-white/10 pb-10 gap-8">
+          <div className="text-neutral-500 font-medium uppercase tracking-widest text-xs md:text-sm">
+            Zertifizierte Partner
+          </div>
+          <div className="flex flex-wrap items-center gap-6 md:gap-12">
             {partners.map((partner) => {
               const Icon = partner.icon;
               return (
-                <div
-                  key={partner.name}
-                  className="flex items-center gap-3 text-neutral-300"
-                >
-                  <Icon className="w-6 h-6" />
-                  <span className="text-sm font-medium tracking-wide uppercase">
-                    {partner.label}
-                  </span>
+                <div key={partner.name} className="flex items-center gap-2.5 text-neutral-300 hover:text-white transition-colors duration-300">
+                  <Icon className="w-5 h-5" />
+                  <span className="text-xs md:text-sm font-semibold uppercase tracking-wider">{partner.label}</span>
                 </div>
               );
             })}
           </div>
         </div>
-      </div>
 
-      <div className="py-12 max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
-          {/* Brand */}
-          <div>
-            <img
+        {/* Middle: Huge CTA */}
+        <div className="flex-1 flex flex-col justify-center py-20 md:py-32">
+          <p className="text-neutral-500 uppercase tracking-widest text-xs md:text-sm font-medium mb-6">
+            Kontakt
+          </p>
+          <a 
+            href="mailto:info@autoservice-lindner.de" 
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-[7rem] font-bold tracking-tighter hover:opacity-70 transition-opacity duration-300 leading-none break-all"
+          >
+            info@autoservice-lindner.de
+          </a>
+        </div>
+
+        {/* Bottom: Brand, Legal, Copyright */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 pt-10 border-t border-white/10">
+          <div className="w-full lg:w-auto">
+             <img
               src="/Lindner Logo_weiss.png"
               alt="Lindner KFZ Logo"
-              className="h-24 w-auto"
+              className="h-14 md:h-16 w-auto object-contain"
             />
-            <p className="text-sm text-neutral-500 mt-2 max-w-xs">
+            <p className="text-xs text-neutral-500 mt-4 max-w-xs">
               Karosserie & Lack und Autoservice – unter einem Dach in Berlin-Blankenfelde.
             </p>
           </div>
 
-          {/* Legal links */}
-          <nav aria-label="Rechtliche Links" className="flex flex-col md:flex-row gap-6 text-sm">
-            <Link to="/impressum" className="hover:text-white transition-colors">
+          <nav className="flex flex-wrap gap-6 text-sm font-medium text-neutral-400 w-full lg:w-auto">
+            <Link to="/impressum" className="hover:text-white transition-colors duration-300">
               Impressum
             </Link>
-            <Link to="/datenschutz" className="hover:text-white transition-colors">
+            <Link to="/datenschutz" className="hover:text-white transition-colors duration-300">
               Datenschutz
             </Link>
           </nav>
-        </div>
 
-        <div className="border-t border-neutral-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-neutral-500">
-          <p>&copy; {new Date().getFullYear()} KFZ-Meisterbetrieb Lindner. Alle Rechte vorbehalten.</p>
-          <p>
-            KFZ Lindner (Karosserie & Lack) &middot; Autoservice Lindner (Service & Mechanik)
-          </p>
+          <div className="w-full lg:w-auto text-xs md:text-sm text-neutral-500 flex flex-col lg:items-end gap-1">
+            <p>&copy; {new Date().getFullYear()} KFZ-Meisterbetrieb Lindner.</p>
+            <p>Alle Rechte vorbehalten.</p>
+          </div>
         </div>
       </div>
     </footer>

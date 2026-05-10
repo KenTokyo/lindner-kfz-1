@@ -44,6 +44,53 @@ export const KarrierePage: React.FC = () => {
         </motion.div>
       </section>
 
+      {/* Team & Werkstatt Collage */}
+      <section className="max-w-7xl mx-auto px-6 md:px-12 mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-8"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold text-neutral-900">
+            Unser Team & Werkstatt
+          </h2>
+          <p className="text-neutral-600 mt-2">Mache dir ein Bild von deinem zukünftigen Arbeitsplatz.</p>
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[250px]"
+        >
+          {/* Bild 1: Groß (col-span-2, row-span-2) */}
+          <div className="col-span-2 row-span-2 relative overflow-hidden rounded-2xl shadow-md group">
+            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop" alt="Werkstatt Team 1" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" />
+          </div>
+          {/* Bild 2 */}
+          <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+            <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=800&auto=format&fit=crop" alt="Werkstatt Team 2" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" />
+          </div>
+          {/* Bild 3 */}
+          <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+            <img src="https://images.unsplash.com/photo-1632823462991-68b375b4dbf4?q=80&w=800&auto=format&fit=crop" alt="Werkstatt Team 3" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" />
+          </div>
+          {/* Bild 4 */}
+          <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+            <img src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=800&auto=format&fit=crop" alt="Werkstatt Team 4" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" />
+          </div>
+          {/* Bild 5 */}
+          <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800&auto=format&fit=crop" alt="Werkstatt Team 5" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" />
+          </div>
+          {/* Bild 6 */}
+          <div className="col-span-2 md:col-span-1 lg:col-span-2 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+            <img src="https://images.unsplash.com/photo-1503328427499-d92d1fa3ce46?q=80&w=800&auto=format&fit=crop" alt="Werkstatt Team 6" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" />
+          </div>
+        </motion.div>
+      </section>
+
       {/* Was dich erwartet */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
         <motion.div
