@@ -65,21 +65,60 @@ export const WhyLindner: React.FC = () => {
             </div>
           </div>
 
-          {/* RIGHT COLUMN - Image with floating badge */}
-          <div className="relative">
-            <div className="relative overflow-hidden rounded-3xl shadow-2xl group">
+          {/* RIGHT COLUMN - Modern Photo Collage */}
+          <div className="relative grid grid-cols-2 grid-rows-3 gap-3 md:gap-4 h-[500px] md:h-[650px]">
+            {/* Top Left - Large (Spans 2 rows) */}
+            <div className="col-span-1 row-span-2 relative overflow-hidden rounded-2xl shadow-md group">
               <img
                 src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop"
-                alt="Lindner KFZ Werkstatt Berlin"
-                className="w-full h-[500px] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                alt="Werkstatt Übersicht"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 loading="lazy"
               />
-              {/* Subtle gradient overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+            </div>
+            
+            {/* Top Right */}
+            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+              <img
+                src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=800&auto=format&fit=crop"
+                alt="Mechaniker bei der Arbeit"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Middle Right */}
+            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+              <img
+                src="https://images.unsplash.com/photo-1632823462991-68b375b4dbf4?q=80&w=800&auto=format&fit=crop"
+                alt="Detailansicht Werkstatt"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Bottom Left */}
+            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+              <img
+                src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=800&auto=format&fit=crop"
+                alt="Karosserie Reparatur"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Bottom Right */}
+            <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+              <img
+                src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800&auto=format&fit=crop"
+                alt="Kundenservice"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                loading="lazy"
+              />
             </div>
 
             {/* Floating badge */}
-            <div className="absolute -bottom-6 -left-6 bg-neutral-900 text-white px-6 py-4 rounded-2xl shadow-xl">
+            <div className="absolute -bottom-6 -left-6 z-10 bg-neutral-900 text-white px-6 py-4 rounded-2xl shadow-xl">
               <span className="block text-2xl font-bold leading-tight">
                 Seit 2011
               </span>

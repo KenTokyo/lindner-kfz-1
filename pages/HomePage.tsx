@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import { useLayoutContext } from '../components/shared/Layout';
 import { Hero } from '../components/home/Hero';
 import { QuickChoice } from '../components/home/QuickChoice';
-import { Trustbar } from '../components/home/Trustbar';
 import { LeistungenPreview } from '../components/home/LeistungenPreview';
 import { ProcessSteps } from '../components/home/ProcessSteps';
 import { WhyLindner } from '../components/home/WhyLindner';
@@ -43,7 +42,6 @@ export const HomePage: React.FC = () => {
     <>
       <Hero onTerminanfrageClick={() => openTerminanfrage()} />
       <FadeBlur><QuickChoice onSelect={(category) => openTerminanfrage(category)} /></FadeBlur>
-      <FadeBlur><Trustbar /></FadeBlur>
       <FadeBlur><LeistungenPreview /></FadeBlur>
       <ProcessSteps />
       <FadeBlur><WhyLindner /></FadeBlur>

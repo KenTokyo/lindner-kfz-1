@@ -10,6 +10,7 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
+  { label: 'Über uns', href: '#about', type: 'hash' },
   { label: 'Dienstleistungen', href: '/dienstleistungen', type: 'route' },
   { label: 'Karriere', href: '/karriere', type: 'route' },
 ];

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Paintbrush, Wrench } from 'lucide-react';
 
@@ -7,6 +7,9 @@ interface QuickChoiceProps {
 }
 
 export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
+  const karosserieVideoRef = useRef<HTMLVideoElement>(null);
+  const autoserviceVideoRef = useRef<HTMLVideoElement>(null);
+
   const handleClick = (category: 'karosserie' | 'autoservice') => {
     if (onSelect) {
       onSelect(category);
@@ -18,6 +21,22 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
         const pos = elem.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top: pos, behavior: 'smooth' });
       }
+    }
+  };
+
+  const handleMouseEnter = (ref: React.RefObject<HTMLVideoElement>) => {
+    if (ref.current) {
+      ref.current.play().catch(() => {
+        // Ignore autoplay errors if any
+      });
+    }
+  };
+
+  const handleMouseLeave = (ref: React.RefObject<HTMLVideoElement>) => {
+    if (ref.current) {
+      ref.current.pause();
+      // Optional: reset video to start on mouse leave
+      // ref.current.currentTime = 0;
     }
   };
 
@@ -54,65 +73,91 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
 
           {/* Karosserie & Lack */}
           <motion.button
-            whileHover={{ scale: 1.02, y: -4 }}
+            whileHover={{ y: -6 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleClick('karosserie')}
-            className="group relative bg-white rounded-2xl p-8 md:p-10 text-left cursor-pointer border border-neutral-100 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 overflow-hidden"
+            onMouseEnter={() => handleMouseEnter(karosserieVideoRef)}
+            onMouseLeave={() => handleMouseLeave(karosserieVideoRef)}
+            className="relative group rounded-[2rem] overflow-hidden h-[380px] md:h-[420px] shadow-sm hover:shadow-2xl bg-neutral-200 transition-all duration-300 w-full text-left cursor-pointer border border-neutral-100 block"
           >
-            {/* Hover gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-neutral-50/0 via-neutral-50/0 to-neutral-100/0 group-hover:from-neutral-50/80 group-hover:via-white/40 group-hover:to-neutral-100/60 transition-all duration-500 rounded-2xl" />
-            {/* Subtle border glow on hover */}
-            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ring-1 ring-neutral-900/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]" />
-            {/* Decorative corner accent */}
-            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-neutral-100/60 to-transparent rounded-bl-[3rem] rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            {/* Background Video */}
+            <video
+              ref={karosserieVideoRef}
+              src="/Lindner-Bilder/Service/SUB-HERO Lackieren Video.mp4"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+            
+            {/* Overlay to ensure text box pops */}
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
 
-            <div className="relative">
-              <div className="w-16 h-16 bg-neutral-900 rounded-2xl flex items-center justify-center mb-6 shadow-[0_4px_14px_rgba(23,23,23,0.25)] group-hover:shadow-[0_6px_20px_rgba(23,23,23,0.35),0_0_0_4px_rgba(23,23,23,0.06)] group-hover:bg-neutral-800 transition-all duration-500 delay-75 ease-out">
-                <Paintbrush className="w-7 h-7 text-white" />
+            {/* Content Box */}
+            <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/95 backdrop-blur-md rounded-[1.5rem] px-4 pb-4 pt-10 sm:px-5 sm:pb-5 sm:pt-12 text-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/40 transition-all duration-300 group-hover:bg-white flex flex-col items-center">
+              {/* Icon Container */}
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-neutral-900 shadow-md border border-neutral-100 group-hover:-translate-y-1 transition-transform duration-300">
+                <Paintbrush size={24} strokeWidth={2} />
               </div>
-              <h3 className="text-2xl font-bold mb-3">Karosserie & Lack</h3>
-              <p className="text-neutral-600 leading-relaxed">
+              
+              <h3 className="text-[1.1rem] xl:text-[1.3rem] leading-tight font-extrabold text-neutral-900 mb-2 break-words hyphens-auto w-full">
+                Karosserie & Lack
+              </h3>
+              <p className="text-sm xl:text-base text-neutral-600 line-clamp-2 mb-4 leading-relaxed font-medium">
                 Unfallinstandsetzung, Karosseriearbeiten, Lackierung – alles rund
                 um Karosserie und Lack.
               </p>
-              <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-neutral-900">
-                <span>Terminanfrage starten</span>
-                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
-                  &rarr;
-                </span>
-              </div>
+              
+              {/* Button */}
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 bg-white border border-neutral-200 group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white text-neutral-900 text-sm font-bold rounded-full transition-all duration-300 shadow-sm mt-auto">
+                Terminanfrage starten
+              </span>
             </div>
           </motion.button>
 
           {/* Autoservice */}
           <motion.button
-            whileHover={{ scale: 1.02, y: -4 }}
+            whileHover={{ y: -6 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => handleClick('autoservice')}
-            className="group relative bg-white rounded-2xl p-8 md:p-10 text-left cursor-pointer border border-neutral-100 shadow-[0_1px_3px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 overflow-hidden"
+            onMouseEnter={() => handleMouseEnter(autoserviceVideoRef)}
+            onMouseLeave={() => handleMouseLeave(autoserviceVideoRef)}
+            className="relative group rounded-[2rem] overflow-hidden h-[380px] md:h-[420px] shadow-sm hover:shadow-2xl bg-neutral-200 transition-all duration-300 w-full text-left cursor-pointer border border-neutral-100 block"
           >
-            {/* Hover gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-neutral-50/0 via-neutral-50/0 to-neutral-100/0 group-hover:from-neutral-50/80 group-hover:via-white/40 group-hover:to-neutral-100/60 transition-all duration-500 rounded-2xl" />
-            {/* Subtle border glow on hover */}
-            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ring-1 ring-neutral-900/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]" />
-            {/* Decorative corner accent */}
-            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-neutral-100/60 to-transparent rounded-bl-[3rem] rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            {/* Background Video */}
+            <video
+              ref={autoserviceVideoRef}
+              src="/Lindner-Bilder/Service/SUB-HERO Autoservice.mp4"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+            
+            {/* Overlay to ensure text box pops */}
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
 
-            <div className="relative">
-              <div className="w-16 h-16 bg-neutral-900 rounded-2xl flex items-center justify-center mb-6 shadow-[0_4px_14px_rgba(23,23,23,0.25)] group-hover:shadow-[0_6px_20px_rgba(23,23,23,0.35),0_0_0_4px_rgba(23,23,23,0.06)] group-hover:bg-neutral-800 transition-all duration-500 delay-75 ease-out">
-                <Wrench className="w-7 h-7 text-white" />
+            {/* Content Box */}
+            <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/95 backdrop-blur-md rounded-[1.5rem] px-4 pb-4 pt-10 sm:px-5 sm:pb-5 sm:pt-12 text-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/40 transition-all duration-300 group-hover:bg-white flex flex-col items-center">
+              {/* Icon Container */}
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-neutral-900 shadow-md border border-neutral-100 group-hover:-translate-y-1 transition-transform duration-300">
+                <Wrench size={24} strokeWidth={2} />
               </div>
-              <h3 className="text-2xl font-bold mb-3">Autoservice</h3>
-              <p className="text-neutral-600 leading-relaxed">
+              
+              <h3 className="text-[1.1rem] xl:text-[1.3rem] leading-tight font-extrabold text-neutral-900 mb-2 break-words hyphens-auto w-full">
+                Autoservice
+              </h3>
+              <p className="text-sm xl:text-base text-neutral-600 line-clamp-2 mb-4 leading-relaxed font-medium">
                 Inspektion, Mechanik, Service & Reparaturen – Ihr Anliegen rund um
                 Wartung und Technik.
               </p>
-              <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-neutral-900">
-                <span>Terminanfrage starten</span>
-                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
-                  &rarr;
-                </span>
-              </div>
+              
+              {/* Button */}
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 bg-white border border-neutral-200 group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white text-neutral-900 text-sm font-bold rounded-full transition-all duration-300 shadow-sm mt-auto">
+                Terminanfrage starten
+              </span>
             </div>
           </motion.button>
         </div>

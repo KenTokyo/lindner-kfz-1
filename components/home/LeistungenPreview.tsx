@@ -47,24 +47,24 @@ export const LeistungenPreview: React.FC = () => {
                         )}
                         
                         {/* Overlay to ensure text box pops */}
-                        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
+                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-500" />
 
                         {/* Content Box */}
-                        <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/95 backdrop-blur-md rounded-[1.5rem] px-4 pb-4 pt-10 sm:px-5 sm:pb-5 sm:pt-12 text-center shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/40 transition-all duration-300 group-hover:bg-white flex flex-col items-center">
+                        <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/10 backdrop-blur-xl rounded-[1.5rem] px-4 pb-4 pt-10 sm:px-5 sm:pb-5 sm:pt-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.2)] border border-white/20 transition-all duration-300 group-hover:bg-white/20 flex flex-col items-center">
                           {/* Icon Container */}
-                          <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-neutral-900 shadow-md border border-neutral-100 group-hover:-translate-y-1 transition-transform duration-300">
+                          <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white/10 backdrop-blur-xl rounded-2xl flex items-center justify-center text-white shadow-md border border-white/20 group-hover:-translate-y-1 transition-transform duration-300">
                             <Icon size={24} strokeWidth={2} />
                           </div>
                           
-                          <h4 className="text-[1.05rem] xl:text-[1.2rem] leading-tight font-extrabold text-neutral-900 mb-2 break-words hyphens-auto w-full">
+                          <h4 className="text-[1.05rem] xl:text-[1.2rem] leading-tight font-extrabold text-white mb-2 break-words hyphens-auto w-full drop-shadow-md">
                             {service.title}
                           </h4>
-                          <p className="text-xs xl:text-sm text-neutral-600 line-clamp-2 mb-4 leading-relaxed font-medium">
+                          <p className="text-xs xl:text-sm text-neutral-100 line-clamp-2 mb-4 leading-relaxed font-medium drop-shadow-sm">
                             {service.description}
                           </p>
                           
                           {/* Button */}
-                          <span className="inline-flex items-center justify-center px-4 py-1.5 sm:px-5 sm:py-2 bg-white border border-neutral-200 group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white text-neutral-900 text-xs sm:text-sm font-bold rounded-full transition-all duration-300 shadow-sm mt-auto">
+                          <span className="inline-flex items-center justify-center px-4 py-1.5 sm:px-5 sm:py-2 bg-white/10 backdrop-blur-md border border-white/30 group-hover:bg-white group-hover:text-neutral-900 text-white text-xs sm:text-sm font-bold rounded-full transition-all duration-300 shadow-sm mt-auto">
                             Mehr erfahren!
                           </span>
                         </div>
