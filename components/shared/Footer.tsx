@@ -22,11 +22,17 @@ const partners = [
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0a0a0a] text-white pt-20 pb-10 selection:bg-white selection:text-black">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col min-h-[60vh] justify-between">
+    <footer className="bg-white px-4 md:px-6 pb-4 md:pb-6">
+      <div className="relative max-w-[1400px] mx-auto bg-[#0a0a0a] text-white rounded-[2.5rem] md:rounded-[3rem] px-8 md:px-12 flex flex-col min-h-[60vh] justify-between selection:bg-white selection:text-black shadow-2xl">
         
+        {/* Four corner holes for the "sign" look */}
+        <div className="absolute top-6 left-6 md:top-8 md:left-8 w-4 h-4 md:w-5 md:h-5 rounded-full bg-white shadow-inner" />
+        <div className="absolute top-6 right-6 md:top-8 md:right-8 w-4 h-4 md:w-5 md:h-5 rounded-full bg-white shadow-inner" />
+        <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 w-4 h-4 md:w-5 md:h-5 rounded-full bg-white shadow-inner" />
+        <div className="absolute bottom-6 right-6 md:bottom-8 md:right-8 w-4 h-4 md:w-5 md:h-5 rounded-full bg-white shadow-inner" />
+
         {/* Top: Partners / Trust */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center border-b border-white/10 pb-10 gap-8">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center border-b border-white/10 pt-16 md:pt-20 pb-10 gap-8">
           <div className="text-neutral-500 font-medium uppercase tracking-widest text-xs md:text-sm">
             Zertifizierte Partner
           </div>

@@ -110,7 +110,7 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
               </p>
               
               {/* Button */}
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 bg-white border border-neutral-200 group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white text-neutral-900 text-sm font-bold rounded-full transition-all duration-300 shadow-sm mt-auto">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 bg-white border border-neutral-200 group-hover:border-blue-600 group-hover:bg-blue-600 group-hover:text-white text-neutral-900 text-sm font-bold rounded-full transition-all duration-300 shadow-sm group-hover:shadow-lg group-hover:shadow-blue-600/30 mt-auto">
                 Terminanfrage starten
               </span>
             </div>
@@ -155,7 +155,7 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
               </p>
               
               {/* Button */}
-              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 bg-white border border-neutral-200 group-hover:border-neutral-900 group-hover:bg-neutral-900 group-hover:text-white text-neutral-900 text-sm font-bold rounded-full transition-all duration-300 shadow-sm mt-auto">
+              <span className="inline-flex items-center justify-center px-5 py-2 sm:px-6 sm:py-2.5 bg-white border border-neutral-200 group-hover:border-blue-600 group-hover:bg-blue-600 group-hover:text-white text-neutral-900 text-sm font-bold rounded-full transition-all duration-300 shadow-sm group-hover:shadow-lg group-hover:shadow-blue-600/30 mt-auto">
                 Terminanfrage starten
               </span>
             </div>

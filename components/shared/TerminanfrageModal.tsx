@@ -196,9 +196,9 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
 
                   <button
                     onClick={() => handleCategorySelect('autoservice')}
-                    className="group flex items-center gap-4 p-5 rounded-xl border border-neutral-200 hover:border-neutral-900 hover:shadow-md transition-all text-left cursor-pointer"
+                    className="group flex items-center gap-4 p-5 rounded-xl border border-neutral-200 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-600/20 transition-all text-left cursor-pointer"
                   >
-                    <div className="w-12 h-12 bg-neutral-900 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-neutral-800 transition-colors">
+                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-blue-700 transition-colors">
                       <Wrench className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -407,5 +407,8 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
         </motion.div>
       )}
     </AnimatePresence>
+  );
+};
+esence>
   );
 };

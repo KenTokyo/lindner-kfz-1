@@ -34,30 +34,30 @@ export const WhyLindner: React.FC = () => {
               Warum Kunden zu Lindner kommen
             </h2>
 
-            <div className="space-y-8">
+            <div className="space-y-6 w-full">
               {reasons.map((reason) => {
                 const Icon = reason.icon;
                 return (
                   <div
                     key={reason.title}
-                    className="flex items-start gap-5"
+                    className="relative group rounded-[1.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 w-full bg-neutral-900 border border-white/10"
                   >
-                    <div className="flex-shrink-0 w-12 h-12 bg-neutral-900 rounded-xl flex items-center justify-center text-white">
-                      <Icon size={22} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-neutral-900 mb-1">
-                        {reason.title}
-                      </h3>
-                      {'accented' in reason && reason.accented ? (
-                        <p className="text-neutral-500 leading-relaxed border-l-4 border-neutral-900 pl-4">
+                    {/* Liquid Glass Effect Layer */}
+                    <div className="absolute inset-0 bg-white/5 backdrop-blur-xl" />
+                    
+                    <div className="relative p-6 sm:p-7 flex items-start gap-5">
+                      {/* White Icon Container */}
+                      <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center text-neutral-900 shadow-md transition-transform duration-300 group-hover:-translate-y-1">
+                        <Icon size={24} strokeWidth={2.5} />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                          {reason.title}
+                        </h3>
+                        <p className="text-neutral-300 leading-relaxed text-sm sm:text-base">
                           {reason.description}
                         </p>
-                      ) : (
-                        <p className="text-neutral-500 leading-relaxed">
-                          {reason.description}
-                        </p>
-                      )}
+                      </div>
                     </div>
                   </div>
                 );
