@@ -26,11 +26,12 @@ export const ServiceCategory: React.FC<ServiceCategoryProps> = ({ category, onTe
           return (
             <motion.div
               key={service.title}
+              id={service.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white border border-neutral-100 rounded-2xl p-8 hover:shadow-lg transition-shadow"
+              className="bg-white border border-neutral-100 rounded-2xl p-8 hover:shadow-lg transition-shadow scroll-mt-32"
             >
               <div className="flex items-start gap-5">
                 <div className="w-14 h-14 bg-neutral-900 rounded-2xl flex items-center justify-center shrink-0 text-white">

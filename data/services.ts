@@ -1,6 +1,7 @@
 import { Car, Paintbrush, Wrench, Cog, Settings, ClipboardCheck, type LucideIcon } from 'lucide-react';
 
 export interface ServiceData {
+  id: string;
   title: string;
   description: string;
   icon: LucideIcon;
@@ -22,6 +23,7 @@ export const serviceCategories: ServiceCategory[] = [
     categoryKey: 'karosserie',
     services: [
       {
+        id: 'unfallinstandsetzung',
         title: 'Unfallinstandsetzung',
         description: 'Fachgerechte Reparatur nach Herstellervorgaben – von der Begutachtung bis zur Fertigstellung.',
         icon: Car,
@@ -34,6 +36,7 @@ export const serviceCategories: ServiceCategory[] = [
         ],
       },
       {
+        id: 'karosseriearbeiten',
         title: 'Karosseriearbeiten',
         description: 'Professionelle Karosseriearbeiten aller Art – präzise und termingerecht.',
         icon: Settings,
@@ -46,6 +49,7 @@ export const serviceCategories: ServiceCategory[] = [
         ],
       },
       {
+        id: 'lackierung',
         title: 'Lackierung',
         description: 'Hochwertige Lackierungen mit Glasurit-Lacksystemen – Teil- und Komplettlackierung.',
         icon: Paintbrush,
@@ -58,6 +62,7 @@ export const serviceCategories: ServiceCategory[] = [
         ],
       },
       {
+        id: 'oldtimer',
         title: 'Oldtimer',
         description: 'Lack- und Aufbereitungsarbeiten für klassische Fahrzeuge.',
         icon: Cog,
@@ -77,6 +82,7 @@ export const serviceCategories: ServiceCategory[] = [
     categoryKey: 'autoservice',
     services: [
       {
+        id: 'inspektion-service',
         title: 'Inspektion & Service',
         description: 'Regelmäßige Wartung und Inspektion für alle Marken – zuverlässig und transparent.',
         icon: ClipboardCheck,
@@ -89,6 +95,7 @@ export const serviceCategories: ServiceCategory[] = [
         ],
       },
       {
+        id: 'mechanik-reparaturen',
         title: 'Mechanik & Reparaturen',
         description: 'Mechanische Reparaturen aller Art – schnelle Diagnose, saubere Umsetzung.',
         icon: Wrench,

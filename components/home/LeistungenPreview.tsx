@@ -31,7 +31,7 @@ export const LeistungenPreview: React.FC = () => {
                   const Icon = service.icon;
 
                   return (
-                    <Link key={service.title} to={`/dienstleistungen#${category.categoryKey}`} className="block h-full">
+                    <Link key={service.title} to={`/dienstleistungen#${service.id}`} className="block h-full">
                       <motion.div
                         whileHover={{ y: -6 }}
                         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
