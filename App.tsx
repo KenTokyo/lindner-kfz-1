@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/shared/Layout';
 import { HomePage } from './pages/HomePage';
+import { ScrollToTop } from './components/shared/ScrollToTop';
 
 // Lazy load subpages for code splitting
 const DienstleistungenPage = lazy(() => import('./pages/DienstleistungenPage').then(m => ({ default: m.DienstleistungenPage })));
@@ -12,6 +13,7 @@ const DatenschutzPage = lazy(() => import('./pages/DatenschutzPage').then(m => (
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />

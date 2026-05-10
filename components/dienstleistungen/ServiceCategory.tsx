@@ -10,7 +10,7 @@ interface ServiceCategoryProps {
 
 export const ServiceCategory: React.FC<ServiceCategoryProps> = ({ category, onTerminanfrageClick }) => {
   return (
-    <section className="mb-20">
+    <section id={category.categoryKey} className="mb-20 scroll-mt-32">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

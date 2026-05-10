@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 import { useLayoutContext } from '../components/shared/Layout';
 import { serviceCategories, dienstleistungenFAQ } from '../data/services';
 import { ServiceCategory } from '../components/dienstleistungen/ServiceCategory';
@@ -8,12 +9,28 @@ import { ServiceFAQ } from '../components/dienstleistungen/ServiceFAQ';
 
 export const DienstleistungenPage: React.FC = () => {
   const { openTerminanfrage } = useLayoutContext();
+  const location = useLocation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.title = 'Dienstleistungen | KFZ Lindner Berlin';
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute('content', 'Alle Dienstleistungen von KFZ Lindner: Unfallinstandsetzung, Karosseriearbeiten, Lackierung, Inspektion, Mechanik & Reparaturen in Berlin-Blankenfelde.');
   }, []);
+
+  useEffect(() => {
+    if (location.hash) {
+      // Small timeout to ensure DOM is fully rendered
+      setTimeout(() => {
+        const id = location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location.hash, location.pathname]);
 
   return (
     <div className="pt-40 pb-24 min-h-screen">
