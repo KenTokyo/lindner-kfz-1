@@ -409,6 +409,3 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
     </AnimatePresence>
   );
 };
-esence>
-  );
-};
