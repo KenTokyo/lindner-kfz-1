@@ -42,3 +42,9 @@
 # Terminanfrage Modal & QuickChoice
 ✅ In `QuickChoice.tsx` (Worum geht es) Hover-Effekt der Buttons "Terminanfrage starten" auf blaue Kontrastfarbe (`bg-blue-600`) und blauen Schatten (`shadow-blue-600/30`) geändert.
 ✅ In `TerminanfrageModal.tsx` die Hover-Rahmen, Hintergründe der Icons sowie die Submit- und Schließen-Buttons in blau (inklusive blauen Schatten-Effekten) gestaltet.
+
+**12.05.2026**
+# Startseite "Worum geht es?" (QuickChoice) Sektion Anpassungen
+✅ "Worum geht es?"-Karten in der `QuickChoice.tsx` wirklich breit gezogen (Landscape-Format, `max-w-7xl`), sodass sie exakt der maximalen Breite der Dienstleistungs-Sektion entsprechen.
+✅ Text-Container der QuickChoice-Karten 1:1 an die "Liquid Glass"-Optik der Dienstleistungen angepasst (halbtransparente, verschwommene Boxen mit weißem Rand, abgedunkeltes Hintergrund-Overlay).
+✅ Das Logo/Icon sowie die Texte bleiben für maximalen Kontrast weiß.

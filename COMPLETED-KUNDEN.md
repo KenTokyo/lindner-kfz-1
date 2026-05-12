@@ -36,3 +36,10 @@ Hallo zusammen! Hier ist ein kurzes Update zu den aktuellen Fortschritten an eur
 ✅ Ganz unten finden sich aufgeräumt euer Logo sowie Impressum und Datenschutz. Alles Wichtige ist da, aber richtig schick verpackt.
 
 Wir hoffen, die Änderungen gefallen euch genauso gut wie uns! Meldet euch gerne, wenn ihr Fragen dazu habt.
+
+**12.05.2026**
+
+**Startseite: "Worum geht es?" (Schnellauswahl) Anpassungen**
+✅ Wir haben die beiden Auswahlkarten für "Karosserie & Lack" und "Autoservice" nun deutlich breiter im Landscape-Format angelegt. Dadurch nutzen sie den Bildschirmbereich genauso optimal aus wie die Dienstleistungs-Karten.
+✅ Die Textbereiche innerhalb der Videos glänzen nun ebenfalls im edlen "Liquid Glass" Effekt der restlichen Seite. Das sorgt für ein komplett einheitliches und hochwertiges Gesamtbild.
+✅ Wie gewohnt bleiben die Texte und Icons leuchtend weiß, um eine perfekte Lesbarkeit zu garantieren.

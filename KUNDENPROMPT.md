@@ -14,4 +14,6 @@ Am besten Format verfolgen:
 ....
 
 
-Falls du etwas anpassen musst, dann einfach die COMPLETED.md oder COMPLETED-Kunden.md nochmal aktualisieren bzw nicht zuviel schreiben, du kannst auch Sachen entfernen falls die rückgangig oder angepasst wurden
+
+Falls du etwas anpassen musstv
+, dann einfach die COMPLETED.md oder COMPLETED-Kunden.md nochmal aktualisieren bzw nicht zuviel schreiben, du kannst auch Sachen entfernen falls die rückgangig oder angepasst wurden
