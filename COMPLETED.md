@@ -48,3 +48,9 @@
 ✅ "Worum geht es?"-Karten in der `QuickChoice.tsx` wirklich breit gezogen (Landscape-Format, `max-w-7xl`), sodass sie exakt der maximalen Breite der Dienstleistungs-Sektion entsprechen.
 ✅ Text-Container der QuickChoice-Karten 1:1 an die "Liquid Glass"-Optik der Dienstleistungen angepasst (halbtransparente, verschwommene Boxen mit weißem Rand, abgedunkeltes Hintergrund-Overlay).
 ✅ Das Logo/Icon sowie die Texte bleiben für maximalen Kontrast weiß.
+
+# Globaler Footer (Breite, Farbe & Layout-Anpassung)
+✅ Hintergrundfarbe des äußeren Footer-Containers an das "gräuliche" Seiten-Design (`bg-neutral-50`) angeglichen.
+✅ "Schild"-Container (Footer) über die volle Bildschirmbreite gezogen (Entfernung von `max-w` und seitlichem Padding).
+✅ Die große, zentrale Kontakt-E-Mail wurde durch das Lindner-Logo (`max-w-[800px]`) ersetzt, wie vom Kunden gewünscht.
+✅ Die Kontaktinformationen (Telefon, Adresse, E-Mail) sowie Öffnungszeiten und rechtliche Links wurden ästhetisch und in kleinerer Schriftgröße übersichtlich unterhalb des Logos in einem strukturierten Layout platziert.

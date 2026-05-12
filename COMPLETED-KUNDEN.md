@@ -43,3 +43,9 @@ Wir hoffen, die Änderungen gefallen euch genauso gut wie uns! Meldet euch gerne
 ✅ Wir haben die beiden Auswahlkarten für "Karosserie & Lack" und "Autoservice" nun deutlich breiter im Landscape-Format angelegt. Dadurch nutzen sie den Bildschirmbereich genauso optimal aus wie die Dienstleistungs-Karten.
 ✅ Die Textbereiche innerhalb der Videos glänzen nun ebenfalls im edlen "Liquid Glass" Effekt der restlichen Seite. Das sorgt für ein komplett einheitliches und hochwertiges Gesamtbild.
 ✅ Wie gewohnt bleiben die Texte und Icons leuchtend weiß, um eine perfekte Lesbarkeit zu garantieren.
+
+**Der Fußbereich (Footer) – Layout Update**
+✅ Der Hintergrund des Footers wurde an das sanfte Grau der restlichen Website angepasst, sodass der Übergang nun harmonisch verläuft.
+✅ Der große schwarze Footer-Bereich ("Schild") erstreckt sich nun über die volle Bildschirmbreite bis zu den seitlichen Anschlägen – das wirkt deutlich moderner und nutzt den Platz perfekt.
+✅ Die riesige E-Mail-Adresse in der Mitte wurde entfernt und stattdessen prangt dort nun euer Lindner-Logo als großer, eindrucksvoller Eyecatcher.
+✅ Sämtliche wichtigen Kontaktinformationen, Öffnungszeiten sowie Impressum und Datenschutz sind nun sehr aufgeräumt, übersichtlich und dezent unter dem Logo angeordnet.

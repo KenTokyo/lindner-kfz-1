@@ -43,28 +43,28 @@ export const ServiceCategory: React.FC<ServiceCategoryProps> = ({ category, onTe
               )}
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-500" />
 
               {/* Liquid Glass Content Box */}
-              <div className="relative z-10 m-4 sm:m-6 bg-white/90 backdrop-blur-md rounded-[1.5rem] p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/40 transition-all duration-300 group-hover:bg-white/95">
+              <div className="relative z-10 m-4 sm:m-6 bg-white/10 backdrop-blur-xl rounded-[1.5rem] p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.2)] border border-white/20 transition-all duration-300 group-hover:bg-white/20">
                 <div className="flex flex-col md:flex-row items-start gap-5">
-                  <div className="w-14 h-14 bg-neutral-900 rounded-2xl flex items-center justify-center shrink-0 text-white shadow-md">
-                    <Icon size={28} />
+                  <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shrink-0 text-neutral-900 shadow-lg">
+                    <Icon size={28} strokeWidth={2.5} />
                   </div>
                   <div className="flex-1 w-full">
                     <div className="flex flex-wrap items-center gap-3 mb-3">
-                      <h3 className="text-xl sm:text-2xl font-bold text-neutral-900">
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-white drop-shadow-md">
                         {service.title}
                       </h3>
                       {service.note && (
-                        <span className="text-xs font-medium text-neutral-500 bg-neutral-100 px-3 py-1 rounded-full">
+                        <span className="text-xs font-bold text-white bg-white/20 backdrop-blur-md border border-white/30 px-3 py-1 rounded-full shadow-sm">
                           {service.note}
                         </span>
                       )}
                     </div>
 
                     {service.detailDescription && (
-                      <p className="text-neutral-700 font-medium leading-relaxed mb-5">
+                      <p className="text-neutral-100 font-medium leading-relaxed mb-5 drop-shadow-sm">
                         {service.detailDescription}
                       </p>
                     )}
@@ -72,8 +72,8 @@ export const ServiceCategory: React.FC<ServiceCategoryProps> = ({ category, onTe
                     {service.benefits && service.benefits.length > 0 && (
                       <ul className="space-y-2 mb-6">
                         {service.benefits.map((benefit) => (
-                          <li key={benefit} className="flex items-start gap-2 text-neutral-700 font-medium">
-                            <CheckCircle className="w-5 h-5 text-neutral-900 shrink-0 mt-0.5" />
+                          <li key={benefit} className="flex items-start gap-2 text-neutral-100 font-medium drop-shadow-sm">
+                            <CheckCircle className="w-5 h-5 text-white shrink-0 mt-0.5 drop-shadow-sm" />
                             <span>{benefit}</span>
                           </li>
                         ))}
@@ -82,7 +82,7 @@ export const ServiceCategory: React.FC<ServiceCategoryProps> = ({ category, onTe
 
                     <button
                       onClick={onTerminanfrageClick}
-                      className="inline-flex items-center gap-2 text-sm font-bold text-neutral-900 hover:text-neutral-600 transition-colors cursor-pointer group/btn"
+                      className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-neutral-200 transition-colors cursor-pointer group/btn drop-shadow-md"
                     >
                       Terminanfrage stellen
                       <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
