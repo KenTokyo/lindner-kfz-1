@@ -54,3 +54,11 @@
 ✅ "Schild"-Container (Footer) über die volle Bildschirmbreite gezogen (Entfernung von `max-w` und seitlichem Padding).
 ✅ Die große, zentrale Kontakt-E-Mail wurde durch das Lindner-Logo (`max-w-[800px]`) ersetzt, wie vom Kunden gewünscht.
 ✅ Die Kontaktinformationen (Telefon, Adresse, E-Mail) sowie Öffnungszeiten und rechtliche Links wurden ästhetisch und in kleinerer Schriftgröße übersichtlich unterhalb des Logos in einem strukturierten Layout platziert.
+
+**13.05.2026**
+
+# Karriere-Unterseite (Job-Karten Redesign)
+✅ Layout der Job-Karten (`JobCard.tsx`) so angepasst, dass die Hintergrundbilder viel dominanter sind und nicht mehr vollständig vom Text verdeckt werden.
+✅ Job-Titel (z.B. Fahrzeugbauer) als prominentes Element im oberen Bereich der Karte hervorgehoben.
+✅ Textbereich mit Jobbeschreibung, Aufgaben und Anforderungen auf das untere Drittel beschränkt und scrollbar gemacht (`overflow-y-auto`).
+✅ "Jetzt bewerben" Button so positioniert, dass er immer statisch am unteren Rand der Karte sichtbar und anklickbar bleibt.

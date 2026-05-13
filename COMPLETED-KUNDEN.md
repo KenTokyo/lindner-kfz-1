@@ -49,3 +49,11 @@ Wir hoffen, die Änderungen gefallen euch genauso gut wie uns! Meldet euch gerne
 ✅ Der große schwarze Footer-Bereich ("Schild") erstreckt sich nun über die volle Bildschirmbreite bis zu den seitlichen Anschlägen – das wirkt deutlich moderner und nutzt den Platz perfekt.
 ✅ Die riesige E-Mail-Adresse in der Mitte wurde entfernt und stattdessen prangt dort nun euer Lindner-Logo als großer, eindrucksvoller Eyecatcher.
 ✅ Sämtliche wichtigen Kontaktinformationen, Öffnungszeiten sowie Impressum und Datenschutz sind nun sehr aufgeräumt, übersichtlich und dezent unter dem Logo angeordnet.
+
+**13.05.2026**
+
+**Karriere-Seite: Offene Stellen (Job-Karten)**
+✅ Wir haben die Übersicht der offenen Stellen deutlich aufgeräumt: Die schönen Hintergrundbilder der einzelnen Jobs sind nun viel besser sichtbar.
+✅ Die jeweilige Berufsbezeichnung (z. B. Fahrzeuglackierer oder Karosseriebauer) springt Bewerbern jetzt direkt groß ins Auge.
+✅ Damit die Karten nicht mit Text überladen wirken, haben wir die genauen Beschreibungen (Aufgaben, Anforderungen) in den unteren Teil der Karte gepackt. Dieser Bereich lässt sich nun ganz bequem scrollen, sodass alles lesbar bleibt, ohne das Design zu stören.
+✅ Der "Jetzt bewerben"-Button ist nun dauerhaft unten an jeder Karte zu sehen, sodass sich Interessenten jederzeit mit einem Klick bewerben können.
