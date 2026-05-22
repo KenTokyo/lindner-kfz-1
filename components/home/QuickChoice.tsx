@@ -50,12 +50,13 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Worum geht es?
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-4xl mx-auto">
+            Karosserie, Lack oder Autoservice? <br />
+            Stellen Sie direkt die passende Terminanfrage.
           </h2>
-          <p className="text-neutral-600 text-lg">
-            Wählen Sie Ihren Bereich – wir leiten Ihre Anfrage direkt richtig
-            weiter.
+          <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
+            Wählen Sie den Bereich, der zu Ihrem Anliegen passt – Ihre Anfrage
+            landet ohne Umwege beim richtigen Team in Berlin-Blankenfelde.
           </p>
         </div>
 
