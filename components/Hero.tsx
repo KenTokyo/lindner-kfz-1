@@ -4,7 +4,7 @@ import { ArrowDown } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
-    <section id="home" className="relative h-screen w-full overflow-hidden">
+    <section id="home" className="relative h-screen w-full overflow-hidden bg-black">
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -12,18 +12,21 @@ export const Hero: React.FC = () => {
           loop
           muted
           playsInline
-          preload="none"
-          className="w-full h-full object-cover"
+          preload="metadata"
+          className="w-full h-full object-cover object-[50%_38%]"
           style={{ willChange: 'auto' }}
+          disablePictureInPicture
+          controlsList="nodownload nofullscreen noremoteplayback"
         >
-          <source src="/Lindner-Bilder/hero-video.mp4" type="video/mp4" />
+          <source src="/Lindner-Bilder/hero-video-lindner-kfz.mp4" type="video/mp4" />
         </video>
+        <div className="absolute inset-x-0 top-0 h-44 md:h-56 bg-gradient-to-b from-black via-black/55 to-transparent" />
         {/* Gradient Overlay Strategy:
             1. Left-to-right gradient to darken text area without dimming the whole image
             2. Bottom-to-top gradient for general depth
         */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
       </div>
 
       {/* Content */}

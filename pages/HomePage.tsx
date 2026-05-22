@@ -41,7 +41,7 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <Hero onTerminanfrageClick={() => openTerminanfrage()} />
-      <FadeBlur><QuickChoice onSelect={(category) => openTerminanfrage(category)} /></FadeBlur>
+      <FadeBlur amount={0.62} y={72}><QuickChoice onSelect={(category) => openTerminanfrage(category)} /></FadeBlur>
       <FadeBlur><LeistungenPreview /></FadeBlur>
       <ProcessSteps />
       <FadeBlur><WhyLindner /></FadeBlur>
