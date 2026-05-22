@@ -45,7 +45,7 @@ export const Layout: React.FC = () => {
     <div className="bg-white min-h-screen text-neutral-900 selection:bg-black selection:text-white">
       <ScrollToTop />
       <Navbar onTerminanfrageClick={() => openTerminanfrage()} />
-      <main>
+      <main className="relative z-10 bg-white">
         <Outlet context={context} />
       </main>
       <Footer />
