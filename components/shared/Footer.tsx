@@ -76,11 +76,10 @@ export const Footer: React.FC = () => {
   const contentScale = useTransform(smoothProgress, [0, 1], [0.985, 1]);
 
   const partnersReveal = useReveal(smoothProgress, 0, 0.32, 52);
-  const logoReveal = useReveal(smoothProgress, 0.12, 0.5, 60);
-  const brandReveal = useReveal(smoothProgress, 0.18, 0.52, 48);
-  const contactReveal = useReveal(smoothProgress, 0.24, 0.58, 44);
-  const hoursReveal = useReveal(smoothProgress, 0.3, 0.64, 40);
-  const legalReveal = useReveal(smoothProgress, 0.38, 0.78, 36);
+  const brandReveal = useReveal(smoothProgress, 0.12, 0.46, 48);
+  const contactReveal = useReveal(smoothProgress, 0.18, 0.52, 44);
+  const hoursReveal = useReveal(smoothProgress, 0.24, 0.58, 40);
+  const legalReveal = useReveal(smoothProgress, 0.3, 0.7, 36);
 
   const reveal = (animation: { y: MotionValue<number>; opacity: MotionValue<number> }) =>
     prefersReducedMotion ? undefined : { y: animation.y, opacity: animation.opacity, willChange: 'transform, opacity' as const };
@@ -91,7 +90,7 @@ export const Footer: React.FC = () => {
 
       <motion.footer
         ref={footerRef}
-        className="fixed bottom-0 left-0 right-0 z-0 bg-[#0a0a0a] text-white rounded-t-[2.5rem] md:rounded-t-[3rem] px-8 md:px-12 lg:px-24 flex flex-col min-h-[60vh] justify-between selection:bg-white selection:text-black shadow-2xl overflow-hidden"
+        className="fixed bottom-0 left-0 right-0 z-0 bg-[#0a0a0a] text-white rounded-t-[2.5rem] md:rounded-t-[3rem] px-8 md:px-12 lg:px-24 flex flex-col min-h-[42vh] justify-between selection:bg-white selection:text-black shadow-2xl overflow-hidden"
         style={{ transform: 'translate3d(0,0,0)', willChange: 'transform', backfaceVisibility: 'hidden' }}
       >
         <div className="absolute top-6 left-6 md:top-8 md:left-8 w-4 h-4 md:w-5 md:h-5 rounded-full bg-neutral-50 shadow-inner" />
@@ -125,19 +124,13 @@ export const Footer: React.FC = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            style={reveal(logoReveal)}
-            className="flex-1 flex flex-col items-center justify-center py-14 md:py-20"
-          >
-            <img
-              src="/Lindner Logo_weiss.png"
-              alt="Lindner KFZ Logo"
-              className="w-full max-w-[300px] md:max-w-[420px] lg:max-w-[520px] h-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-500"
-            />
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pt-12 pb-16 border-t border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pt-10 pb-14 border-t border-white/10">
             <motion.div style={reveal(brandReveal)} className="flex flex-col">
+              <img
+                src="/Lindner Logo_weiss.png"
+                alt="Lindner KFZ Logo"
+                className="mb-5 w-full max-w-[150px] md:max-w-[180px] h-auto object-contain opacity-90"
+              />
               <h3 className="text-lg font-semibold mb-6">KFZ Lindner</h3>
               <p className="text-sm text-neutral-400 mb-6 max-w-xs">
                 Karosserie & Lack und Autoservice - unter einem Dach in Berlin-Blankenfelde. Ihr vertrauensvoller Partner für alle Kfz-Belange.
