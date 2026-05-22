@@ -41,7 +41,7 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
   };
 
   return (
-    <section className="relative py-24 bg-neutral-50 overflow-hidden">
+    <section className="relative pt-20 pb-24 bg-neutral-50 overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-neutral-200/30 rounded-full blur-3xl -translate-y-1/2" />
