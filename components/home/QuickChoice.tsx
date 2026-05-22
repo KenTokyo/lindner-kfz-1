@@ -55,8 +55,8 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
             Stellen Sie direkt die passende Terminanfrage.
           </h2>
           <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
-            Wählen Sie den Bereich, der zu Ihrem Anliegen passt – Ihre Anfrage
-            landet ohne Umwege beim richtigen Team in Berlin-Blankenfelde.
+            Wählen Sie den Bereich, der zu Ihrem Anliegen passt – <br />
+            Ihre Anfrage landet ohne Umwege bei uns.
           </p>
         </div>
 

@@ -120,7 +120,7 @@ export const WhyLindner: React.FC = () => {
             {/* Floating badge */}
             <div className="absolute -bottom-6 -left-6 z-10 bg-neutral-900 text-white px-6 py-4 rounded-2xl shadow-xl">
               <span className="block text-2xl font-bold leading-tight">
-                Seit 2011
+                Seit 1990
               </span>
               <span className="block text-sm text-neutral-400">
                 Meisterbetrieb in Berlin
