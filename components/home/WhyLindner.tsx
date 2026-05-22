@@ -70,7 +70,7 @@ export const WhyLindner: React.FC = () => {
             {/* Top Left - Large (Spans 2 rows) */}
             <div className="col-span-1 row-span-2 relative overflow-hidden rounded-2xl shadow-md group">
               <img
-                src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=800&auto=format&fit=crop"
+                src="/Lindner-Bilder/collage-werkstatt-aussen.jpg"
                 alt="Werkstatt Übersicht"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 loading="lazy"
@@ -80,7 +80,7 @@ export const WhyLindner: React.FC = () => {
             {/* Top Right */}
             <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
               <img
-                src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=800&auto=format&fit=crop"
+                src="/Lindner-Bilder/collage-werkstatt-bmw.png"
                 alt="Mechaniker bei der Arbeit"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 loading="lazy"
@@ -90,7 +90,7 @@ export const WhyLindner: React.FC = () => {
             {/* Middle Right */}
             <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
               <img
-                src="https://images.unsplash.com/photo-1632823462991-68b375b4dbf4?q=80&w=800&auto=format&fit=crop"
+                src="/Lindner-Bilder/collage-fuhrpark.jpg"
                 alt="Detailansicht Werkstatt"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 loading="lazy"
@@ -100,7 +100,7 @@ export const WhyLindner: React.FC = () => {
             {/* Bottom Left */}
             <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
               <img
-                src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=800&auto=format&fit=crop"
+                src="/Lindner-Bilder/collage-werkstatt-hebebuehne.png"
                 alt="Karosserie Reparatur"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 loading="lazy"
@@ -110,7 +110,7 @@ export const WhyLindner: React.FC = () => {
             {/* Bottom Right */}
             <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
               <img
-                src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=800&auto=format&fit=crop"
+                src="/Lindner-Bilder/collage-werkstatt-innen.png"
                 alt="Kundenservice"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 loading="lazy"
