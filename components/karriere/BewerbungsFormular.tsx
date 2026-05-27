@@ -25,6 +25,7 @@ const initialFormData: ApplicationFormData = {
 };
 
 const touchedDefaults: Partial<Record<ApplicationField, boolean>> = {};
+const localHostnames = new Set(['localhost', '127.0.0.1', '::1']);
 
 export const BewerbungsFormular: React.FC<BewerbungsFormularProps> = ({ preselectedPosition }) => {
   const [formData, setFormData] = useState<ApplicationFormData>({
@@ -34,6 +35,8 @@ export const BewerbungsFormular: React.FC<BewerbungsFormularProps> = ({ preselec
   const [errors, setErrors] = useState<FormErrors<ApplicationField>>({});
   const [touched, setTouched] = useState<Partial<Record<ApplicationField, boolean>>>(touchedDefaults);
   const [submitState, setSubmitState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const isLocalEnvironment =
+    typeof window !== 'undefined' && localHostnames.has(window.location.hostname);
 
   const updateFieldError = (field: ApplicationField, nextData: ApplicationFormData) => {
     const nextError = validateApplicationField(field, nextData);
@@ -145,6 +148,20 @@ export const BewerbungsFormular: React.FC<BewerbungsFormularProps> = ({ preselec
 
   const messageLength = formData.nachricht.trim().length;
 
+  const handleFillLocalTestData = () => {
+    setFormData({
+      name: 'Max Mustermann',
+      email: 'max.mustermann@example.com',
+      telefon: '+49 171 2345678',
+      position: preselectedPosition ?? 'Kfz-Mechatroniker (m/w/d)',
+      nachricht:
+        'Ich arbeite seit mehreren Jahren im Kfz-Bereich und moechte mich bei Ihnen im Team vorstellen.',
+    });
+    setErrors({});
+    setTouched(touchedDefaults);
+    setSubmitState('idle');
+  };
+
   if (submitState === 'success') {
     return (
       <motion.div
@@ -172,6 +189,18 @@ export const BewerbungsFormular: React.FC<BewerbungsFormularProps> = ({ preselec
     >
       <h3 className="text-2xl font-bold text-neutral-900 mb-2">Jetzt bewerben</h3>
       <p className="text-neutral-600 mb-8">Kurz ausfuellen - wir melden uns bei Ihnen.</p>
+
+      {isLocalEnvironment && (
+        <div className="mb-6 rounded-xl border border-dashed border-neutral-300 bg-white px-4 py-3">
+          <button
+            type="button"
+            onClick={handleFillLocalTestData}
+            className="text-sm font-medium text-neutral-800 hover:text-neutral-950 transition-colors cursor-pointer"
+          >
+            Testdaten einfuellen (nur lokal)
+          </button>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div>

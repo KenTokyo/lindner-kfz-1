@@ -29,6 +29,15 @@ const initialFormData: AppointmentFormData = {
 };
 
 const initialTouched: Partial<Record<AppointmentField, boolean>> = {};
+const localHostnames = new Set(['localhost', '127.0.0.1', '::1']);
+const localAppointmentTestData: AppointmentFormData = {
+  name: 'Max Mustermann',
+  email: 'max.mustermann@example.com',
+  telefon: '+49 30 1234567',
+  kennzeichen: 'B-MM 2026',
+  wunschtermin: 'Naechste Woche, bevorzugt vormittags',
+  nachricht: 'Mein Fahrzeug braucht eine kurze Durchsicht und Terminabstimmung.',
+};
 
 export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
   isOpen,
@@ -200,6 +209,17 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
         ? 'Autoservice'
         : 'Nicht angegeben';
   const messageLength = formData.nachricht.trim().length;
+  const isLocalEnvironment =
+    typeof window !== 'undefined' && localHostnames.has(window.location.hostname);
+
+  const handleFillLocalTestData = () => {
+    setCategory((prev) => prev ?? 'autoservice');
+    setStep(2);
+    setFormData(localAppointmentTestData);
+    setErrors({});
+    setTouched(initialTouched);
+    setSubmitState('idle');
+  };
 
   return (
     <AnimatePresence>
@@ -295,6 +315,18 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                  {isLocalEnvironment && (
+                    <div className="rounded-lg border border-dashed border-neutral-300 bg-neutral-50 px-3 py-2">
+                      <button
+                        type="button"
+                        onClick={handleFillLocalTestData}
+                        className="text-sm font-medium text-neutral-800 hover:text-neutral-950 transition-colors cursor-pointer"
+                      >
+                        Testdaten einfuellen (nur lokal)
+                      </button>
+                    </div>
+                  )}
+
                   {/* Name */}
                   <div>
                     <label htmlFor="ta-name" className="block text-sm font-medium text-neutral-700 mb-1">
