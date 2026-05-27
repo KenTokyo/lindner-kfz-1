@@ -140,6 +140,7 @@ export const BewerbungsFormular: React.FC<BewerbungsFormularProps> = ({ preselec
           >
             <option value="">Bitte wählen</option>
             <option value="Karosseriebauer (m/w/d)">Karosseriebauer (m/w/d)</option>
+            <option value="Kfz-Mechatroniker (m/w/d)">Kfz-Mechatroniker (m/w/d)</option>
             <option value="Fahrzeuglackierer (m/w/d)">Fahrzeuglackierer (m/w/d)</option>
             <option value="Ausbildung">Ausbildung</option>
             <option value="Initiativbewerbung">Initiativbewerbung</option>

@@ -166,7 +166,7 @@ export const Hero: React.FC<HeroProps> = ({ onTerminanfrageClick }) => {
           animate={{ y: [0, 4, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
         >
-          <ArrowDown className="w-3 h-3 stroke-[2] text-white/40" />
+          <ArrowDown className="w-3 h-3 stroke-[2] text-secondary" />
         </motion.div>
       </motion.div>
     </section>

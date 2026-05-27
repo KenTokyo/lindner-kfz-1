@@ -31,7 +31,7 @@ export const ReviewCards: React.FC = () => {
               {/* Decorative watermark quote icon */}
               <Quote
                 size={48}
-                className="absolute top-4 right-4 text-neutral-100 pointer-events-none"
+                className="absolute top-4 right-4 text-secondary/10 pointer-events-none"
                 strokeWidth={1.5}
               />
 
@@ -43,7 +43,7 @@ export const ReviewCards: React.FC = () => {
                 {/* Star rating with subtle glow background */}
                 <div className="inline-flex gap-0.5 mb-4 px-2.5 py-1 rounded-full bg-amber-50">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
+                    <Star key={i} size={14} className="text-secondary fill-secondary" />
                   ))}
                 </div>
 

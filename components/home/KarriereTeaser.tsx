@@ -6,12 +6,14 @@ import { ArrowRight, Wrench } from 'lucide-react';
 export const KarriereTeaser: React.FC = () => {
   return (
     <section className="relative py-32 md:py-40 overflow-hidden">
-      {/* Diagonal gradient background */}
+      {/* Banner background */}
       <div
         className="absolute inset-0"
         style={{
-          background:
-            'linear-gradient(135deg, #171717 0%, #1c1c1c 40%, #262626 100%)',
+          backgroundImage: 'url("/karriere-banner-lindner1.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
       />
 
@@ -36,7 +38,7 @@ export const KarriereTeaser: React.FC = () => {
         <Wrench
           size={280}
           strokeWidth={0.6}
-          className="text-white/[0.04] md:text-white/[0.035]"
+          className="text-secondary/20 md:text-secondary/15"
           style={{ transform: 'rotate(-15deg)' }}
         />
       </div>
@@ -46,7 +48,7 @@ export const KarriereTeaser: React.FC = () => {
         <Wrench
           size={140}
           strokeWidth={0.8}
-          className="text-white/[0.025]"
+          className="text-secondary/15"
           style={{ transform: 'rotate(15deg)' }}
         />
       </div>
@@ -87,8 +89,8 @@ export const KarriereTeaser: React.FC = () => {
 
             {/* Icon + Heading row */}
             <div className="flex items-start gap-5 mb-4">
-              <div className="w-14 h-14 bg-white/[0.07] border border-white/[0.08] rounded-2xl flex items-center justify-center shrink-0 backdrop-blur-sm">
-                <Wrench size={26} className="text-white/90" />
+              <div className="w-14 h-14 bg-white border border-white/[0.08] rounded-2xl flex items-center justify-center shrink-0 backdrop-blur-sm">
+                <Wrench size={26} className="text-secondary" />
               </div>
               <div>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
@@ -118,7 +120,7 @@ export const KarriereTeaser: React.FC = () => {
                 Zur Karriereseite
                 <ArrowRight
                   size={18}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  className="text-secondary transition-transform duration-300 group-hover:translate-x-1"
                 />
               </Link>
             </motion.div>

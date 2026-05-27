@@ -81,7 +81,7 @@ export const Careers: React.FC = () => {
               </div>
 
               <a 
-                href="mailto:k.lindner@identica-lindner.de"
+                href="mailto:k.lindner@kfz-lindner.de"
                 className="mt-auto flex items-center justify-between w-full p-4 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white transition-all group"
               >
                 <span className="font-medium">Jetzt bewerben</span>
@@ -93,7 +93,7 @@ export const Careers: React.FC = () => {
         
         <div className="mt-12 text-center">
             <p className="text-neutral-500">
-                Bewerbungen bitte an <a href="mailto:k.lindner@identica-lindner.de" className="text-neutral-900 underline font-medium">k.lindner@identica-lindner.de</a> oder persönlich in der Hauptstrasse 43, 13159 BERLIN-Blankenfelde
+                Bewerbungen bitte an <a href="mailto:k.lindner@kfz-lindner.de" className="text-neutral-900 underline font-medium">k.lindner@kfz-lindner.de</a> oder persönlich in der Hauptstrasse 43, 13159 BERLIN-Blankenfelde
             </p>
         </div>
       </div>

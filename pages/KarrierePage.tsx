@@ -28,9 +28,34 @@ export const KarrierePage: React.FC = () => {
   };
 
   return (
-    <div className="pt-40 pb-24 min-h-screen">
+    <div className="pb-24 min-h-screen">
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
+      <section className="relative min-h-[500px] py-32 md:py-40 overflow-hidden mb-24 flex items-center">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url("/karriere-banner-lindner1.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative w-full max-w-7xl mx-auto px-6 md:px-12"
+        >
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-5">
+            Karriere bei Lindner
+          </h1>
+          <p className="text-xl text-neutral-300 max-w-3xl">
+            Kurz bewerben &ndash; auch initiativ. Wir suchen Verst&auml;rkung f&uuml;r unser Team in Berlin-Blankenfelde.
+          </p>
+        </motion.div>
+      </section>
+
+      <section className="hidden" aria-hidden="true">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,33 +83,58 @@ export const KarrierePage: React.FC = () => {
           <p className="text-neutral-600 mt-2">Mache dir ein Bild von deinem zukünftigen Arbeitsplatz.</p>
         </motion.div>
         
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[250px]"
-        >
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[200px] md:auto-rows-[250px]">
           {/* Bild 1: Groß (col-span-2, row-span-2) */}
-          <div className="col-span-2 row-span-2 relative overflow-hidden rounded-2xl shadow-md group">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0 }}
+            className="col-span-2 row-span-2 relative overflow-hidden rounded-2xl shadow-md group"
+          >
             <img src="/Lindner-Bilder/collage-werkstatt-aussen.jpg" alt="Werkstatt Team 1" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" />
-          </div>
+          </motion.div>
           {/* Bild 2 */}
-          <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group"
+          >
             <img src="/Lindner-Bilder/collage-werkstatt-bmw.png" alt="Werkstatt Team 2" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" />
-          </div>
+          </motion.div>
           {/* Bild 3 */}
-          <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group"
+          >
             <img src="/Lindner-Bilder/collage-fuhrpark.jpg" alt="Werkstatt Team 3" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" />
-          </div>
+          </motion.div>
           {/* Bild 4 */}
-          <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group"
+          >
             <img src="/Lindner-Bilder/collage-werkstatt-hebebuehne.png" alt="Werkstatt Team 4" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" />
-          </div>
+          </motion.div>
           {/* Bild 5 */}
-          <div className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="col-span-1 row-span-1 relative overflow-hidden rounded-2xl shadow-md group"
+          >
             <img src="/Lindner-Bilder/collage-werkstatt-innen.png" alt="Werkstatt Team 5" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" loading="lazy" />
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Was dich erwartet */}
@@ -114,7 +164,7 @@ export const KarrierePage: React.FC = () => {
       </section>
 
       {/* Offene Stellen */}
-      <section className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
+      <section id="offene-stellen" className="max-w-7xl mx-auto px-6 md:px-12 mb-20 scroll-mt-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,14 +178,18 @@ export const KarrierePage: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {jobs.map((job, index) => (
-            <JobCard
+            <div
               key={job.id}
-              job={job}
-              index={index}
-              onBewerbenClick={handleBewerbenClick}
-            />
+              className={job.type === 'vollzeit' ? 'lg:col-span-2' : 'lg:col-span-3'}
+            >
+              <JobCard
+                job={job}
+                index={index}
+                onBewerbenClick={handleBewerbenClick}
+              />
+            </div>
           ))}
         </div>
       </section>
@@ -156,10 +210,10 @@ export const KarrierePage: React.FC = () => {
           <p className="text-neutral-500">
             Bewerbungen auch per E-Mail an{' '}
             <a
-              href="mailto:k.lindner@identica-lindner.de"
+              href="mailto:k.lindner@kfz-lindner.de"
               className="text-neutral-900 underline font-medium"
             >
-              k.lindner@identica-lindner.de
+              k.lindner@kfz-lindner.de
             </a>{' '}
             oder persönlich in der Hauptstraße 43, 13159 Berlin-Blankenfelde.
           </p>

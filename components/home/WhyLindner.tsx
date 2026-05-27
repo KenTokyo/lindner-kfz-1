@@ -22,7 +22,7 @@ const reasons = [
 
 export const WhyLindner: React.FC = () => {
   return (
-    <section id="about" className="py-24 bg-neutral-50">
+    <section id="about" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT COLUMN - Text content */}
@@ -47,7 +47,7 @@ export const WhyLindner: React.FC = () => {
                     
                     <div className="relative p-6 sm:p-7 flex items-start gap-5">
                       {/* White Icon Container */}
-                      <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center text-neutral-900 shadow-md transition-transform duration-300 group-hover:-translate-y-1">
+                      <div className="flex-shrink-0 w-12 h-12 bg-white rounded-xl flex items-center justify-center text-secondary shadow-md transition-transform duration-300 group-hover:-translate-y-1">
                         <Icon size={24} strokeWidth={2.5} />
                       </div>
                       <div className="flex-1">

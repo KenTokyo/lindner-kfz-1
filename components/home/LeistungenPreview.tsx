@@ -52,7 +52,7 @@ export const LeistungenPreview: React.FC = () => {
                         {/* Content Box */}
                         <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/10 backdrop-blur-xl rounded-[1.5rem] px-4 pb-4 pt-10 sm:px-5 sm:pb-5 sm:pt-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.2)] border border-white/20 transition-all duration-300 group-hover:bg-white/20 flex flex-col items-center">
                           {/* Icon Container */}
-                          <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-neutral-900 shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
+                          <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-secondary shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
                             <Icon size={24} strokeWidth={2.5} />
                           </div>
                           

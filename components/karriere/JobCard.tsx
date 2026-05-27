@@ -72,9 +72,12 @@ export const JobCard: React.FC<JobCardProps> = ({ job, index, onBewerbenClick })
                 <h4 className="text-white text-sm font-bold uppercase tracking-wide mb-2 drop-shadow-sm">
                   {job.type === 'ausbildung' ? 'Ausbildungsberufe' : 'Aufgaben'}
                 </h4>
-                <ul className="list-disc list-inside text-sm text-neutral-200 space-y-1">
+                <ul className="text-sm text-neutral-200 space-y-2">
                   {job.tasks.map((task, i) => (
-                    <li key={i}>{task}</li>
+                    <li key={i} className="flex items-start gap-2 leading-relaxed">
+                      <span className="mt-[0.6em] h-1.5 w-1.5 rounded-full bg-neutral-200 shrink-0" />
+                      <span>{task}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -85,9 +88,12 @@ export const JobCard: React.FC<JobCardProps> = ({ job, index, onBewerbenClick })
                 <h4 className="text-white text-sm font-bold uppercase tracking-wide mb-2 drop-shadow-sm">
                   Anforderungen
                 </h4>
-                <ul className="list-disc list-inside text-sm text-neutral-200 space-y-1">
+                <ul className="text-sm text-neutral-200 space-y-2">
                   {job.requirements.map((req, i) => (
-                    <li key={i}>{req}</li>
+                    <li key={i} className="flex items-start gap-2 leading-relaxed">
+                      <span className="mt-[0.6em] h-1.5 w-1.5 rounded-full bg-neutral-200 shrink-0" />
+                      <span>{req}</span>
+                    </li>
                   ))}
                 </ul>
               </div>

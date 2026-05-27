@@ -39,13 +39,12 @@ export const DatenschutzPage: React.FC = () => {
                 <p className="font-semibold text-neutral-800">KFZ Lindner</p>
                 <p>Hauptstraße 43<br />13159 Berlin-Blankenfelde</p>
                 <p>Telefon: 030 / 913 12 52</p>
-                <p>E-Mail: info@autoservice-lindner.de</p>
+                <p>E-Mail: info@kfz-lindner.de</p>
               </div>
               <div className="p-4 bg-neutral-50 rounded-xl border border-neutral-100">
                 <p className="font-semibold text-neutral-800">Autoservice Lindner</p>
                 <p>Hauptstraße 43<br />13159 Berlin-Blankenfelde</p>
-                <p>Telefon: 030 / 913 12 53</p>
-                <p>E-Mail: info@autoservice-lindner.de</p>
+                <p>E-Mail: info@kfz-lindner.de</p>
               </div>
             </div>
           </section>
