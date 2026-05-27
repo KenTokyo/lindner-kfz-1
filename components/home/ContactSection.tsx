@@ -69,10 +69,10 @@ export const ContactSection: React.FC = () => {
                 <div>
                   <h3 className="text-neutral-900 font-bold text-lg mb-1">E-Mail</h3>
                   <a
-                    href="mailto:info@autoservice-lindner.de"
+                    href="mailto:info@kfz-lindner.de"
                     className="text-neutral-600 hover:text-black transition-colors"
                   >
-                    info@autoservice-lindner.de
+                    info@kfz-lindner.de
                   </a>
                 </div>
               </div>

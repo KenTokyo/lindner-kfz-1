@@ -1,6 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Paintbrush, Wrench, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import {
+  hasFormErrors,
+  sanitizeAppointmentData,
+  validateAppointmentField,
+  validateAppointmentForm,
+  type AppointmentField,
+  type AppointmentFormData,
+  type FormErrors,
+} from '../../lib/formValidation';
 
 type Category = 'karosserie' | 'autoservice';
 
@@ -10,16 +19,7 @@ interface TerminanfrageModalProps {
   initialCategory?: Category | null;
 }
 
-interface FormData {
-  name: string;
-  email: string;
-  telefon: string;
-  kennzeichen: string;
-  wunschtermin: string;
-  nachricht: string;
-}
-
-const initialFormData: FormData = {
+const initialFormData: AppointmentFormData = {
   name: '',
   email: '',
   telefon: '',
@@ -28,6 +28,8 @@ const initialFormData: FormData = {
   nachricht: '',
 };
 
+const initialTouched: Partial<Record<AppointmentField, boolean>> = {};
+
 export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
   isOpen,
   onClose,
@@ -35,9 +37,12 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
 }) => {
   const [step, setStep] = useState<1 | 2>(initialCategory ? 2 : 1);
   const [category, setCategory] = useState<Category | null>(initialCategory);
-  const [formData, setFormData] = useState<FormData>(initialFormData);
-  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
+  const [formData, setFormData] = useState<AppointmentFormData>(initialFormData);
+  const [errors, setErrors] = useState<FormErrors<AppointmentField>>({});
+  const [touched, setTouched] = useState<Partial<Record<AppointmentField, boolean>>>(initialTouched);
   const [submitState, setSubmitState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const modalRef = useRef<HTMLDivElement>(null);
 
   // Reset state when modal opens/closes or initialCategory changes
   useEffect(() => {
@@ -51,11 +56,10 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
       }
       setFormData(initialFormData);
       setErrors({});
+      setTouched(initialTouched);
       setSubmitState('idle');
     }
   }, [isOpen, initialCategory]);
-
-  const modalRef = useRef<HTMLDivElement>(null);
 
   // Lock body scroll and handle escape key when modal is open
   useEffect(() => {
@@ -78,6 +82,11 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
+  const updateFieldError = (field: AppointmentField, nextData: AppointmentFormData) => {
+    const nextError = validateAppointmentField(field, nextData);
+    setErrors((prev) => ({ ...prev, [field]: nextError }));
+  };
+
   const handleCategorySelect = (cat: Category) => {
     setCategory(cat);
     setStep(2);
@@ -85,45 +94,94 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error on input
-    if (errors[name as keyof FormData]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
-    }
+    const field = name as AppointmentField;
+
+    setFormData((prev) => {
+      const nextData = { ...prev, [field]: value };
+
+      if (touched[field] || value.trim().length > 0) {
+        updateFieldError(field, nextData);
+      } else if (errors[field]) {
+        setErrors((prevErrors) => ({ ...prevErrors, [field]: undefined }));
+      }
+
+      return nextData;
+    });
   };
 
-  const validateForm = (): boolean => {
-    const newErrors: Partial<Record<keyof FormData, string>> = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Bitte geben Sie Ihren Namen ein.';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Bitte geben Sie Ihre E-Mail-Adresse ein.';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
-    }
-
-    if (!formData.nachricht.trim()) {
-      newErrors.nachricht = 'Bitte beschreiben Sie kurz Ihr Anliegen.';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+  const handleInputBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const field = e.target.name as AppointmentField;
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    updateFieldError(field, formData);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateAndTouchAll = (data: AppointmentFormData): FormErrors<AppointmentField> => {
+    const nextErrors = validateAppointmentForm(data);
+    setTouched({
+      name: true,
+      email: true,
+      telefon: true,
+      kennzeichen: true,
+      wunschtermin: true,
+      nachricht: true,
+    });
+    setErrors(nextErrors);
+    return nextErrors;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!validateForm()) return;
+    const sanitizedData = sanitizeAppointmentData(formData);
+    const nextErrors = validateAndTouchAll(sanitizedData);
+
+    if (hasFormErrors(nextErrors)) {
+      setSubmitState('idle');
+      return;
+    }
 
     setSubmitState('submitting');
 
-    // Simulate submission (no backend yet)
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/forms', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          formType: 'appointment',
+          category,
+          ...sanitizedData,
+          website: '',
+        }),
+      });
+
+      const payload = (await response.json().catch(() => null)) as {
+        ok?: boolean;
+        errors?: FormErrors<AppointmentField>;
+      } | null;
+
+      if (!response.ok || !payload?.ok) {
+        if (payload?.errors) {
+          setErrors((prev) => ({ ...prev, ...payload.errors }));
+          setTouched({
+            name: true,
+            email: true,
+            telefon: true,
+            kennzeichen: true,
+            wunschtermin: true,
+            nachricht: true,
+          });
+        }
+        setSubmitState('error');
+        return;
+      }
+
       setSubmitState('success');
-    }, 1500);
+    } catch (error) {
+      console.error('Fehler beim Absenden der Terminanfrage:', error);
+      setSubmitState('error');
+    }
   };
 
   const handleClose = () => {
@@ -135,7 +193,13 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
     setCategory(null);
   };
 
-  const categoryLabel = category === 'karosserie' ? 'Karosserie & Lack' : 'Autoservice';
+  const categoryLabel =
+    category === 'karosserie'
+      ? 'Karosserie & Lack'
+      : category === 'autoservice'
+        ? 'Autoservice'
+        : 'Nicht angegeben';
+  const messageLength = formData.nachricht.trim().length;
 
   return (
     <AnimatePresence>
@@ -166,7 +230,7 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
             {/* Close Button */}
             <button
               onClick={handleClose}
-              aria-label="Schließen"
+              aria-label="Schliessen"
               className="absolute top-4 right-4 p-2 rounded-full hover:bg-neutral-100 transition-colors z-10 cursor-pointer"
             >
               <X className="w-5 h-5 text-neutral-500" />
@@ -188,9 +252,7 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                     </div>
                     <div>
                       <h3 className="font-bold text-lg">Karosserie & Lack</h3>
-                      <p className="text-sm text-neutral-500">
-                        Unfall, Karosserie, Lackierung
-                      </p>
+                      <p className="text-sm text-neutral-500">Unfall, Karosserie, Lackierung</p>
                     </div>
                   </button>
 
@@ -203,9 +265,7 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                     </div>
                     <div>
                       <h3 className="font-bold text-lg">Autoservice</h3>
-                      <p className="text-sm text-neutral-500">
-                        Inspektion, Mechanik, Reparaturen
-                      </p>
+                      <p className="text-sm text-neutral-500">Inspektion, Mechanik, Reparaturen</p>
                     </div>
                   </button>
                 </div>
@@ -220,17 +280,15 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                     onClick={handleBackToStep1}
                     className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors cursor-pointer"
                   >
-                    &larr; Zurück
+                    &larr; Zurueck
                   </button>
                   <span className="text-sm text-neutral-300">|</span>
-                  <span className="text-sm font-medium text-neutral-700">
-                    {categoryLabel}
-                  </span>
+                  <span className="text-sm font-medium text-neutral-700">{categoryLabel}</span>
                 </div>
 
                 <h2 className="text-2xl font-bold mb-2">Terminanfrage</h2>
                 <p className="text-neutral-600 mb-6">
-                  Füllen Sie das Formular aus – wir melden uns mit einem Terminvorschlag.
+                  Fuellen Sie das Formular aus - wir melden uns mit einem Terminvorschlag.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4" noValidate>
@@ -245,6 +303,9 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
+                      onBlur={handleInputBlur}
+                      maxLength={80}
+                      autoComplete="name"
                       aria-required="true"
                       aria-invalid={!!errors.name}
                       aria-describedby={errors.name ? 'ta-name-error' : undefined}
@@ -267,6 +328,9 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
+                      onBlur={handleInputBlur}
+                      maxLength={120}
+                      autoComplete="email"
                       aria-required="true"
                       aria-invalid={!!errors.email}
                       aria-describedby={errors.email ? 'ta-email-error' : undefined}
@@ -289,9 +353,20 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                       name="telefon"
                       value={formData.telefon}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all"
+                      onBlur={handleInputBlur}
+                      maxLength={30}
+                      autoComplete="tel"
+                      inputMode="tel"
+                      aria-invalid={!!errors.telefon}
+                      aria-describedby={errors.telefon ? 'ta-telefon-error' : 'ta-telefon-hint'}
+                      className={`w-full px-4 py-3 rounded-lg border ${errors.telefon ? 'border-red-400' : 'border-neutral-200'} focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all`}
                       placeholder="030 1234567"
                     />
+                    {errors.telefon ? (
+                      <p id="ta-telefon-error" role="alert" className="mt-1 text-sm text-red-500">{errors.telefon}</p>
+                    ) : (
+                      <p id="ta-telefon-hint" className="mt-1 text-xs text-neutral-500">Bitte nur normale Telefonnummern eingeben.</p>
+                    )}
                   </div>
 
                   {/* Kennzeichen */}
@@ -305,9 +380,16 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                       name="kennzeichen"
                       value={formData.kennzeichen}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all"
+                      onBlur={handleInputBlur}
+                      maxLength={20}
+                      aria-invalid={!!errors.kennzeichen}
+                      aria-describedby={errors.kennzeichen ? 'ta-kennzeichen-error' : undefined}
+                      className={`w-full px-4 py-3 rounded-lg border ${errors.kennzeichen ? 'border-red-400' : 'border-neutral-200'} focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all`}
                       placeholder="B-XX 1234"
                     />
+                    {errors.kennzeichen && (
+                      <p id="ta-kennzeichen-error" role="alert" className="mt-1 text-sm text-red-500">{errors.kennzeichen}</p>
+                    )}
                   </div>
 
                   {/* Wunschtermin */}
@@ -321,9 +403,16 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                       name="wunschtermin"
                       value={formData.wunschtermin}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-lg border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all"
-                      placeholder="z.B. nächste Woche, ab 14 Uhr"
+                      onBlur={handleInputBlur}
+                      maxLength={80}
+                      aria-invalid={!!errors.wunschtermin}
+                      aria-describedby={errors.wunschtermin ? 'ta-wunschtermin-error' : undefined}
+                      className={`w-full px-4 py-3 rounded-lg border ${errors.wunschtermin ? 'border-red-400' : 'border-neutral-200'} focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all`}
+                      placeholder="z.B. naechste Woche, ab 14 Uhr"
                     />
+                    {errors.wunschtermin && (
+                      <p id="ta-wunschtermin-error" role="alert" className="mt-1 text-sm text-red-500">{errors.wunschtermin}</p>
+                    )}
                   </div>
 
                   {/* Nachricht */}
@@ -336,17 +425,34 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                       name="nachricht"
                       value={formData.nachricht}
                       onChange={handleInputChange}
+                      onBlur={handleInputBlur}
                       rows={4}
+                      maxLength={1200}
                       aria-required="true"
                       aria-invalid={!!errors.nachricht}
-                      aria-describedby={errors.nachricht ? 'ta-nachricht-error' : undefined}
+                      aria-describedby={errors.nachricht ? 'ta-nachricht-error' : 'ta-nachricht-hint'}
                       className={`w-full px-4 py-3 rounded-lg border ${errors.nachricht ? 'border-red-400' : 'border-neutral-200'} focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all resize-none`}
                       placeholder="Beschreiben Sie kurz Ihr Anliegen..."
                     />
-                    {errors.nachricht && (
+                    {errors.nachricht ? (
                       <p id="ta-nachricht-error" role="alert" className="mt-1 text-sm text-red-500">{errors.nachricht}</p>
+                    ) : (
+                      <div id="ta-nachricht-hint" className="mt-1 flex items-center justify-between text-xs text-neutral-500">
+                        <span>Bitte kurz und konkret beschreiben.</span>
+                        <span>{messageLength}/1200</span>
+                      </div>
                     )}
                   </div>
+
+                  {/* Honeypot */}
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden"
+                    aria-hidden="true"
+                  />
 
                   {/* Submit */}
                   <button
@@ -390,16 +496,16 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                 </motion.div>
                 <h2 className="text-2xl font-bold mb-2">Vielen Dank!</h2>
                 <p className="text-neutral-600 mb-2">
-                  Ihre Terminanfrage für <strong>{categoryLabel}</strong> wurde erfolgreich gesendet.
+                  Ihre Terminanfrage fuer <strong>{categoryLabel}</strong> wurde erfolgreich gesendet.
                 </p>
                 <p className="text-neutral-500 text-sm mb-8">
-                  Wir melden uns schnellstmöglich mit einem Terminvorschlag bei Ihnen.
+                  Wir melden uns schnellstmoeglich mit einem Terminvorschlag bei Ihnen.
                 </p>
                 <button
                   onClick={handleClose}
                   className="px-8 py-3 bg-neutral-900 text-white font-semibold rounded-lg hover:bg-neutral-800 transition-all cursor-pointer"
                 >
-                  Schließen
+                  Schliessen
                 </button>
               </div>
             )}

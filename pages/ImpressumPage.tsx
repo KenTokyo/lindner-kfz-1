@@ -48,8 +48,8 @@ export const ImpressumPage: React.FC = () => {
               </p>
               <p>
                 <span className="font-semibold text-neutral-700">E-Mail:</span><br />
-                <a href="mailto:info@autoservice-lindner.de" className="underline hover:text-neutral-900 transition-colors">
-                  info@autoservice-lindner.de
+                <a href="mailto:info@kfz-lindner.de" className="underline hover:text-neutral-900 transition-colors">
+                  info@kfz-lindner.de
                 </a>
               </p>
               <p>
@@ -94,8 +94,8 @@ export const ImpressumPage: React.FC = () => {
               </p>
               <p>
                 <span className="font-semibold text-neutral-700">E-Mail:</span><br />
-                <a href="mailto:info@autoservice-lindner.de" className="underline hover:text-neutral-900 transition-colors">
-                  info@autoservice-lindner.de
+                <a href="mailto:info@kfz-lindner.de" className="underline hover:text-neutral-900 transition-colors">
+                  info@kfz-lindner.de
                 </a>
               </p>
               <p>

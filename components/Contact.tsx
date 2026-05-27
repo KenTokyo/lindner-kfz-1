@@ -46,8 +46,8 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-neutral-900 font-bold mb-1">E-Mail</h3>
-                  <a href="mailto:info@autoservice-lindner.de" className="text-neutral-600 hover:text-black transition-colors">
-                    info@autoservice-lindner.de
+                  <a href="mailto:info@kfz-lindner.de" className="text-neutral-600 hover:text-black transition-colors">
+                    info@kfz-lindner.de
                   </a>
                 </div>
               </div>
