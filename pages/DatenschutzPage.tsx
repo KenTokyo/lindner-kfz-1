@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { setPageSeo, webPageSchema } from '../utils/seo';
 
 export const DatenschutzPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Datenschutzerklärung | KFZ Lindner Berlin';
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute('content', 'Datenschutzerklärung von KFZ Lindner und Autoservice Lindner in Berlin. Informationen zur Datenverarbeitung gemäß DSGVO.');
+    const title = 'Datenschutzerklärung | KFZ Lindner Berlin';
+    const description = 'Datenschutzerklärung von KFZ Lindner und Autoservice Lindner in Berlin. Informationen zur Datenverarbeitung gemäß DSGVO.';
+
+    setPageSeo({
+      title,
+      description,
+      path: '/datenschutz',
+      structuredData: webPageSchema('/datenschutz', title, description),
+    });
   }, []);
 
   return (
@@ -44,7 +51,6 @@ export const DatenschutzPage: React.FC = () => {
               <div className="p-4 bg-neutral-50 rounded-xl border border-neutral-100">
                 <p className="font-semibold text-neutral-800">Autoservice Lindner</p>
                 <p>Hauptstraße 43<br />13159 Berlin-Blankenfelde</p>
-                <p>Telefon: 030 / 913 12 53</p>
                 <p>E-Mail: info@kfz-lindner.de</p>
               </div>
             </div>

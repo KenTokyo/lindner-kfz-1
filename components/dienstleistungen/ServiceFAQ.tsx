@@ -57,13 +57,20 @@ export const ServiceFAQ: React.FC<ServiceFAQProps> = ({ faqs }) => {
                   }`}
                 />
               </button>
-              {openIndex === index && (
-                <div id={`faq-answer-${index}`} role="region" className="px-5 pb-5">
+              <div
+                id={`faq-answer-${index}`}
+                role="region"
+                className={`grid transition-[grid-template-rows] duration-300 ${
+                  openIndex === index ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                }`}
+              >
+                <div className="overflow-hidden px-5">
                   <p className="text-neutral-600 leading-relaxed">
                     {faq.answer}
                   </p>
+                  <div className="h-5" />
                 </div>
-              )}
+              </div>
             </motion.div>
           ))}
         </div>

@@ -90,8 +90,16 @@ export const Footer: React.FC = () => {
 
       <motion.footer
         ref={footerRef}
-        className="fixed bottom-0 left-0 right-0 z-0 bg-[#0a0a0a] text-white rounded-t-[2.5rem] md:rounded-t-[3rem] px-8 md:px-12 lg:px-24 flex flex-col min-h-[42vh] justify-between selection:bg-white selection:text-black shadow-2xl overflow-hidden"
-        style={{ transform: 'translate3d(0,0,0)', willChange: 'transform', backfaceVisibility: 'hidden' }}
+        className="fixed bottom-0 left-0 right-0 z-0 text-white rounded-t-[2.5rem] md:rounded-t-[3rem] px-8 md:px-12 lg:px-24 flex flex-col min-h-[42vh] justify-between selection:bg-white selection:text-black shadow-2xl overflow-hidden"
+        style={{
+          transform: 'translate3d(0,0,0)',
+          willChange: 'transform',
+          backfaceVisibility: 'hidden',
+          backgroundImage: 'url("/global-footer-background.jpg")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
       >
         <div className="absolute top-6 left-6 md:top-8 md:left-8 w-4 h-4 md:w-5 md:h-5 rounded-full bg-neutral-50 shadow-inner" />
         <div className="absolute top-6 right-6 md:top-8 md:right-8 w-4 h-4 md:w-5 md:h-5 rounded-full bg-neutral-50 shadow-inner" />
@@ -165,8 +173,7 @@ export const Footer: React.FC = () => {
                 <li className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-neutral-500 shrink-0" />
                   <div className="flex flex-col">
-                    <span className="flex justify-between gap-4"><span>Mo - Do:</span> <span>07:00 - 17:00 Uhr</span></span>
-                    <span className="flex justify-between gap-4"><span>Fr:</span> <span>07:00 - 16:00 Uhr</span></span>
+                    <span className="flex justify-between gap-4"><span>Mo - Fr:</span> <span>07:00 - 18:00 Uhr</span></span>
                     <span className="text-neutral-500 mt-1">Sa & So: Geschlossen</span>
                   </div>
                 </li>

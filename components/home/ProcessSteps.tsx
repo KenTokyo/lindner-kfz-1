@@ -90,7 +90,7 @@ export const ProcessSteps: React.FC = () => {
 
             {/* Active progress fill – follows hover */}
             <motion.div
-              className="absolute top-[27px] left-0 h-[3px] bg-neutral-900 z-[1] rounded-full"
+              className="absolute top-[27px] left-0 h-[3px] bg-secondary z-[1] rounded-full"
               initial={{ width: '0%' }}
               animate={{ width: getProgressWidth() }}
               transition={
@@ -141,7 +141,7 @@ export const ProcessSteps: React.FC = () => {
                     >
                       {/* Pulse ring on initial appear */}
                       <motion.div
-                        className="absolute inset-0 rounded-full bg-neutral-900/10"
+                        className="absolute inset-0 rounded-full bg-secondary/10"
                         initial={{ scale: 1, opacity: 0 }}
                         animate={
                           isInView
@@ -160,7 +160,7 @@ export const ProcessSteps: React.FC = () => {
                         className="absolute inset-[-4px] rounded-full"
                         style={{
                           background: isHovered
-                            ? 'rgba(23,23,23,0.08)'
+                            ? 'rgba(1,36,40,0.10)'
                             : 'transparent',
                           transform: isHovered ? 'scale(1.15)' : 'scale(1)',
                           transition: 'all 0.4s cubic-bezier(0.25,0.1,0.25,1) 0.1s',
@@ -168,16 +168,16 @@ export const ProcessSteps: React.FC = () => {
                       />
 
                       <div
-                        className="w-14 h-14 rounded-full flex items-center justify-center text-white relative"
+                        className="w-14 h-14 rounded-full flex items-center justify-center text-secondary relative border border-secondary/15"
                         style={{
                           backgroundColor: isActive
-                            ? 'rgb(23,23,23)'
-                            : 'rgb(163,163,163)',
+                            ? 'rgb(255,255,255)'
+                            : 'rgb(245,245,245)',
                           transform: isHovered ? 'scale(1.15)' : 'scale(1)',
                           boxShadow: isHovered
-                            ? '0 6px 28px rgba(0,0,0,0.3)'
+                            ? '0 6px 28px rgba(1,36,40,0.18)'
                             : isActive
-                              ? '0 2px 16px rgba(0,0,0,0.15)'
+                              ? '0 2px 16px rgba(1,36,40,0.10)'
                               : '0 1px 8px rgba(0,0,0,0.08)',
                           transition: 'transform 0.4s cubic-bezier(0.25,0.1,0.25,1) 0.1s, background-color 0.4s cubic-bezier(0.25,0.1,0.25,1) 0.08s, box-shadow 0.4s cubic-bezier(0.25,0.1,0.25,1) 0.08s',
                         }}
@@ -240,7 +240,7 @@ export const ProcessSteps: React.FC = () => {
           <div className="relative">
             <div className="absolute top-[28px] left-0 right-0 h-[2px] bg-neutral-200 z-0" />
             <motion.div
-              className="absolute top-[27px] left-0 h-[3px] bg-neutral-900 z-[1] rounded-full origin-left"
+              className="absolute top-[27px] left-0 h-[3px] bg-secondary z-[1] rounded-full origin-left"
               initial={{ scaleX: 0 }}
               animate={isInView ? { scaleX: 1 } : {}}
               transition={{
@@ -278,7 +278,7 @@ export const ProcessSteps: React.FC = () => {
                         delay: delay + 0.1,
                       }}
                     >
-                      <div className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white shadow-[0_2px_16px_rgba(0,0,0,0.15)] group-hover:shadow-[0_4px_24px_rgba(0,0,0,0.25)] group-hover:scale-110 transition-all duration-[400ms] delay-[100ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]">
+                      <div className="w-14 h-14 rounded-full bg-white border border-secondary/15 flex items-center justify-center text-secondary shadow-[0_2px_16px_rgba(1,36,40,0.10)] group-hover:shadow-[0_4px_24px_rgba(1,36,40,0.18)] group-hover:scale-110 transition-all duration-[400ms] delay-[100ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                         <Icon size={22} strokeWidth={1.8} />
                       </div>
                     </motion.div>
@@ -325,7 +325,7 @@ export const ProcessSteps: React.FC = () => {
                         delay: delay + 0.1,
                       }}
                     >
-                      <div className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white shadow-[0_2px_16px_rgba(0,0,0,0.15)] group-hover:shadow-[0_4px_24px_rgba(0,0,0,0.25)] group-hover:scale-110 transition-all duration-[400ms] delay-[100ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]">
+                      <div className="w-14 h-14 rounded-full bg-white border border-secondary/15 flex items-center justify-center text-secondary shadow-[0_2px_16px_rgba(1,36,40,0.10)] group-hover:shadow-[0_4px_24px_rgba(1,36,40,0.18)] group-hover:scale-110 transition-all duration-[400ms] delay-[100ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]">
                         <Icon size={22} strokeWidth={1.8} />
                       </div>
                     </motion.div>
@@ -352,7 +352,7 @@ export const ProcessSteps: React.FC = () => {
 
           {/* Animated progress line */}
           <motion.div
-            className="absolute top-0 left-[27px] w-[3px] -ml-[0.5px] bg-neutral-900 z-[1] rounded-full origin-top"
+            className="absolute top-0 left-[27px] w-[3px] -ml-[0.5px] bg-secondary z-[1] rounded-full origin-top"
             initial={{ scaleY: 0 }}
             animate={isInView ? { scaleY: 1 } : {}}
             transition={{
@@ -391,7 +391,7 @@ export const ProcessSteps: React.FC = () => {
                       delay: delay + 0.05,
                     }}
                   >
-                    <div className="w-14 h-14 rounded-full bg-neutral-900 flex items-center justify-center text-white shadow-[0_2px_16px_rgba(0,0,0,0.15)]">
+                    <div className="w-14 h-14 rounded-full bg-white border border-secondary/15 flex items-center justify-center text-secondary shadow-[0_2px_16px_rgba(1,36,40,0.10)]">
                       <Icon size={22} strokeWidth={1.8} />
                     </div>
                   </motion.div>

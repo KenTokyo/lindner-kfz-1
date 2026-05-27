@@ -59,7 +59,7 @@ export const Hero: React.FC<HeroProps> = ({ onTerminanfrageClick }) => {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="max-w-3xl">
+        <div className="max-w-5xl">
           {/* Subtitle with decorative accent line */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -83,24 +83,14 @@ export const Hero: React.FC<HeroProps> = ({ onTerminanfrageClick }) => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-            className="text-5xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] font-bold text-white leading-[1.05] mb-8"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] font-bold text-white leading-[1.1] mb-7 max-w-4xl"
             style={{
               textShadow:
                 '0 2px 20px rgba(0,0,0,0.5), 0 4px 40px rgba(0,0,0,0.3)',
             }}
           >
-            KFZ Lindner{' '}
-            <motion.span
-              className="block text-3xl md:text-4xl lg:text-5xl font-light mt-3 text-neutral-200"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.55 }}
-              style={{
-                textShadow: '0 1px 12px rgba(0,0,0,0.4)',
-              }}
-            >
-              Karosserie, Lack & Autoservice
-            </motion.span>
+            Karosserie, Lack <br />
+            oder Autoservice?
           </motion.h1>
 
           {/* Description paragraph */}
@@ -108,10 +98,10 @@ export const Hero: React.FC<HeroProps> = ({ onTerminanfrageClick }) => {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: 'easeOut', delay: 0.65 }}
-            className="text-lg md:text-xl text-neutral-50 max-w-2xl mb-10 leading-relaxed font-medium drop-shadow-md"
+            className="text-lg md:text-xl lg:text-2xl text-neutral-50 max-w-3xl mb-10 leading-relaxed font-medium drop-shadow-md"
           >
-            Unkomplizierte Terminanfrage. Klare Abläufe. Saubere Arbeit –
-            alles aus einer Hand.
+            Ihre Kfz-Werkstatt in Berlin-Blankenfelde für Unfallinstandsetzung,
+            Lackierung, Inspektion und Reparaturen für alle Marken.
           </motion.p>
 
           {/* Buttons with staggered animation */}
@@ -176,7 +166,7 @@ export const Hero: React.FC<HeroProps> = ({ onTerminanfrageClick }) => {
           animate={{ y: [0, 4, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
         >
-          <ArrowDown className="w-3 h-3 stroke-[2] text-white/40" />
+          <ArrowDown className="w-3 h-3 stroke-[2] text-secondary" />
         </motion.div>
       </motion.div>
     </section>

@@ -6,15 +6,33 @@ import { useLayoutContext } from '../components/shared/Layout';
 import { serviceCategories, dienstleistungenFAQ } from '../data/services';
 import { ServiceCategory } from '../components/dienstleistungen/ServiceCategory';
 import { ServiceFAQ } from '../components/dienstleistungen/ServiceFAQ';
+import { faqSchema, itemListSchema, setPageSeo, webPageSchema } from '../utils/seo';
 
 export const DienstleistungenPage: React.FC = () => {
   const { openTerminanfrage } = useLayoutContext();
   const location = useLocation();
 
   useEffect(() => {
-    document.title = 'Dienstleistungen | KFZ Lindner Berlin';
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute('content', 'Alle Dienstleistungen von KFZ Lindner: Unfallinstandsetzung, Karosseriearbeiten, Lackierung, Inspektion, Mechanik & Reparaturen in Berlin-Blankenfelde.');
+    const title = 'Kfz-Dienstleistungen Berlin-Blankenfelde | KFZ Lindner';
+    const description = 'Alle Leistungen von KFZ Lindner: Unfallinstandsetzung, Karosseriearbeiten, Lackierung, Inspektion, Mechanik und Reparaturen in Berlin-Blankenfelde.';
+    const services = serviceCategories.flatMap((category) =>
+      category.services.map((service) => ({
+        name: service.title,
+        description: service.detailDescription ?? service.description,
+        url: `/dienstleistungen#${service.id}`,
+      }))
+    );
+
+    setPageSeo({
+      title,
+      description,
+      path: '/dienstleistungen',
+      structuredData: [
+        webPageSchema('/dienstleistungen', title, description),
+        itemListSchema('Kfz-Dienstleistungen von KFZ Lindner', '/dienstleistungen', services),
+        faqSchema(dienstleistungenFAQ),
+      ],
+    });
   }, []);
 
   useEffect(() => {
@@ -41,7 +59,7 @@ export const DienstleistungenPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
         >
           <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 mb-5">
-            Dienstleistungen
+            Kfz-Dienstleistungen in Berlin-Blankenfelde
           </h1>
           <p className="text-xl text-neutral-600 max-w-3xl mb-8">
             Zwei Bereiche – direkt zum passenden Anliegen. Karosserie & Lack oder Autoservice: Hier finden Sie alle Details zu unseren Leistungen.

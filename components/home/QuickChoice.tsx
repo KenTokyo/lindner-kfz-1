@@ -50,12 +50,13 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Worum geht es?
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-4xl mx-auto">
+            Karosserie, Lack oder Autoservice? <br />
+            Stellen Sie direkt die passende Terminanfrage.
           </h2>
-          <p className="text-neutral-600 text-lg">
-            Wählen Sie Ihren Bereich – wir leiten Ihre Anfrage direkt richtig
-            weiter.
+          <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
+            Wählen Sie den Bereich, der zu Ihrem Anliegen passt – <br />
+            Ihre Anfrage landet ohne Umwege bei uns.
           </p>
         </div>
 
@@ -97,7 +98,7 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
             {/* Content Box */}
             <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/10 backdrop-blur-xl rounded-[1.5rem] px-4 pb-4 pt-10 sm:px-5 sm:pb-5 sm:pt-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.2)] border border-white/20 transition-all duration-300 group-hover:bg-white/20 flex flex-col items-center">
               {/* Icon Container */}
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-neutral-900 shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-secondary shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
                 <Paintbrush size={24} strokeWidth={2.5} />
               </div>
               
@@ -142,7 +143,7 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
             {/* Content Box */}
             <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/10 backdrop-blur-xl rounded-[1.5rem] px-4 pb-4 pt-10 sm:px-5 sm:pb-5 sm:pt-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.2)] border border-white/20 transition-all duration-300 group-hover:bg-white/20 flex flex-col items-center">
               {/* Icon Container */}
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-neutral-900 shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-secondary shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
                 <Wrench size={24} strokeWidth={2.5} />
               </div>
               

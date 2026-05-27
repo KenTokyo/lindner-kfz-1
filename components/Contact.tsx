@@ -34,8 +34,7 @@ export const Contact: React.FC = () => {
                 <div>
                   <h3 className="text-neutral-900 font-bold mb-1">Telefon</h3>
                   <p className="text-neutral-600">
-                    <a href="tel:0309131252" className="hover:text-black transition-colors">030 / 913 12 52</a><br/>
-                    <a href="tel:0309131253" className="hover:text-black transition-colors">030 / 913 12 53</a>
+                    <a href="tel:0309131252" className="hover:text-black transition-colors">030 / 913 12 52</a>
                   </p>
                 </div>
               </div>
@@ -59,7 +58,7 @@ export const Contact: React.FC = () => {
                 <div>
                   <h3 className="text-neutral-900 font-bold mb-1">Öffnungszeiten</h3>
                   <p className="text-neutral-600">
-                    Montag - Freitag: 7.00 - 18.00 Uhr<br/>
+                    Montag - Freitag: 07:00 - 18:00 Uhr<br/>
                     und nach Vereinbarung
                   </p>
                 </div>

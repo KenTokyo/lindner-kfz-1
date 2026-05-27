@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { setPageSeo, webPageSchema } from '../utils/seo';
 
 export const ImpressumPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Impressum | KFZ Lindner Berlin';
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute('content', 'Impressum von KFZ Lindner und Autoservice Lindner in Berlin-Blankenfelde. Angaben gemäß § 5 TMG.');
+    const title = 'Impressum | KFZ Lindner Berlin';
+    const description = 'Impressum von KFZ Lindner und Autoservice Lindner in Berlin-Blankenfelde. Angaben gemäß § 5 TMG.';
+
+    setPageSeo({
+      title,
+      description,
+      path: '/impressum',
+      structuredData: webPageSchema('/impressum', title, description),
+    });
   }, []);
 
   return (
@@ -87,10 +94,6 @@ export const ImpressumPage: React.FC = () => {
                 <span className="font-semibold text-neutral-700">Anschrift:</span><br />
                 Hauptstraße 43<br />
                 13159 Berlin-Blankenfelde
-              </p>
-              <p>
-                <span className="font-semibold text-neutral-700">Telefon:</span><br />
-                030 / 913 12 53
               </p>
               <p>
                 <span className="font-semibold text-neutral-700">E-Mail:</span><br />

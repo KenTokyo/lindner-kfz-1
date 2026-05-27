@@ -29,6 +29,25 @@ export const jobs: Job[] = [
     image: '/Lindner-Bilder/karriere-karosseriebauer.jpg',
   },
   {
+    id: 'mechatroniker',
+    title: 'Kfz-Mechatroniker (m/w/d)',
+    type: 'vollzeit',
+    description: 'Wir suchen Verstärkung im Autoservice für Diagnose, Wartung und Reparatur an Fahrzeugen freier Marken.',
+    tasks: [
+      'Wartung und Inspektion nach Herstellervorgaben',
+      'Fehlerdiagnose mit modernen Diagnosegeräten',
+      'Reparaturen an Mechanik, Elektrik und Fahrzeugsystemen',
+      'Servicearbeiten an Fahrzeugen verschiedener Marken',
+    ],
+    requirements: [
+      'Abgeschlossene Ausbildung als Kfz-Mechatroniker',
+      'Sicherer Umgang mit Diagnose- und Werkstatttechnik',
+      'Selbstständige, sorgfältige Arbeitsweise',
+      'Führerschein Klasse B und Teamfähigkeit',
+    ],
+    image: '/Lindner-Bilder/karriere-mechatroniker.png',
+  },
+  {
     id: 'fahrzeuglackierer',
     title: 'Fahrzeuglackierer (m/w/d)',
     type: 'vollzeit',

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion, useScroll, AnimatePresence, useMotionValueEvent } from 'framer-motion';
-import { Menu, X, Phone } from 'lucide-react';
+import { CalendarDays, Menu, X, Phone } from 'lucide-react';
 
 interface NavItem {
   label: string;
@@ -26,8 +26,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const isSubpage = location.pathname !== '/';
-  const showScrolledStyle = isScrolled || isSubpage;
+  const hasTransparentHero = location.pathname === '/' || location.pathname === '/karriere';
+  const showScrolledStyle = isScrolled || !hasTransparentHero;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > 80);
@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
           className="relative pointer-events-auto flex items-center justify-between max-w-[1400px]"
         >
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0 z-10">
             <a
               href="/"
               onClick={handleLogoClick}
@@ -106,8 +106,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
             </a>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop Nav Links */}
+          <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
             {navItems.map((item) => (
               <a
                 key={item.label}
@@ -123,24 +123,29 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
                 />
               </a>
             ))}
+          </div>
+
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center gap-4 ml-auto z-10">
             <button
               onClick={onTerminanfrageClick}
               className={`flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full transition-all cursor-pointer ${
                 showScrolledStyle
-                  ? 'bg-black text-white hover:bg-neutral-800'
-                  : 'bg-white text-black hover:bg-neutral-200'
+                  ? 'bg-secondary text-white hover:bg-secondary/90'
+                  : 'bg-white text-secondary hover:bg-neutral-200'
               }`}
             >
+              <CalendarDays size={15} />
               <span>Terminanfrage</span>
             </button>
             <motion.a
               href="tel:0309131252"
-              className="relative flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full cursor-pointer overflow-hidden bg-emerald-500 text-white"
+              className="relative flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full cursor-pointer overflow-hidden bg-secondary text-white"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
             >
               <motion.span
-                className="absolute inset-0 rounded-full bg-emerald-400"
+                className="absolute inset-0 rounded-full bg-secondary"
                 initial={{ scale: 0, opacity: 0.5 }}
                 whileHover={{ scale: 1.5, opacity: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -185,17 +190,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onTerminanfrageClick }) => {
               </a>
             ))}
             <button
-              className="mt-4 flex justify-center items-center gap-2 px-6 py-4 text-lg font-bold text-white bg-black rounded-lg w-full cursor-pointer"
+              className="mt-4 flex justify-center items-center gap-2 px-6 py-4 text-lg font-bold text-white bg-secondary rounded-lg w-full cursor-pointer"
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 onTerminanfrageClick?.();
               }}
             >
+              <CalendarDays size={20} />
               Terminanfrage
             </button>
             <motion.a
               href="tel:0309131252"
-              className="flex justify-center items-center gap-3 px-6 py-4 text-lg font-bold text-white bg-emerald-500 rounded-lg w-full"
+              className="flex justify-center items-center gap-3 px-6 py-4 text-lg font-bold text-white bg-secondary rounded-lg w-full"
               whileTap={{ scale: 0.97 }}
             >
               <Phone size={20} />

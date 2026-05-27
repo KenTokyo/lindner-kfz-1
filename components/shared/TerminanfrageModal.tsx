@@ -240,14 +240,17 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
             {step === 1 && (
               <div className="p-8">
                 <h2 className="text-2xl font-bold mb-2">Terminanfrage</h2>
-                <p className="text-neutral-600 mb-8">Worum geht es?</p>
+                <p className="text-neutral-600 mb-8">
+                  Wählen Sie den Bereich, der zu Ihrem Anliegen passt &ndash;<br />
+                  Ihre Anfrage landet ohne Umwege bei uns.
+                </p>
 
                 <div className="grid gap-4">
                   <button
                     onClick={() => handleCategorySelect('karosserie')}
-                    className="group flex items-center gap-4 p-5 rounded-xl border border-neutral-200 hover:border-neutral-900 hover:shadow-md transition-all text-left cursor-pointer"
+                    className="group flex items-center gap-4 p-5 rounded-xl border border-neutral-200 hover:border-secondary hover:shadow-md transition-all text-left cursor-pointer"
                   >
-                    <div className="w-12 h-12 bg-neutral-900 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-neutral-800 transition-colors">
+                    <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center shrink-0 group-hover:bg-secondary/90 transition-colors">
                       <Paintbrush className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -258,9 +261,9 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
 
                   <button
                     onClick={() => handleCategorySelect('autoservice')}
-                    className="group flex items-center gap-4 p-5 rounded-xl border border-neutral-200 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-600/20 transition-all text-left cursor-pointer"
+                    className="group flex items-center gap-4 p-5 rounded-xl border border-neutral-200 hover:border-secondary hover:shadow-lg hover:shadow-secondary/20 transition-all text-left cursor-pointer"
                   >
-                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-blue-700 transition-colors">
+                    <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center shrink-0 group-hover:bg-secondary/90 transition-colors">
                       <Wrench className="w-6 h-6 text-white" />
                     </div>
                     <div>

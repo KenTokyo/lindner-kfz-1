@@ -2,6 +2,7 @@
 
 @theme {
   --font-manrope: 'Manrope', sans-serif;
+  --color-secondary: #012428;
 }
 
 body {
