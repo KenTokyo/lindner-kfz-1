@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { setPageSeo, webPageSchema } from '../utils/seo';
 
 export const ImpressumPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Impressum | KFZ Lindner Berlin';
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute('content', 'Impressum von KFZ Lindner und Autoservice Lindner in Berlin-Blankenfelde. Angaben gemäß § 5 TMG.');
+    const title = 'Impressum | KFZ Lindner Berlin';
+    const description = 'Impressum von KFZ Lindner und Autoservice Lindner in Berlin-Blankenfelde. Angaben gemäß § 5 TMG.';
+
+    setPageSeo({
+      title,
+      description,
+      path: '/impressum',
+      structuredData: webPageSchema('/impressum', title, description),
+    });
   }, []);
 
   return (

@@ -10,15 +10,22 @@ import { ReviewCards } from '../components/home/ReviewCards';
 import { KarriereTeaser } from '../components/home/KarriereTeaser';
 import { ContactSection } from '../components/home/ContactSection';
 import { FadeBlur } from '../components/shared/FadeBlur';
+import { setPageSeo, webPageSchema } from '../utils/seo';
 
 export const HomePage: React.FC = () => {
   const location = useLocation();
   const { openTerminanfrage } = useLayoutContext();
 
   useEffect(() => {
-    document.title = 'KFZ Lindner Berlin \u2013 Karosserie, Lack & Autoservice';
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute('content', 'KFZ Lindner in Berlin-Blankenfelde \u2013 Karosserie, Lack & Autoservice unter einem Dach. Unkomplizierte Terminanfrage, klare Abl\u00e4ufe, saubere Arbeit.');
+    const title = 'KFZ Lindner Berlin-Blankenfelde | Karosserie, Lack & Autoservice';
+    const description = 'KFZ Lindner in Berlin-Blankenfelde: Karosserie, Lackierung, Unfallinstandsetzung, Inspektion und Reparaturen für alle Marken an einem Standort.';
+
+    setPageSeo({
+      title,
+      description,
+      path: '/',
+      structuredData: webPageSchema('/', title, description),
+    });
   }, []);
 
   useEffect(() => {

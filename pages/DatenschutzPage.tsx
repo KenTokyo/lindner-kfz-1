@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { setPageSeo, webPageSchema } from '../utils/seo';
 
 export const DatenschutzPage: React.FC = () => {
   useEffect(() => {
-    document.title = 'Datenschutzerklärung | KFZ Lindner Berlin';
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute('content', 'Datenschutzerklärung von KFZ Lindner und Autoservice Lindner in Berlin. Informationen zur Datenverarbeitung gemäß DSGVO.');
+    const title = 'Datenschutzerklärung | KFZ Lindner Berlin';
+    const description = 'Datenschutzerklärung von KFZ Lindner und Autoservice Lindner in Berlin. Informationen zur Datenverarbeitung gemäß DSGVO.';
+
+    setPageSeo({
+      title,
+      description,
+      path: '/datenschutz',
+      structuredData: webPageSchema('/datenschutz', title, description),
+    });
   }, []);
 
   return (

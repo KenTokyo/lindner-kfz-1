@@ -4,34 +4,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KFZ Lindner Berlin – Karosserie, Lack & Autoservice</title>
-    <meta name="description" content="KFZ Lindner in Berlin-Blankenfelde – Karosserie, Lack & Autoservice unter einem Dach. Unkomplizierte Terminanfrage, klare Abläufe, saubere Arbeit." />
+    <title>KFZ Lindner Berlin-Blankenfelde | Karosserie, Lack & Autoservice</title>
+    <meta name="description" content="KFZ Lindner in Berlin-Blankenfelde: Karosserie, Lackierung, Unfallinstandsetzung, Inspektion und Reparaturen für alle Marken an einem Standort." />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content="KFZ Lindner Berlin" />
-    <meta property="og:title" content="KFZ Lindner Berlin – Karosserie, Lack & Autoservice" />
-    <meta property="og:description" content="Karosserie, Lack & Autoservice unter einem Dach in Berlin-Blankenfelde. Unkomplizierte Terminanfrage – wir melden uns." />
-    <meta property="og:url" content="https://www.autoservice-lindner.de/" />
-    <!-- <meta property="og:image" content="https://www.autoservice-lindner.de/og-image.jpg" /> -->
+    <meta property="og:title" content="KFZ Lindner Berlin-Blankenfelde | Karosserie, Lack & Autoservice" />
+    <meta property="og:description" content="Karosserie, Lackierung, Unfallinstandsetzung, Inspektion und Reparaturen für alle Marken in Berlin-Blankenfelde." />
+    <meta property="og:url" content="https://www.kfz-lindner.de/" />
+    <meta property="og:image" content="https://www.kfz-lindner.de/og-image.jpg" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="KFZ Lindner Berlin – Karosserie, Lack & Autoservice" />
-    <meta name="twitter:description" content="Karosserie, Lack & Autoservice unter einem Dach in Berlin-Blankenfelde. Unkomplizierte Terminanfrage – wir melden uns." />
-    <!-- <meta name="twitter:image" content="https://www.autoservice-lindner.de/og-image.jpg" /> -->
+    <meta name="twitter:title" content="KFZ Lindner Berlin-Blankenfelde | Karosserie, Lack & Autoservice" />
+    <meta name="twitter:description" content="Karosserie, Lackierung, Unfallinstandsetzung, Inspektion und Reparaturen für alle Marken in Berlin-Blankenfelde." />
+    <meta name="twitter:image" content="https://www.kfz-lindner.de/og-image.jpg" />
 
     <!-- Favicon -->
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <!-- Canonical -->
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.autoservice-lindner.de/" />
-
-    <!-- Preload hero image for LCP -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2600&auto=format&fit=crop" />
+    <!-- Indexing -->
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://www.kfz-lindner.de/" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,38 +35,102 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet">
 
-    <!-- Schema.org LocalBusiness -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "AutoRepair",
-      "name": "KFZ Lindner",
-      "alternateName": "Autoservice Lindner",
-      "description": "Karosserie- und Lackierbetrieb sowie Autoservice in Berlin-Blankenfelde. Unfallinstandsetzung, Lackierung, Inspektion und Mechanik – alles aus einer Hand.",
-      "url": "https://www.autoservice-lindner.de",
-      "telephone": "+4930913 1252",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Hauptstraße 43",
-        "addressLocality": "Berlin",
-        "addressRegion": "Berlin",
-        "postalCode": "13159",
-        "addressCountry": "DE"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "52.6370",
-        "longitude": "13.3890"
-      },
-      "priceRange": "$$",
-      "image": "https://www.autoservice-lindner.de/og-image.jpg",
-      "sameAs": []
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://www.kfz-lindner.de/#website",
+          "url": "https://www.kfz-lindner.de/",
+          "name": "KFZ Lindner Berlin",
+          "inLanguage": "de-DE",
+          "publisher": {
+            "@id": "https://www.kfz-lindner.de/#auto-repair"
+          }
+        },
+        {
+          "@type": "AutoRepair",
+          "@id": "https://www.kfz-lindner.de/#auto-repair",
+          "name": "KFZ Lindner",
+          "alternateName": ["Autoservice Lindner", "Lindner KFZ-Meisterbetrieb"],
+          "description": "Karosserie- und Lackierbetrieb sowie Autoservice in Berlin-Blankenfelde. Unfallinstandsetzung, Lackierung, Inspektion, Mechanik und Reparaturen für alle Marken.",
+          "url": "https://www.kfz-lindner.de/",
+          "telephone": "+49309131252",
+          "email": "info@kfz-lindner.de",
+          "priceRange": "$$",
+          "logo": "https://www.kfz-lindner.de/Lindner%20Logo_weiss.png",
+          "image": "https://www.kfz-lindner.de/og-image.jpg",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Hauptstraße 43",
+            "addressLocality": "Berlin",
+            "addressRegion": "Berlin",
+            "postalCode": "13159",
+            "addressCountry": "DE"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "52.6370",
+            "longitude": "13.3890"
+          },
+          "hasMap": "https://www.google.com/maps?q=Hauptstra%C3%9Fe%2043%2C%2013159%20Berlin-Blankenfelde",
+          "areaServed": [
+            { "@type": "City", "name": "Berlin" },
+            { "@type": "AdministrativeArea", "name": "Berlin-Blankenfelde" },
+            { "@type": "AdministrativeArea", "name": "Berlin-Pankow" }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "07:00",
+              "closes": "18:00"
+            }
+          ],
+          "makesOffer": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Unfallinstandsetzung"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Karosseriearbeiten"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Lackierung"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Inspektion und Autoservice"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Mechanik und Reparaturen"
+              }
+            }
+          ]
+        }
+      ]
     }
-    
     </script>
     <script type="module">
-      // first npm i react-grab
-      // then in head:
       import("react-grab");
     </script>
   </head>

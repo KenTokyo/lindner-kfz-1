@@ -100,8 +100,8 @@ export const Hero: React.FC<HeroProps> = ({ onTerminanfrageClick }) => {
             transition={{ duration: 0.7, ease: 'easeOut', delay: 0.65 }}
             className="text-lg md:text-xl lg:text-2xl text-neutral-50 max-w-3xl mb-10 leading-relaxed font-medium drop-shadow-md"
           >
-            Unkomplizierte Terminanfrage, klare Abläufe, saubere Arbeit – alles
-            aus einer Hand.
+            Ihre Kfz-Werkstatt in Berlin-Blankenfelde für Unfallinstandsetzung,
+            Lackierung, Inspektion und Reparaturen für alle Marken.
           </motion.p>
 
           {/* Buttons with staggered animation */}

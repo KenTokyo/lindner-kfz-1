@@ -4,6 +4,7 @@ import { Wrench, Shield, Clock, Users } from 'lucide-react';
 import { jobs } from '../data/jobs';
 import { JobCard } from '../components/karriere/JobCard';
 import { BewerbungsFormular } from '../components/karriere/BewerbungsFormular';
+import { itemListSchema, setPageSeo, webPageSchema } from '../utils/seo';
 
 const benefits = [
   { icon: Wrench, text: 'Moderne Werkstattabläufe' },
@@ -17,9 +18,27 @@ export const KarrierePage: React.FC = () => {
   const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = 'Karriere | KFZ Lindner Berlin';
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute('content', 'Karriere bei KFZ Lindner in Berlin-Blankenfelde. Offene Stellen f\u00fcr Karosseriebauer, Fahrzeuglackierer, Kfz-Mechatroniker und Ausbildung.');
+    const title = 'Karriere & Jobs bei KFZ Lindner Berlin-Blankenfelde';
+    const description = 'Karriere bei KFZ Lindner in Berlin-Blankenfelde: offene Stellen für Karosseriebauer, Kfz-Mechatroniker, Fahrzeuglackierer und Ausbildung.';
+
+    setPageSeo({
+      title,
+      description,
+      path: '/karriere',
+      image: '/karriere-banner-lindner1.jpg',
+      structuredData: [
+        webPageSchema('/karriere', title, description),
+        itemListSchema(
+          'Offene Stellen bei KFZ Lindner',
+          '/karriere',
+          jobs.map((job) => ({
+            name: job.title,
+            description: job.description,
+            url: '/karriere#offene-stellen',
+          }))
+        ),
+      ],
+    });
   }, []);
 
   const handleBewerbenClick = (jobTitle: string) => {
@@ -60,9 +79,9 @@ export const KarrierePage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 mb-5">
+          <div className="text-4xl md:text-6xl font-bold text-neutral-900 mb-5">
             Karriere bei Lindner
-          </h1>
+          </div>
           <p className="text-xl text-neutral-600 max-w-3xl">
             Kurz bewerben – auch initiativ. Wir suchen Verstärkung für unser Team in Berlin-Blankenfelde.
           </p>
