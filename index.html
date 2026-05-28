@@ -125,7 +125,11 @@
     }
     </script>
     <script type="module">
-      import("react-grab");
+      const isLocalHost = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
+
+      if (import.meta.env.DEV && isLocalHost) {
+        import("react-grab");
+      }
     </script>
   </head>
 
