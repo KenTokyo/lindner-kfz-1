@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Paintbrush, Wrench } from 'lucide-react';
 
@@ -6,9 +6,45 @@ interface QuickChoiceProps {
   onSelect?: (category: 'karosserie' | 'autoservice') => void;
 }
 
+const mobileVideoQuery = '(max-width: 767px), (hover: none), (pointer: coarse)';
+
 export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
   const karosserieVideoRef = useRef<HTMLVideoElement>(null);
   const autoserviceVideoRef = useRef<HTMLVideoElement>(null);
+  const [shouldAutoplayVideos, setShouldAutoplayVideos] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia(mobileVideoQuery).matches : false,
+  );
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const mediaQuery = window.matchMedia(mobileVideoQuery);
+    const updateAutoplayMode = () => setShouldAutoplayVideos(mediaQuery.matches);
+
+    updateAutoplayMode();
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', updateAutoplayMode);
+      return () => mediaQuery.removeEventListener('change', updateAutoplayMode);
+    }
+
+    mediaQuery.addListener(updateAutoplayMode);
+    return () => mediaQuery.removeListener(updateAutoplayMode);
+  }, []);
+
+  useEffect(() => {
+    const videos = [karosserieVideoRef.current, autoserviceVideoRef.current].filter(Boolean);
+
+    if (shouldAutoplayVideos) {
+      videos.forEach((video) => {
+        video.play().catch(() => {
+          // Mobile browsers can still defer autoplay in low-power modes.
+        });
+      });
+      return;
+    }
+
+    videos.forEach((video) => video.pause());
+  }, [shouldAutoplayVideos]);
 
   const handleClick = (category: 'karosserie' | 'autoservice') => {
     if (onSelect) {
@@ -25,7 +61,7 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
   };
 
   const handleMouseEnter = (ref: React.RefObject<HTMLVideoElement>) => {
-    if (ref.current) {
+    if (!shouldAutoplayVideos && ref.current) {
       ref.current.play().catch(() => {
         // Ignore autoplay errors if any
       });
@@ -33,7 +69,7 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
   };
 
   const handleMouseLeave = (ref: React.RefObject<HTMLVideoElement>) => {
-    if (ref.current) {
+    if (!shouldAutoplayVideos && ref.current) {
       ref.current.pause();
       // Optional: reset video to start on mouse leave
       // ref.current.currentTime = 0;
@@ -41,7 +77,7 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
   };
 
   return (
-    <section className="relative pt-20 pb-24 bg-neutral-50 overflow-hidden">
+    <section className="relative pt-10 pb-20 md:pt-20 md:pb-24 bg-neutral-50 overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-neutral-200/30 rounded-full blur-3xl -translate-y-1/2" />
@@ -49,12 +85,12 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-12">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-4xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 max-w-4xl mx-auto">
             Karosserie, Lack oder Autoservice? <br />
             Stellen Sie direkt die passende Terminanfrage.
           </h2>
-          <p className="text-neutral-600 text-lg max-w-3xl mx-auto">
+          <p className="text-neutral-600 text-base leading-relaxed md:text-lg max-w-3xl mx-auto">
             Wählen Sie den Bereich, der zu Ihrem Anliegen passt – <br />
             Ihre Anfrage landet ohne Umwege bei uns.
           </p>
@@ -86,10 +122,12 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
               ref={karosserieVideoRef}
               src="/Lindner-Bilder/Service/SUB-HERO Lackieren Video.mp4"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              poster="/Lindner-Bilder/Service/Vorschaubild KaroLack.png"
+              autoPlay={shouldAutoplayVideos}
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
             />
             
             {/* Overlay to ensure text box pops */}
@@ -131,10 +169,12 @@ export const QuickChoice: React.FC<QuickChoiceProps> = ({ onSelect }) => {
               ref={autoserviceVideoRef}
               src="/Lindner-Bilder/Service/SUB-HERO Autoservice.mp4"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              poster="/Lindner-Bilder/Service/Vorschaubild Service.png"
+              autoPlay={shouldAutoplayVideos}
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
             />
             
             {/* Overlay to ensure text box pops */}
