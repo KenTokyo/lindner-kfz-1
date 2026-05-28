@@ -32,3 +32,4 @@ Verwendete Netcup-Defaults:
 - `SMTP_PORT=465`
 - `SMTP_SECURE=true`
 - `SMTP_USER=info@kfz-lindner.de`
+- Passwort-Variable: `SMTP_PASS` (alternativ kompatibel: `SMTP_PASSWORD`)

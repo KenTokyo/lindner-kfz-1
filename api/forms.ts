@@ -1,4 +1,5 @@
 import * as nodemailer from 'nodemailer';
+import { render } from '@react-email/render';
 import {
   hasFormErrors,
   sanitizeApplicationData,
@@ -8,6 +9,10 @@ import {
   type ApplicationFormData,
   type AppointmentFormData,
 } from '../lib/formValidation';
+import { ConfirmTerminAnfrageEmail } from '../emails/ConfirmTerminAnfrageEmail';
+import { NotifyTerminAnfrageEmail } from '../emails/NotifyTerminAnfrageEmail';
+import { ConfirmBewerbungEmail } from '../emails/ConfirmBewerbungEmail';
+import { NotifyBewerbungEmail } from '../emails/NotifyBewerbungEmail';
 
 type FormType = 'appointment' | 'application';
 type AppointmentCategory = 'karosserie' | 'autoservice' | '';
@@ -71,7 +76,7 @@ const getEnvConfig = (): EnvConfig => {
   const port = Number(process.env.SMTP_PORT || 465);
   const secure = (process.env.SMTP_SECURE || 'true').toLowerCase() === 'true';
   const user = process.env.SMTP_USER || '';
-  const pass = process.env.SMTP_PASS || '';
+  const pass = process.env.SMTP_PASS || process.env.SMTP_PASSWORD || '';
   const to = process.env.MAIL_TO || user;
   const from = process.env.MAIL_FROM || user;
 
@@ -103,102 +108,94 @@ const getTransporter = (): nodemailer.Transporter => {
   return transporter;
 };
 
-const categoryLabel = (category: AppointmentCategory): string => {
-  if (category === 'karosserie') return 'Karosserie & Lack';
-  if (category === 'autoservice') return 'Autoservice';
-  return 'Nicht angegeben';
-};
-
-const escapeHtml = (value: string): string =>
-  value
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-
-const htmlWithBreaks = (value: string): string => escapeHtml(value).replace(/\n/g, '<br />');
-
-const appointmentText = (
-  data: AppointmentFormData,
-  category: AppointmentCategory
-): string => [
-  'Neue Terminanfrage von der Website',
-  '',
-  `Bereich: ${categoryLabel(category)}`,
-  `Name: ${data.name}`,
-  `E-Mail: ${data.email}`,
-  `Telefon: ${data.telefon || '-'}`,
-  `Kennzeichen: ${data.kennzeichen || '-'}`,
-  `Wunschtermin: ${data.wunschtermin || '-'}`,
-  '',
-  'Anliegen:',
-  data.nachricht,
-].join('\n');
-
-const applicationText = (data: ApplicationFormData): string => [
-  'Neue Bewerbung von der Website',
-  '',
-  `Name: ${data.name}`,
-  `E-Mail: ${data.email}`,
-  `Telefon: ${data.telefon || '-'}`,
-  `Position: ${data.position}`,
-  '',
-  'Nachricht:',
-  data.nachricht,
-].join('\n');
-
-const appointmentHtml = (
-  data: AppointmentFormData,
-  category: AppointmentCategory
-): string => `
-  <h2>Neue Terminanfrage</h2>
-  <p><strong>Bereich:</strong> ${escapeHtml(categoryLabel(category))}</p>
-  <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
-  <p><strong>E-Mail:</strong> ${escapeHtml(data.email)}</p>
-  <p><strong>Telefon:</strong> ${escapeHtml(data.telefon || '-')}</p>
-  <p><strong>Kennzeichen:</strong> ${escapeHtml(data.kennzeichen || '-')}</p>
-  <p><strong>Wunschtermin:</strong> ${escapeHtml(data.wunschtermin || '-')}</p>
-  <p><strong>Anliegen:</strong></p>
-  <p>${htmlWithBreaks(data.nachricht)}</p>
-`;
-
-const applicationHtml = (data: ApplicationFormData): string => `
-  <h2>Neue Bewerbung</h2>
-  <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
-  <p><strong>E-Mail:</strong> ${escapeHtml(data.email)}</p>
-  <p><strong>Telefon:</strong> ${escapeHtml(data.telefon || '-')}</p>
-  <p><strong>Position:</strong> ${escapeHtml(data.position)}</p>
-  <p><strong>Nachricht:</strong></p>
-  <p>${htmlWithBreaks(data.nachricht)}</p>
-`;
-
 const sendAppointmentEmail = async (
   data: AppointmentFormData,
   category: AppointmentCategory
 ) => {
   const smtpConfig = getEnvConfig();
   const mailer = getTransporter();
+
+  // Business notification
+  const notifyHtml = await render(
+    NotifyTerminAnfrageEmail({
+      name: data.name,
+      email: data.email,
+      telefon: data.telefon || '',
+      kennzeichen: data.kennzeichen || '',
+      wunschtermin: data.wunschtermin || '',
+      nachricht: data.nachricht,
+      category,
+    })
+  );
+
   await mailer.sendMail({
     from: smtpConfig.from,
     to: smtpConfig.to,
     replyTo: data.email,
-    subject: `Neue Terminanfrage (${categoryLabel(category)})`,
-    text: appointmentText(data, category),
-    html: appointmentHtml(data, category),
+    subject: `Neue Terminanfrage${
+      category === 'karosserie'
+        ? ' (Karosserie & Lack)'
+        : category === 'autoservice'
+        ? ' (Autoservice)'
+        : ''
+    }`,
+    html: notifyHtml,
+  });
+
+  // User confirmation
+  const confirmHtml = await render(
+    ConfirmTerminAnfrageEmail({
+      name: data.name,
+      wunschtermin: data.wunschtermin || '',
+      kennzeichen: data.kennzeichen || '',
+      category,
+    })
+  );
+
+  await mailer.sendMail({
+    from: smtpConfig.from,
+    to: data.email,
+    subject: 'Ihre Terminanfrage bei KFZ Lindner',
+    html: confirmHtml,
   });
 };
 
 const sendApplicationEmail = async (data: ApplicationFormData) => {
   const smtpConfig = getEnvConfig();
   const mailer = getTransporter();
+
+  // Business notification
+  const notifyHtml = await render(
+    NotifyBewerbungEmail({
+      name: data.name,
+      email: data.email,
+      telefon: data.telefon || '',
+      position: data.position,
+      nachricht: data.nachricht,
+    })
+  );
+
   await mailer.sendMail({
     from: smtpConfig.from,
     to: smtpConfig.to,
     replyTo: data.email,
     subject: `Neue Bewerbung (${data.position})`,
-    text: applicationText(data),
-    html: applicationHtml(data),
+    html: notifyHtml,
+  });
+
+  // User confirmation
+  const confirmHtml = await render(
+    ConfirmBewerbungEmail({
+      name: data.name,
+      position: data.position,
+    })
+  );
+
+  await mailer.sendMail({
+    from: smtpConfig.from,
+    to: data.email,
+    subject: 'Ihre Bewerbung bei KFZ Lindner',
+    html: confirmHtml,
   });
 };
 
