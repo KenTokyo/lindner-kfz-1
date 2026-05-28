@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, Building2 } from 'lucide-react';
+import { GoogleMapConsent } from '../shared/GoogleMapConsent';
 
 export const ContactSection: React.FC = () => {
   return (
@@ -86,16 +87,7 @@ export const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="h-full min-h-[450px] w-full rounded-2xl overflow-hidden relative shadow-2xl">
-            <iframe
-              title="Google Maps Standort KFZ Lindner"
-              src="https://www.google.com/maps?q=Hauptstra%C3%9Fe%2043%2C%2013159%20Berlin-Blankenfelde&output=embed"
-              className="absolute inset-0 h-full w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
-          </div>
+          <GoogleMapConsent className="h-full min-h-[450px] w-full rounded-2xl shadow-2xl" />
         </div>
       </div>
     </section>

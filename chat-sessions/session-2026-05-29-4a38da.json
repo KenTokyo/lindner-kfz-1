@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "id": "session-2026-05-29-4a38da",
+  "title": "Neuer Chat",
+  "profileId": "cb6a2444-f195-4a77-987e-3e309cf24fb3",
+  "createdAt": "2026-05-28T22:15:13.864Z",
+  "updatedAt": "2026-05-28T22:15:14.595Z",
+  "lastMessageAt": "2026-05-28T22:15:13.864Z",
+  "isPinned": false,
+  "isFavorite": false,
+  "isArchived": false,
+  "sessionMode": "chat",
+  "category": null,
+  "tags": null,
+  "summaryText": null,
+  "messageCount": 0,
+  "totalTokens": 0,
+  "messages": [],
+  "metadata": {
+    "avgResponseTime": null,
+    "workspaceScopeJson": "{\"timer\":{\"accumulatedMs\":0,\"phase\":\"idle\",\"warnedAtMs\":null,\"limitReachedAtMs\":null,\"lastModelKey\":\"cli:gpt-5.3-codex\",\"updatedAtMs\":1780006514170}}",
+    "previousSessionId": null
+  }
+}

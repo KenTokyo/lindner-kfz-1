@@ -1,11 +1,51 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { FileCheck, LockKeyhole, Mail, MapPinned, Server, UserRoundCheck } from 'lucide-react';
 import { setPageSeo, webPageSchema } from '../utils/seo';
+
+const sections = [
+  {
+    id: 'verantwortlicher',
+    title: '1. Verantwortlicher',
+    icon: UserRoundCheck,
+  },
+  {
+    id: 'hosting',
+    title: '2. Website-Aufruf und Server-Logfiles',
+    icon: Server,
+  },
+  {
+    id: 'kontakt',
+    title: '3. Kontakt, Termin- und Bewerbungsanfragen',
+    icon: Mail,
+  },
+  {
+    id: 'maps',
+    title: '4. Google Maps',
+    icon: MapPinned,
+  },
+  {
+    id: 'schriftarten',
+    title: '5. Schriftarten und Tracking',
+    icon: FileCheck,
+  },
+  {
+    id: 'rechte',
+    title: '6. Ihre Rechte',
+    icon: UserRoundCheck,
+  },
+  {
+    id: 'sicherheit',
+    title: '7. Sicherheit und Aktualitaet',
+    icon: LockKeyhole,
+  },
+];
 
 export const DatenschutzPage: React.FC = () => {
   useEffect(() => {
-    const title = 'Datenschutzerklärung | KFZ Lindner Berlin';
-    const description = 'Datenschutzerklärung von KFZ Lindner und Autoservice Lindner in Berlin. Informationen zur Datenverarbeitung gemäß DSGVO.';
+    const title = 'Datenschutz | KFZ Lindner Berlin';
+    const description =
+      'Datenschutzhinweise der Kfz-Werkstatt Lindner und der Autoservice Lindner GmbH fuer Website, Formulare, Bewerbungen und Google Maps.';
 
     setPageSeo({
       title,
@@ -16,222 +56,230 @@ export const DatenschutzPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-28 pb-24 min-h-screen">
-      <div className="max-w-4xl mx-auto px-6 md:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+    <div className="min-h-screen bg-white pt-28 pb-24">
+      <div className="mx-auto max-w-6xl px-6 md:px-12">
+        <motion.header
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
+          className="mb-12 grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-end"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">Datenschutzerklärung</h1>
-          <p className="text-neutral-500 mb-12">Informationen zur Verarbeitung Ihrer personenbezogenen Daten</p>
-        </motion.div>
+          <div>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-neutral-400">
+              Datenschutz
+            </p>
+            <h1 className="max-w-4xl text-4xl font-bold tracking-tight text-neutral-950 md:text-6xl">
+              Datenschutzerkl&auml;rung
+            </h1>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-600">
+              Informationen zur Verarbeitung personenbezogener Daten auf dieser Website und bei
+              Kontaktaufnahme mit Kfz-Werkstatt Lindner oder Autoservice Lindner GmbH.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 text-sm leading-relaxed text-neutral-600">
+            <p className="font-semibold text-neutral-950">Stand: 28. Mai 2026</p>
+            <p className="mt-2">
+              Google Maps wird auf dieser Website erst nach aktiver Zustimmung geladen. Vor dem
+              Klick findet keine Kartenanfrage an Google statt.
+            </p>
+          </div>
+        </motion.header>
 
-        {/* Platzhalter-Hinweis */}
-        <div className="p-6 bg-amber-50 rounded-2xl border border-amber-200 mb-12">
-          <p className="text-sm text-amber-700">
-            <strong>Intern:</strong> Dieser Text dient als Strukturvorlage. Die vollständige DSGVO-konforme
-            Datenschutzerklärung muss vor dem Go-Live durch einen rechtlich geprüften Text ersetzt oder ergänzt werden.
-          </p>
+        <div className="mb-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {sections.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <motion.a
+                key={item.id}
+                href={`#${item.id}`}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.04 }}
+                className="group flex items-center gap-4 rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm transition hover:border-neutral-300 hover:bg-neutral-50"
+              >
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-neutral-950 text-white">
+                  <Icon size={19} />
+                </span>
+                <span className="text-sm font-semibold text-neutral-800 group-hover:text-neutral-950">
+                  {item.title}
+                </span>
+              </motion.a>
+            );
+          })}
         </div>
 
-        <div className="space-y-10 text-neutral-600 leading-relaxed">
-          {/* 1. Verantwortlicher */}
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">1. Verantwortlicher</h2>
-            <p>
-              Verantwortlich für die Datenverarbeitung auf dieser Website sind:
+        <div className="space-y-10 text-sm leading-relaxed text-neutral-600">
+          <section id="verantwortlicher" className="rounded-2xl border border-neutral-200 bg-neutral-950 p-7 text-white md:p-8">
+            <h2 className="text-2xl font-semibold">1. Verantwortlicher</h2>
+            <p className="mt-5 text-white/70">
+              Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) sind die jeweiligen
+              Betriebe am Standort, soweit ihre Leistungen oder Anfragen betroffen sind:
             </p>
-            <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="p-4 bg-neutral-50 rounded-xl border border-neutral-100">
-                <p className="font-semibold text-neutral-800">KFZ Lindner</p>
-                <p>Hauptstraße 43<br />13159 Berlin-Blankenfelde</p>
-                <p>Telefon: 030 / 913 12 52</p>
-                <p>E-Mail: info@kfz-lindner.de</p>
+            <div className="mt-6 grid gap-5 md:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <p className="font-semibold text-white">Kfz-Werkstatt Lindner</p>
+                <p className="mt-3 text-white/70">
+                  Detlef Lindner
+                  <br />
+                  Hauptstr. 43
+                  <br />
+                  13159 Berlin
+                  <br />
+                  Deutschland
+                  <br />
+                  Telefon:{' '}
+                  <a href="tel:+49309131252" className="underline decoration-white/30 underline-offset-4">
+                    +49 30 913 12 52
+                  </a>
+                  <br />
+                  E-Mail:{' '}
+                  <a href="mailto:info@kfz-lindner.de" className="underline decoration-white/30 underline-offset-4">
+                    info@kfz-lindner.de
+                  </a>
+                </p>
               </div>
-              <div className="p-4 bg-neutral-50 rounded-xl border border-neutral-100">
-                <p className="font-semibold text-neutral-800">Autoservice Lindner</p>
-                <p>Hauptstraße 43<br />13159 Berlin-Blankenfelde</p>
-                <p>E-Mail: info@kfz-lindner.de</p>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <p className="font-semibold text-white">Autoservice Lindner GmbH</p>
+                <p className="mt-3 text-white/70">
+                  Geschaeftsfuehrerin: Katrin Lindner
+                  <br />
+                  Hauptstr. 43-45
+                  <br />
+                  13159 Berlin
+                  <br />
+                  Telefon:{' '}
+                  <a href="tel:+49309131252" className="underline decoration-white/30 underline-offset-4">
+                    +49 30 913 12 52
+                  </a>
+                  <br />
+                  E-Mail:{' '}
+                  <a href="mailto:info@kfz-lindner.de" className="underline decoration-white/30 underline-offset-4">
+                    info@kfz-lindner.de
+                  </a>
+                </p>
               </div>
             </div>
           </section>
 
-          {/* 2. Allgemeines zur Datenverarbeitung */}
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">2. Allgemeines zur Datenverarbeitung</h2>
-            <p>
-              Wir verarbeiten personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies zur
-              Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich ist.
-              Die Verarbeitung personenbezogener Daten unserer Nutzer erfolgt regelmäßig nur nach Einwilligung
-              des Nutzers. Eine Ausnahme gilt in solchen Fällen, in denen eine vorherige Einholung einer
-              Einwilligung aus tatsächlichen Gründen nicht möglich ist und die Verarbeitung der Daten durch
-              gesetzliche Vorschriften gestattet ist.
+          <section id="hosting" className="rounded-2xl border border-neutral-200 bg-white p-7 md:p-8">
+            <h2 className="text-2xl font-semibold text-neutral-950">2. Website-Aufruf und Server-Logfiles</h2>
+            <p className="mt-5">
+              Beim Aufruf dieser Website verarbeitet der eingesetzte Webserver technisch notwendige
+              Zugriffsdaten, damit die Seite ausgeliefert, stabil betrieben und gegen Missbrauch
+              abgesichert werden kann. Dazu koennen insbesondere IP-Adresse, Datum und Uhrzeit des
+              Abrufs, angeforderte URL, Referrer-URL, Browsertyp, Betriebssystem und uebertragene
+              Datenmenge gehoeren.
+            </p>
+            <p className="mt-4">
+              Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt im
+              sicheren und fehlerfreien Betrieb der Website. Logfiles werden nur so lange gespeichert,
+              wie dies fuer Sicherheit, Fehleranalyse und technische Nachvollziehbarkeit erforderlich ist.
+            </p>
+            <p className="mt-4">
+              Fuer Betrieb, Hosting und E-Mail-Zustellung koennen technische Dienstleister als
+              Auftragsverarbeiter eingesetzt werden. Mit diesen Dienstleistern werden, soweit
+              erforderlich, Vereinbarungen nach Art. 28 DSGVO geschlossen.
             </p>
           </section>
 
-          {/* 3. Rechtsgrundlage */}
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">3. Rechtsgrundlage</h2>
-            <p>
-              Soweit wir für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung der betroffenen
-              Person einholen, dient Art. 6 Abs. 1 lit. a EU-Datenschutzgrundverordnung (DSGVO) als Rechtsgrundlage.
+          <section id="kontakt" className="rounded-2xl border border-neutral-200 bg-neutral-50 p-7 md:p-8">
+            <h2 className="text-2xl font-semibold text-neutral-950">3. Kontakt, Termin- und Bewerbungsanfragen</h2>
+            <p className="mt-5">
+              Wenn Sie uns per Formular, E-Mail oder Telefon kontaktieren, verarbeiten wir die von
+              Ihnen angegebenen Daten zur Bearbeitung Ihrer Anfrage. Je nach Formular koennen dazu
+              Name, E-Mail-Adresse, Telefonnummer, Nachricht, gewaehlter Leistungsbereich,
+              Fahrzeug- oder Termindaten sowie bei Bewerbungen Angaben zur gewuenschten Position
+              gehoeren.
             </p>
-            <p className="mt-3">
-              Bei der Verarbeitung von personenbezogenen Daten, die zur Erfüllung eines Vertrages, dessen
-              Vertragspartei die betroffene Person ist, erforderlich ist, dient Art. 6 Abs. 1 lit. b DSGVO als
-              Rechtsgrundlage. Für die Verarbeitung, die zur Wahrung eines berechtigten Interesses unseres
-              Unternehmens erforderlich ist, dient Art. 6 Abs. 1 lit. f DSGVO als Rechtsgrundlage.
+            <p className="mt-4">
+              Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit die Verarbeitung zur
+              Durchfuehrung vorvertraglicher Massnahmen oder zur Vertragsabwicklung erfolgt. Im
+              Uebrigen verarbeiten wir Anfragen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO, weil
+              wir ein berechtigtes Interesse an der Beantwortung von Kontaktanfragen haben.
             </p>
-          </section>
-
-          {/* 4. Server-Logfiles */}
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">4. Bereitstellung der Website und Erstellung von Logfiles</h2>
-            <p>
-              Bei jedem Aufruf unserer Internetseite erfasst unser System automatisiert Daten und Informationen
-              des aufrufenden Rechners. Folgende Daten werden hierbei erhoben:
-            </p>
-            <ul className="list-disc pl-6 mt-3 space-y-1">
-              <li>Informationen über den Browsertyp und die verwendete Version</li>
-              <li>Das Betriebssystem des Nutzers</li>
-              <li>Die IP-Adresse des Nutzers</li>
-              <li>Datum und Uhrzeit des Zugriffs</li>
-              <li>Websites, von denen das System des Nutzers auf unsere Internetseite gelangt (Referrer)</li>
-            </ul>
-            <p className="mt-3">
-              Die Daten werden in den Logfiles unseres Systems gespeichert. Eine Speicherung dieser Daten zusammen
-              mit anderen personenbezogenen Daten des Nutzers findet nicht statt. Rechtsgrundlage ist Art. 6 Abs. 1
-              lit. f DSGVO. Die Erhebung der Daten zur Bereitstellung der Website und die Speicherung der Daten
-              in Logfiles ist für den Betrieb der Internetseite zwingend erforderlich.
+            <p className="mt-4">
+              Bewerbungsdaten verarbeiten wir zur Durchfuehrung des Bewerbungsverfahrens auf
+              Grundlage von Art. 6 Abs. 1 lit. b DSGVO in Verbindung mit Paragraf 26 BDSG. Nach
+              Abschluss des Bewerbungsverfahrens loeschen wir Bewerbungsdaten regelmaessig
+              spaetestens nach sechs Monaten, sofern keine gesetzlichen Pflichten oder berechtigten
+              Interessen eine laengere Speicherung erfordern.
             </p>
           </section>
 
-          {/* 5. Kontaktformular */}
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">5. Kontakt- und Terminanfrageformular</h2>
-            <p>
-              Auf unserer Internetseite sind Formulare vorhanden, die für die Terminanfrage sowie Kontaktaufnahme
-              genutzt werden können. Nimmt ein Nutzer diese Möglichkeit wahr, so werden die in der Eingabemaske
-              eingegeben Daten an uns übermittelt und gespeichert. Diese Daten sind:
+          <section id="maps" className="rounded-2xl border border-neutral-200 bg-white p-7 md:p-8">
+            <h2 className="text-2xl font-semibold text-neutral-950">4. Google Maps</h2>
+            <p className="mt-5">
+              Diese Website bindet Google Maps ueber eine Zwei-Klick-Loesung ein. Die Karte wird
+              erst geladen, wenn Sie auf den Button zum Laden von Google Maps klicken. Erst dann
+              wird eine Verbindung zu Google aufgebaut.
             </p>
-            <ul className="list-disc pl-6 mt-3 space-y-1">
-              <li>Name</li>
-              <li>E-Mail-Adresse</li>
-              <li>Telefonnummer (optional)</li>
-              <li>Anliegen / Nachricht</li>
-              <li>Gewählter Bereich (Karosserie & Lack / Autoservice)</li>
-              <li>Kennzeichen (optional)</li>
-              <li>Wunschtermin (optional)</li>
-            </ul>
-            <p className="mt-3">
-              Die Verarbeitung der personenbezogenen Daten aus der Eingabemaske dient uns allein zur Bearbeitung
-              der Kontaktaufnahme bzw. Terminanfrage. Die Daten werden nach abgeschlossener Bearbeitung Ihres
-              Anliegens gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.
+            <p className="mt-4">
+              Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
+              Im Rahmen der Nutzung koennen insbesondere IP-Adresse, Browser- und Geraetedaten,
+              Referrer-URL sowie, falls Sie bei Google angemeldet sind, weitere Kontodaten
+              verarbeitet werden. Eine Uebermittlung an Google LLC in den USA kann nicht
+              ausgeschlossen werden.
             </p>
-            <p className="mt-3">
-              Rechtsgrundlage für die Verarbeitung der Daten ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche
-              Maßnahmen) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung Ihres Anliegens).
+            <p className="mt-4">
+              Rechtsgrundlage fuer das Laden der Karte ist Ihre Einwilligung nach Art. 6 Abs. 1
+              lit. a DSGVO sowie, soweit Cookies oder vergleichbare Technologien eingesetzt
+              werden, Paragraf 25 Abs. 1 TDDDG. Sie koennen die Seite nutzen, ohne Google Maps zu
+              aktivieren. Alternativ koennen Sie den Standort direkt in Google Maps oeffnen.
             </p>
-          </section>
-
-          {/* 6. Bewerbungsformular */}
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">6. Bewerbungsformular</h2>
-            <p>
-              Auf unserer Karriereseite können Sie sich über ein Formular bewerben. Dabei werden folgende Daten
-              erhoben: Name, E-Mail-Adresse, Telefonnummer (optional), gewünschte Position und Ihre Nachricht.
-            </p>
-            <p className="mt-3">
-              Die Daten werden ausschließlich zum Zweck der Bearbeitung Ihrer Bewerbung verarbeitet. Rechtsgrundlage
-              ist Art. 6 Abs. 1 lit. b DSGVO i.V.m. § 26 BDSG. Ihre Bewerbungsdaten werden nach Abschluss des
-              Bewerbungsverfahrens gelöscht, sofern kein berechtigtes Interesse an einer weiteren Speicherung besteht
-              (max. 6 Monate nach Abschluss des Verfahrens).
+            <p className="mt-4">
+              Weitere Informationen finden Sie in der Datenschutzerklaerung von Google:{' '}
+              <a
+                href="https://policies.google.com/privacy?hl=de"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-neutral-950 underline underline-offset-4"
+              >
+                policies.google.com/privacy
+              </a>
+              .
             </p>
           </section>
 
-          {/* 7. Cookies */}
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">7. Cookies</h2>
-            <p>
-              Diese Website verwendet ausschließlich technisch notwendige Cookies, die für den Betrieb der Seite
-              erforderlich sind. Es werden keine Tracking-Cookies, Analyse-Tools oder Marketing-Cookies eingesetzt.
+          <section id="schriftarten" className="rounded-2xl border border-neutral-200 bg-neutral-50 p-7 md:p-8">
+            <h2 className="text-2xl font-semibold text-neutral-950">5. Schriftarten, Cookies und Tracking</h2>
+            <p className="mt-5">
+              Die Website verwendet keine extern nachgeladenen Google Fonts. Schriftarten werden
+              lokal beziehungsweise ueber Systemschriften des Endgeraets dargestellt.
             </p>
-            <p className="mt-3">
-              Da ausschließlich technisch notwendige Cookies verwendet werden, ist keine Einwilligung erforderlich.
-              Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.
-            </p>
-          </section>
-
-          {/* 8. Externe Dienste */}
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">8. Externe Dienste</h2>
-
-            <h3 className="text-lg font-semibold text-neutral-800 mt-6 mb-2">Google Fonts</h3>
-            <p>
-              Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten sogenannte Google Fonts.
-              Beim Aufruf einer Seite lädt Ihr Browser die benötigten Schriftarten in Ihren Browser-Cache.
-              Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von Google aufnehmen.
-              Hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP-Adresse unsere Website aufgerufen wurde.
-            </p>
-            <p className="mt-3">
-              Die Nutzung von Google Fonts erfolgt im Interesse einer einheitlichen und ansprechenden Darstellung
-              unserer Online-Angebote. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen zu
-              Google Fonts finden Sie in der Datenschutzerklärung von Google.
-            </p>
-
-            <h3 className="text-lg font-semibold text-neutral-800 mt-6 mb-2">Kein Tracking / Keine Analyse-Tools</h3>
-            <p>
-              Wir setzen auf dieser Website keine Analyse- oder Tracking-Tools ein (kein Google Analytics,
-              kein Meta Pixel o.ä.). Es werden keine Nutzungsprofile erstellt.
+            <p className="mt-4">
+              Es werden keine Analyse- oder Marketing-Tools wie Google Analytics oder Meta Pixel
+              eingesetzt. Die Website setzt ohne Ihre aktive Entscheidung keine nicht notwendigen
+              Tracking-Cookies. Wenn Google Maps aktiviert wird, gelten die Hinweise im Abschnitt
+              Google Maps.
             </p>
           </section>
 
-          {/* 9. Rechte der Betroffenen */}
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">9. Ihre Rechte</h2>
-            <p>
-              Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:
+          <section id="rechte" className="rounded-2xl border border-neutral-200 bg-white p-7 md:p-8">
+            <h2 className="text-2xl font-semibold text-neutral-950">6. Ihre Rechte</h2>
+            <p className="mt-5">
+              Sie haben nach Massgabe der gesetzlichen Voraussetzungen folgende Rechte: Auskunft
+              nach Art. 15 DSGVO, Berichtigung nach Art. 16 DSGVO, Loeschung nach Art. 17 DSGVO,
+              Einschraenkung der Verarbeitung nach Art. 18 DSGVO, Datenuebertragbarkeit nach Art.
+              20 DSGVO, Widerspruch nach Art. 21 DSGVO sowie Widerruf einer erteilten Einwilligung
+              nach Art. 7 Abs. 3 DSGVO.
             </p>
-            <ul className="list-disc pl-6 mt-3 space-y-1">
-              <li><strong>Recht auf Auskunft</strong> (Art. 15 DSGVO)</li>
-              <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO)</li>
-              <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
-              <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
-              <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
-              <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO)</li>
-              <li><strong>Recht auf Widerruf</strong> einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)</li>
-              <li><strong>Beschwerderecht bei einer Aufsichtsbehörde</strong> (Art. 77 DSGVO)</li>
-            </ul>
-            <p className="mt-3">
-              Die zuständige Aufsichtsbehörde ist:
-            </p>
-            <p className="mt-2 p-4 bg-neutral-50 rounded-xl border border-neutral-100">
-              Berliner Beauftragte für Datenschutz und Informationsfreiheit<br />
-              Alt-Moabit 59-61<br />
-              10555 Berlin
+            <p className="mt-4">
+              Ausserdem besteht ein Beschwerderecht bei einer Datenschutzaufsichtsbehoerde. Fuer
+              Berlin ist dies die Berliner Beauftragte fuer Datenschutz und Informationsfreiheit,
+              Alt-Moabit 59-61, 10555 Berlin.
             </p>
           </section>
 
-          {/* 10. SSL-Verschlüsselung */}
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">10. SSL-/TLS-Verschlüsselung</h2>
-            <p>
-              Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte
-              eine SSL-/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die
-              Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in
-              Ihrer Browserzeile.
+          <section id="sicherheit" className="rounded-2xl border border-neutral-200 bg-neutral-950 p-7 text-white md:p-8">
+            <h2 className="text-2xl font-semibold">7. Sicherheit und Aktualitaet</h2>
+            <p className="mt-5 text-white/70">
+              Diese Website nutzt eine SSL-/TLS-Verschluesselung, sofern sie ueber HTTPS
+              ausgeliefert wird. Eine verschluesselte Verbindung erkennen Sie am Schloss-Symbol
+              Ihres Browsers.
             </p>
-          </section>
-
-          {/* 11. Aktualität */}
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">11. Aktualität und Änderung dieser Datenschutzerklärung</h2>
-            <p>
-              Diese Datenschutzerklärung ist aktuell gültig und hat den Stand [Datum wird ergänzt].
-            </p>
-            <p className="mt-3">
-              Durch die Weiterentwicklung unserer Website und Angebote oder aufgrund geänderter gesetzlicher
-              bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.
+            <p className="mt-4 text-white/70">
+              Wir passen diese Datenschutzerklaerung an, wenn technische, organisatorische oder
+              rechtliche Aenderungen dies erforderlich machen. Massgeblich ist die jeweils
+              aktuelle Fassung auf dieser Website.
             </p>
           </section>
         </div>

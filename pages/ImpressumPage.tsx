@@ -1,11 +1,21 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { BadgeCheck, Building2, FileText, Mail, MapPin, Phone } from 'lucide-react';
+import { GoogleMapConsent } from '../components/shared/GoogleMapConsent';
 import { setPageSeo, webPageSchema } from '../utils/seo';
+
+const contactItems = [
+  { label: 'Adresse', value: 'Hauptstr. 43-45, 13159 Berlin', icon: MapPin },
+  { label: 'Telefon', value: '+49 30 913 12 52', icon: Phone },
+  { label: 'E-Mail', value: 'info@kfz-lindner.de', icon: Mail },
+  { label: 'Register', value: 'HRB 130211 B, Amtsgericht Berlin (Charlottenburg)', icon: FileText },
+];
 
 export const ImpressumPage: React.FC = () => {
   useEffect(() => {
-    const title = 'Impressum | KFZ Lindner Berlin';
-    const description = 'Impressum von KFZ Lindner und Autoservice Lindner in Berlin-Blankenfelde. Angaben gemäß § 5 TMG.';
+    const title = 'Impressum | KFZ Lindner und Autoservice Lindner Berlin';
+    const description =
+      'Impressum der Kfz-Werkstatt Lindner und der Autoservice Lindner GmbH in Berlin-Blankenfelde mit Angaben nach Paragraf 5 DDG.';
 
     setPageSeo({
       title,
@@ -16,192 +26,234 @@ export const ImpressumPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="pt-28 pb-24 min-h-screen">
-      <div className="max-w-4xl mx-auto px-6 md:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+    <div className="min-h-screen bg-white pt-28 pb-24">
+      <div className="mx-auto max-w-6xl px-6 md:px-12">
+        <motion.header
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
+          className="mb-12 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">Impressum</h1>
-          <p className="text-neutral-500 mb-12">Angaben gemäß § 5 TMG</p>
-        </motion.div>
-
-        {/* Zwei Firmierungen */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
-          {/* KFZ Lindner */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="p-8 bg-neutral-50 rounded-2xl border border-neutral-100"
-          >
-            <h2 className="text-2xl font-bold text-neutral-900 mb-6">KFZ Lindner</h2>
-            <p className="text-neutral-700 leading-relaxed mb-4">
-              Karosserie- und Lackierbetrieb
+          <div>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-neutral-400">
+              Rechtliches
             </p>
-            <div className="space-y-3 text-neutral-600">
-              <p>
-                <span className="font-semibold text-neutral-700">Inhaberin:</span><br />
-                [Name der Inhaberin]
-              </p>
-              <p>
-                <span className="font-semibold text-neutral-700">Anschrift:</span><br />
-                Hauptstraße 43<br />
-                13159 Berlin-Blankenfelde
-              </p>
-              <p>
-                <span className="font-semibold text-neutral-700">Telefon:</span><br />
-                030 / 913 12 52
-              </p>
-              <p>
-                <span className="font-semibold text-neutral-700">E-Mail:</span><br />
-                <a href="mailto:info@kfz-lindner.de" className="underline hover:text-neutral-900 transition-colors">
-                  info@kfz-lindner.de
-                </a>
-              </p>
-              <p>
-                <span className="font-semibold text-neutral-700">Handwerkskammer:</span><br />
-                [Handwerkskammer Berlin – wird ergänzt]
-              </p>
-              <p>
-                <span className="font-semibold text-neutral-700">Berufsbezeichnung:</span><br />
-                Karosserie- und Fahrzeugbaumechaniker-Meister/in
-              </p>
-              <p>
-                <span className="font-semibold text-neutral-700">USt-IdNr.:</span><br />
-                [wird ergänzt]
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Autoservice Lindner */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="p-8 bg-neutral-50 rounded-2xl border border-neutral-100"
-          >
-            <h2 className="text-2xl font-bold text-neutral-900 mb-6">Autoservice Lindner</h2>
-            <p className="text-neutral-700 leading-relaxed mb-4">
-              Mechanik, Service & Inspektion
+            <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-neutral-950 md:text-6xl">
+              Impressum
+            </h1>
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-600">
+              Angaben gemaess Paragraf 5 DDG fuer den Internetauftritt von Kfz-Werkstatt
+              Lindner und Autoservice Lindner GmbH in Berlin-Blankenfelde.
             </p>
-            <div className="space-y-3 text-neutral-600">
-              <p>
-                <span className="font-semibold text-neutral-700">Inhaberin:</span><br />
-                [Name der Inhaberin]
-              </p>
-              <p>
-                <span className="font-semibold text-neutral-700">Anschrift:</span><br />
-                Hauptstraße 43<br />
-                13159 Berlin-Blankenfelde
-              </p>
-              <p>
-                <span className="font-semibold text-neutral-700">E-Mail:</span><br />
-                <a href="mailto:info@kfz-lindner.de" className="underline hover:text-neutral-900 transition-colors">
-                  info@kfz-lindner.de
-                </a>
-              </p>
-              <p>
-                <span className="font-semibold text-neutral-700">Handwerkskammer:</span><br />
-                [Handwerkskammer Berlin – wird ergänzt]
-              </p>
-              <p>
-                <span className="font-semibold text-neutral-700">USt-IdNr.:</span><br />
-                [wird ergänzt]
-              </p>
-            </div>
-          </motion.div>
-        </div>
+          </div>
+          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 text-sm leading-relaxed text-neutral-600">
+            <p className="font-semibold text-neutral-950">Hinweis</p>
+            <p className="mt-2">
+              Die EU-Plattform zur Online-Streitbeilegung wurde zum 20. Juli 2025 eingestellt.
+              Deshalb wird hier kein veralteter OS-Link mehr gefuehrt.
+            </p>
+          </div>
+        </motion.header>
 
-        {/* Hinweis "unter einem Dach" */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="p-6 bg-neutral-900 text-white rounded-2xl mb-16"
-        >
-          <p className="text-sm leading-relaxed">
-            <strong>Hinweis:</strong> KFZ Lindner (Karosserie & Lack) und Autoservice Lindner (Mechanik, Service & Inspektion)
-            sind zwei eigenständige Betriebe unter einem Dach am Standort Hauptstraße 43, 13159 Berlin-Blankenfelde.
-          </p>
-        </motion.div>
-
-        {/* Streitschlichtung */}
-        <div className="space-y-10 text-neutral-600 leading-relaxed">
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">Streitschlichtung</h2>
-            <p>
-              Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{' '}
-              <a
-                href="https://ec.europa.eu/consumers/odr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-neutral-900 transition-colors"
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {contactItems.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05 * index }}
+                className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm"
               >
-                https://ec.europa.eu/consumers/odr/
-              </a>
-            </p>
-            <p className="mt-3">
-              Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
-              Verbraucherschlichtungsstelle teilzunehmen.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">Haftung für Inhalte</h2>
-            <p>
-              Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den
-              allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
-              verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu
-              forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
-            </p>
-            <p className="mt-3">
-              Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen
-              Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der
-              Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden
-              Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">Haftung für Links</h2>
-            <p>
-              Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
-              Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der
-              verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
-            </p>
-            <p className="mt-3">
-              Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft.
-              Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche
-              Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht
-              zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-bold text-neutral-900 mb-3">Urheberrecht</h2>
-            <p>
-              Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
-              Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
-              Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
-              Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
-            </p>
-            <p className="mt-3">
-              Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte
-              Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem
-              auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei
-              Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-            </p>
-          </section>
+                <Icon className="mb-6 h-5 w-5 text-neutral-950" />
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-400">
+                  {item.label}
+                </p>
+                <p className="mt-2 text-sm font-medium leading-relaxed text-neutral-900">{item.value}</p>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Platzhalter-Hinweis */}
-        <div className="mt-16 p-6 bg-amber-50 rounded-2xl border border-amber-200">
-          <p className="text-sm text-amber-700">
-            <strong>Intern:</strong> Die mit [eckigen Klammern] markierten Angaben müssen vor dem Go-Live
-            durch die korrekten rechtlichen Informationen ersetzt werden (Inhabername, Handwerkskammer-Nr., USt-IdNr. etc.).
-          </p>
+        <div className="mt-12 grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+          <motion.section
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-2xl border border-neutral-200 bg-neutral-950 p-7 text-white md:p-8"
+          >
+            <div className="mb-8 flex items-center gap-3">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-neutral-950">
+                <Building2 size={21} />
+              </span>
+              <div>
+                <p className="text-sm uppercase tracking-[0.18em] text-white/45">Anbieter</p>
+                <h2 className="text-2xl font-semibold">Betriebe am Standort</h2>
+              </div>
+            </div>
+
+            <div className="grid gap-8 text-sm leading-relaxed md:grid-cols-2">
+              <dl className="space-y-5">
+                <div>
+                  <dt className="text-white/45">Kfz-Werkstatt Lindner</dt>
+                  <dd className="mt-1 font-medium">
+                    Detlef Lindner
+                    <br />
+                    Hauptstr. 43
+                    <br />
+                    13159 Berlin
+                    <br />
+                    Deutschland
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-white/45">Kontakt</dt>
+                  <dd className="mt-1 font-medium">
+                    Telefon:{' '}
+                    <a href="tel:+49309131252" className="underline decoration-white/30 underline-offset-4 hover:text-white/75">
+                      +49 30 913 12 52
+                    </a>
+                    <br />
+                    E-Mail:{' '}
+                    <a href="mailto:info@kfz-lindner.de" className="underline decoration-white/30 underline-offset-4 hover:text-white/75">
+                      info@kfz-lindner.de
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-white/45">Steuerangaben</dt>
+                  <dd className="mt-1 font-medium">
+                    Steuernummer: 35/422/62538
+                    <br />
+                    USt-IdNr.: DE 137047275
+                  </dd>
+                </div>
+              </dl>
+
+              <dl className="space-y-5">
+                <div>
+                  <dt className="text-white/45">Autoservice Lindner GmbH</dt>
+                  <dd className="mt-1 font-medium">
+                    Hauptstr. 43-45
+                    <br />
+                    13159 Berlin
+                    <br />
+                    Deutschland
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-white/45">Vertreten durch</dt>
+                  <dd className="mt-1 font-medium">Geschaeftsfuehrerin Katrin Lindner</dd>
+                </div>
+                <div>
+                  <dt className="text-white/45">Registereintrag</dt>
+                  <dd className="mt-1 font-medium">
+                    Handelsregister: HRB 130211 B
+                    <br />
+                    Registergericht: Amtsgericht Berlin (Charlottenburg)
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-white/45">Steuerangaben</dt>
+                  <dd className="mt-1 font-medium">
+                    Steuernummer: 37/235/21624
+                    <br />
+                    USt-IdNr.: DE 815240659
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </motion.section>
+
+          <div className="space-y-6">
+            <motion.section
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-2xl border border-neutral-200 bg-neutral-50 p-7 md:p-8"
+            >
+              <div className="mb-6 flex items-center gap-3">
+                <BadgeCheck className="h-5 w-5 text-neutral-950" />
+                <h2 className="text-xl font-semibold text-neutral-950">Handwerkliche Angaben</h2>
+              </div>
+              <div className="space-y-4 text-sm leading-relaxed text-neutral-600">
+                <p>
+                  Zustaendige Kammer: Handwerkskammer Berlin, Bluetuetenweg 2, 12359 Berlin.
+                </p>
+                <p>
+                  Die ausgeuebten Leistungen betreffen insbesondere Fahrzeugservice, Reparatur,
+                  Lackierung, Karosseriebau, Unfallinstandsetzung und verwandte Kfz-Leistungen.
+                  Berufsrechtliche Grundlage ist insbesondere die Handwerksordnung, abrufbar unter{' '}
+                  <a
+                    href="https://www.gesetze-im-internet.de/hwo/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-neutral-950 underline underline-offset-4"
+                  >
+                    gesetze-im-internet.de/hwo
+                  </a>
+                  .
+                </p>
+              </div>
+            </motion.section>
+
+            <motion.section
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="rounded-2xl border border-neutral-200 bg-white p-7 md:p-8"
+            >
+              <h2 className="text-xl font-semibold text-neutral-950">Redaktionell verantwortlich</h2>
+              <p className="mt-4 text-sm leading-relaxed text-neutral-600">
+                Verantwortlich fuer journalistisch-redaktionelle Inhalte im Sinne von Paragraf 18
+                Abs. 2 MStV: Katrin Lindner, Anschrift wie oben.
+              </p>
+            </motion.section>
+          </div>
         </div>
+
+        <section className="mt-12 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="space-y-8 text-sm leading-relaxed text-neutral-600">
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-950">Verbraucherstreitbeilegung</h2>
+              <p className="mt-3">
+                Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor
+                einer Verbraucherschlichtungsstelle teilzunehmen.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-950">Haftung fuer Inhalte</h2>
+              <p className="mt-3">
+                Als Diensteanbieter sind wir fuer eigene Inhalte auf diesen Seiten nach den
+                allgemeinen Gesetzen verantwortlich. Verpflichtungen zur Entfernung oder Sperrung
+                der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben unberuehrt.
+                Eine diesbezuegliche Haftung ist erst ab Kenntnis einer konkreten Rechtsverletzung
+                moeglich. Bei Bekanntwerden entsprechender Rechtsverletzungen entfernen wir diese
+                Inhalte umgehend.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-950">Haftung fuer Links</h2>
+              <p className="mt-3">
+                Unser Angebot enthaelt Links zu externen Websites Dritter, auf deren Inhalte wir
+                keinen Einfluss haben. Fuer diese fremden Inhalte uebernehmen wir keine Gewaehr.
+                Fuer die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder
+                Betreiber verantwortlich.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-950">Urheberrecht</h2>
+              <p className="mt-3">
+                Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
+                unterliegen dem deutschen Urheberrecht. Vervielfaeltigung, Bearbeitung,
+                Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des Urheberrechts
+                beduerfen der schriftlichen Zustimmung des jeweiligen Rechteinhabers.
+              </p>
+            </div>
+          </div>
+
+          <GoogleMapConsent className="min-h-[520px] rounded-2xl shadow-2xl" />
+        </section>
       </div>
     </div>
   );
