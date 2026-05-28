@@ -78,7 +78,7 @@ const formsApiDevPlugin = (): Plugin => ({
         res.end(
           JSON.stringify({
             ok: false,
-            message: 'Ungueltige Anfrage fuer /api/forms.',
+            message: 'Ungültige Anfrage für /api/forms.',
           })
         );
       }

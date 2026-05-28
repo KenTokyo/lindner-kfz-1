@@ -36,7 +36,7 @@ const sections = [
   },
   {
     id: 'sicherheit',
-    title: '7. Sicherheit und Aktualitaet',
+    title: '7. Sicherheit und Aktualität',
     icon: LockKeyhole,
   },
 ];
@@ -45,7 +45,7 @@ export const DatenschutzPage: React.FC = () => {
   useEffect(() => {
     const title = 'Datenschutz | KFZ Lindner Berlin';
     const description =
-      'Datenschutzhinweise der Kfz-Werkstatt Lindner und der Autoservice Lindner GmbH fuer Website, Formulare, Bewerbungen und Google Maps.';
+      'Datenschutzhinweise der Kfz-Werkstatt Lindner und der Autoservice Lindner GmbH für Website, Formulare, Bewerbungen und Google Maps.';
 
     setPageSeo({
       title,
@@ -68,7 +68,7 @@ export const DatenschutzPage: React.FC = () => {
               Datenschutz
             </p>
             <h1 className="max-w-4xl text-4xl font-bold tracking-tight text-neutral-950 md:text-6xl">
-              Datenschutzerkl&auml;rung
+              Datenschutzerklärung
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-600">
               Informationen zur Verarbeitung personenbezogener Daten auf dieser Website und bei
@@ -140,7 +140,7 @@ export const DatenschutzPage: React.FC = () => {
               <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
                 <p className="font-semibold text-white">Autoservice Lindner GmbH</p>
                 <p className="mt-3 text-white/70">
-                  Geschaeftsfuehrerin: Katrin Lindner
+                  Geschäftsführerin: Katrin Lindner
                   <br />
                   Hauptstr. 43-45
                   <br />
@@ -165,17 +165,17 @@ export const DatenschutzPage: React.FC = () => {
             <p className="mt-5">
               Beim Aufruf dieser Website verarbeitet der eingesetzte Webserver technisch notwendige
               Zugriffsdaten, damit die Seite ausgeliefert, stabil betrieben und gegen Missbrauch
-              abgesichert werden kann. Dazu koennen insbesondere IP-Adresse, Datum und Uhrzeit des
-              Abrufs, angeforderte URL, Referrer-URL, Browsertyp, Betriebssystem und uebertragene
-              Datenmenge gehoeren.
+              abgesichert werden kann. Dazu können insbesondere IP-Adresse, Datum und Uhrzeit des
+              Abrufs, angeforderte URL, Referrer-URL, Browsertyp, Betriebssystem und übertragene
+              Datenmenge gehören.
             </p>
             <p className="mt-4">
               Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt im
               sicheren und fehlerfreien Betrieb der Website. Logfiles werden nur so lange gespeichert,
-              wie dies fuer Sicherheit, Fehleranalyse und technische Nachvollziehbarkeit erforderlich ist.
+              wie dies für Sicherheit, Fehleranalyse und technische Nachvollziehbarkeit erforderlich ist.
             </p>
             <p className="mt-4">
-              Fuer Betrieb, Hosting und E-Mail-Zustellung koennen technische Dienstleister als
+              Für Betrieb, Hosting und E-Mail-Zustellung können technische Dienstleister als
               Auftragsverarbeiter eingesetzt werden. Mit diesen Dienstleistern werden, soweit
               erforderlich, Vereinbarungen nach Art. 28 DSGVO geschlossen.
             </p>
@@ -185,48 +185,48 @@ export const DatenschutzPage: React.FC = () => {
             <h2 className="text-2xl font-semibold text-neutral-950">3. Kontakt, Termin- und Bewerbungsanfragen</h2>
             <p className="mt-5">
               Wenn Sie uns per Formular, E-Mail oder Telefon kontaktieren, verarbeiten wir die von
-              Ihnen angegebenen Daten zur Bearbeitung Ihrer Anfrage. Je nach Formular koennen dazu
-              Name, E-Mail-Adresse, Telefonnummer, Nachricht, gewaehlter Leistungsbereich,
-              Fahrzeug- oder Termindaten sowie bei Bewerbungen Angaben zur gewuenschten Position
-              gehoeren.
+              Ihnen angegebenen Daten zur Bearbeitung Ihrer Anfrage. Je nach Formular können dazu
+              Name, E-Mail-Adresse, Telefonnummer, Nachricht, gewählter Leistungsbereich,
+              Fahrzeug- oder Termindaten sowie bei Bewerbungen Angaben zur gewünschten Position
+              gehören.
             </p>
             <p className="mt-4">
               Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit die Verarbeitung zur
-              Durchfuehrung vorvertraglicher Massnahmen oder zur Vertragsabwicklung erfolgt. Im
-              Uebrigen verarbeiten wir Anfragen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO, weil
+              Durchführung vorvertraglicher Maßnahmen oder zur Vertragsabwicklung erfolgt. Im
+              Übrigen verarbeiten wir Anfragen auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO, weil
               wir ein berechtigtes Interesse an der Beantwortung von Kontaktanfragen haben.
             </p>
             <p className="mt-4">
-              Bewerbungsdaten verarbeiten wir zur Durchfuehrung des Bewerbungsverfahrens auf
+              Bewerbungsdaten verarbeiten wir zur Durchführung des Bewerbungsverfahrens auf
               Grundlage von Art. 6 Abs. 1 lit. b DSGVO in Verbindung mit Paragraf 26 BDSG. Nach
-              Abschluss des Bewerbungsverfahrens loeschen wir Bewerbungsdaten regelmaessig
-              spaetestens nach sechs Monaten, sofern keine gesetzlichen Pflichten oder berechtigten
-              Interessen eine laengere Speicherung erfordern.
+              Abschluss des Bewerbungsverfahrens löschen wir Bewerbungsdaten regelmäßig
+              spätestens nach sechs Monaten, sofern keine gesetzlichen Pflichten oder berechtigten
+              Interessen eine längere Speicherung erfordern.
             </p>
           </section>
 
           <section id="maps" className="rounded-2xl border border-neutral-200 bg-white p-7 md:p-8">
             <h2 className="text-2xl font-semibold text-neutral-950">4. Google Maps</h2>
             <p className="mt-5">
-              Diese Website bindet Google Maps ueber eine Zwei-Klick-Loesung ein. Die Karte wird
+              Diese Website bindet Google Maps über eine Zwei-Klick-Lösung ein. Die Karte wird
               erst geladen, wenn Sie auf den Button zum Laden von Google Maps klicken. Erst dann
               wird eine Verbindung zu Google aufgebaut.
             </p>
             <p className="mt-4">
               Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.
-              Im Rahmen der Nutzung koennen insbesondere IP-Adresse, Browser- und Geraetedaten,
+              Im Rahmen der Nutzung können insbesondere IP-Adresse, Browser- und Gerätedaten,
               Referrer-URL sowie, falls Sie bei Google angemeldet sind, weitere Kontodaten
-              verarbeitet werden. Eine Uebermittlung an Google LLC in den USA kann nicht
+              verarbeitet werden. Eine Übermittlung an Google LLC in den USA kann nicht
               ausgeschlossen werden.
             </p>
             <p className="mt-4">
-              Rechtsgrundlage fuer das Laden der Karte ist Ihre Einwilligung nach Art. 6 Abs. 1
+              Rechtsgrundlage für das Laden der Karte ist Ihre Einwilligung nach Art. 6 Abs. 1
               lit. a DSGVO sowie, soweit Cookies oder vergleichbare Technologien eingesetzt
-              werden, Paragraf 25 Abs. 1 TDDDG. Sie koennen die Seite nutzen, ohne Google Maps zu
-              aktivieren. Alternativ koennen Sie den Standort direkt in Google Maps oeffnen.
+              werden, Paragraf 25 Abs. 1 TDDDG. Sie können die Seite nutzen, ohne Google Maps zu
+              aktivieren. Alternativ können Sie den Standort direkt in Google Maps öffnen.
             </p>
             <p className="mt-4">
-              Weitere Informationen finden Sie in der Datenschutzerklaerung von Google:{' '}
+              Weitere Informationen finden Sie in der Datenschutzerklärung von Google:{' '}
               <a
                 href="https://policies.google.com/privacy?hl=de"
                 target="_blank"
@@ -243,7 +243,7 @@ export const DatenschutzPage: React.FC = () => {
             <h2 className="text-2xl font-semibold text-neutral-950">5. Schriftarten, Cookies und Tracking</h2>
             <p className="mt-5">
               Die Website verwendet keine extern nachgeladenen Google Fonts. Schriftarten werden
-              lokal beziehungsweise ueber Systemschriften des Endgeraets dargestellt.
+              lokal beziehungsweise über Systemschriften des Endgeräts dargestellt.
             </p>
             <p className="mt-4">
               Es werden keine Analyse- oder Marketing-Tools wie Google Analytics oder Meta Pixel
@@ -256,29 +256,29 @@ export const DatenschutzPage: React.FC = () => {
           <section id="rechte" className="rounded-2xl border border-neutral-200 bg-white p-7 md:p-8">
             <h2 className="text-2xl font-semibold text-neutral-950">6. Ihre Rechte</h2>
             <p className="mt-5">
-              Sie haben nach Massgabe der gesetzlichen Voraussetzungen folgende Rechte: Auskunft
-              nach Art. 15 DSGVO, Berichtigung nach Art. 16 DSGVO, Loeschung nach Art. 17 DSGVO,
-              Einschraenkung der Verarbeitung nach Art. 18 DSGVO, Datenuebertragbarkeit nach Art.
+              Sie haben nach Maßgabe der gesetzlichen Voraussetzungen folgende Rechte: Auskunft
+              nach Art. 15 DSGVO, Berichtigung nach Art. 16 DSGVO, Löschung nach Art. 17 DSGVO,
+              Einschränkung der Verarbeitung nach Art. 18 DSGVO, Datenübertragbarkeit nach Art.
               20 DSGVO, Widerspruch nach Art. 21 DSGVO sowie Widerruf einer erteilten Einwilligung
               nach Art. 7 Abs. 3 DSGVO.
             </p>
             <p className="mt-4">
-              Ausserdem besteht ein Beschwerderecht bei einer Datenschutzaufsichtsbehoerde. Fuer
-              Berlin ist dies die Berliner Beauftragte fuer Datenschutz und Informationsfreiheit,
+              Außerdem besteht ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde. Für
+              Berlin ist dies die Berliner Beauftragte für Datenschutz und Informationsfreiheit,
               Alt-Moabit 59-61, 10555 Berlin.
             </p>
           </section>
 
           <section id="sicherheit" className="rounded-2xl border border-neutral-200 bg-neutral-950 p-7 text-white md:p-8">
-            <h2 className="text-2xl font-semibold">7. Sicherheit und Aktualitaet</h2>
+            <h2 className="text-2xl font-semibold">7. Sicherheit und Aktualität</h2>
             <p className="mt-5 text-white/70">
-              Diese Website nutzt eine SSL-/TLS-Verschluesselung, sofern sie ueber HTTPS
-              ausgeliefert wird. Eine verschluesselte Verbindung erkennen Sie am Schloss-Symbol
+              Diese Website nutzt eine SSL-/TLS-Verschlüsselung, sofern sie über HTTPS
+              ausgeliefert wird. Eine verschlüsselte Verbindung erkennen Sie am Schloss-Symbol
               Ihres Browsers.
             </p>
             <p className="mt-4 text-white/70">
-              Wir passen diese Datenschutzerklaerung an, wenn technische, organisatorische oder
-              rechtliche Aenderungen dies erforderlich machen. Massgeblich ist die jeweils
+              Wir passen diese Datenschutzerklärung an, wenn technische, organisatorische oder
+              rechtliche Änderungen dies erforderlich machen. Maßgeblich ist die jeweils
               aktuelle Fassung auf dieser Website.
             </p>
           </section>

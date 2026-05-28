@@ -35,7 +35,7 @@ const localAppointmentTestData: AppointmentFormData = {
   email: 'max.mustermann@example.com',
   telefon: '+49 30 1234567',
   kennzeichen: 'B-MM 2026',
-  wunschtermin: 'Naechste Woche, bevorzugt vormittags',
+  wunschtermin: 'Nächste Woche, bevorzugt vormittags',
   nachricht: 'Mein Fahrzeug braucht eine kurze Durchsicht und Terminabstimmung.',
 };
 
@@ -303,7 +303,7 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                     onClick={handleBackToStep1}
                     className="text-sm text-neutral-500 hover:text-neutral-900 transition-colors cursor-pointer"
                   >
-                    &larr; Zurueck
+                    &larr; Zurück
                   </button>
                   <span className="text-sm text-neutral-300">|</span>
                   <span className="text-sm font-medium text-neutral-700">{categoryLabel}</span>
@@ -311,7 +311,7 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
 
                 <h2 className="text-2xl font-bold mb-2">Terminanfrage</h2>
                 <p className="text-neutral-600 mb-6">
-                  Fuellen Sie das Formular aus - wir melden uns mit einem Terminvorschlag.
+                  Füllen Sie das Formular aus - wir melden uns mit einem Terminvorschlag.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-4" noValidate>
@@ -322,7 +322,7 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                         onClick={handleFillLocalTestData}
                         className="text-sm font-medium text-neutral-800 hover:text-neutral-950 transition-colors cursor-pointer"
                       >
-                        Testdaten einfuellen (nur lokal)
+                        Testdaten einfüllen (nur lokal)
                       </button>
                     </div>
                   )}
@@ -443,7 +443,7 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                       aria-invalid={!!errors.wunschtermin}
                       aria-describedby={errors.wunschtermin ? 'ta-wunschtermin-error' : undefined}
                       className={`w-full px-4 py-3 rounded-lg border ${errors.wunschtermin ? 'border-red-400' : 'border-neutral-200'} focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all`}
-                      placeholder="z.B. naechste Woche, ab 14 Uhr"
+                      placeholder="z.B. nächste Woche, ab 14 Uhr"
                     />
                     {errors.wunschtermin && (
                       <p id="ta-wunschtermin-error" role="alert" className="mt-1 text-sm text-red-500">{errors.wunschtermin}</p>
@@ -531,10 +531,10 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                 </motion.div>
                 <h2 className="text-2xl font-bold mb-2">Vielen Dank!</h2>
                 <p className="text-neutral-600 mb-2">
-                  Ihre Terminanfrage fuer <strong>{categoryLabel}</strong> wurde erfolgreich gesendet.
+                  Ihre Terminanfrage für <strong>{categoryLabel}</strong> wurde erfolgreich gesendet.
                 </p>
                 <p className="text-neutral-500 text-sm mb-8">
-                  Wir melden uns schnellstmoeglich mit einem Terminvorschlag bei Ihnen.
+                  Wir melden uns schnellstmöglich mit einem Terminvorschlag bei Ihnen.
                 </p>
                 <button
                   onClick={handleClose}

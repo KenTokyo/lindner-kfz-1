@@ -155,7 +155,7 @@ export const BewerbungsFormular: React.FC<BewerbungsFormularProps> = ({ preselec
       telefon: '+49 171 2345678',
       position: preselectedPosition ?? 'Kfz-Mechatroniker (m/w/d)',
       nachricht:
-        'Ich arbeite seit mehreren Jahren im Kfz-Bereich und moechte mich bei Ihnen im Team vorstellen.',
+        'Ich arbeite seit mehreren Jahren im Kfz-Bereich und möchte mich bei Ihnen im Team vorstellen.',
     });
     setErrors({});
     setTouched(touchedDefaults);
@@ -172,7 +172,7 @@ export const BewerbungsFormular: React.FC<BewerbungsFormularProps> = ({ preselec
         <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-6" />
         <h3 className="text-2xl font-bold text-neutral-900 mb-3">Bewerbung erhalten!</h3>
         <p className="text-neutral-600 max-w-md mx-auto">
-          Vielen Dank fuer Ihre Bewerbung. Wir melden uns zeitnah bei Ihnen.
+          Vielen Dank für Ihre Bewerbung. Wir melden uns zeitnah bei Ihnen.
         </p>
       </motion.div>
     );
@@ -188,7 +188,7 @@ export const BewerbungsFormular: React.FC<BewerbungsFormularProps> = ({ preselec
       noValidate
     >
       <h3 className="text-2xl font-bold text-neutral-900 mb-2">Jetzt bewerben</h3>
-      <p className="text-neutral-600 mb-8">Kurz ausfuellen - wir melden uns bei Ihnen.</p>
+      <p className="text-neutral-600 mb-8">Kurz ausfüllen - wir melden uns bei Ihnen.</p>
 
       {isLocalEnvironment && (
         <div className="mb-6 rounded-xl border border-dashed border-neutral-300 bg-white px-4 py-3">
@@ -197,7 +197,7 @@ export const BewerbungsFormular: React.FC<BewerbungsFormularProps> = ({ preselec
             onClick={handleFillLocalTestData}
             className="text-sm font-medium text-neutral-800 hover:text-neutral-950 transition-colors cursor-pointer"
           >
-            Testdaten einfuellen (nur lokal)
+            Testdaten einfüllen (nur lokal)
           </button>
         </div>
       )}
@@ -285,7 +285,7 @@ export const BewerbungsFormular: React.FC<BewerbungsFormularProps> = ({ preselec
             aria-describedby={errors.position ? 'bew-position-error' : undefined}
             className={`w-full px-4 py-3 rounded-xl border ${errors.position ? 'border-red-400' : 'border-neutral-200'} bg-white focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:border-transparent transition-all`}
           >
-            <option value="">Bitte waehlen</option>
+            <option value="">Bitte wählen</option>
             <option value="Karosseriebauer (m/w/d)">Karosseriebauer (m/w/d)</option>
             <option value="Kfz-Mechatroniker (m/w/d)">Kfz-Mechatroniker (m/w/d)</option>
             <option value="Fahrzeuglackierer (m/w/d)">Fahrzeuglackierer (m/w/d)</option>

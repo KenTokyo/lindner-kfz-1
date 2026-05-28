@@ -57,8 +57,8 @@ export const GoogleMapConsent: React.FC<GoogleMapConsentProps> = ({ className = 
           <div className="mb-5 flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-sm leading-relaxed text-white/70">
             <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-white" />
             <p>
-              Beim Laden der Karte werden Daten an Google uebermittelt. Aktivieren Sie Google Maps
-              nur, wenn Sie damit einverstanden sind. Details stehen in der Datenschutzerklaerung.
+              Beim Laden der Karte werden Daten an Google übermittelt. Aktivieren Sie Google Maps
+              nur, wenn Sie damit einverstanden sind. Details stehen in der Datenschutzerklärung.
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -75,7 +75,7 @@ export const GoogleMapConsent: React.FC<GoogleMapConsentProps> = ({ className = 
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:border-white/35"
             >
-              In Google Maps oeffnen
+              In Google Maps öffnen
               <ExternalLink size={16} />
             </a>
           </div>

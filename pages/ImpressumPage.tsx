@@ -41,7 +41,7 @@ export const ImpressumPage: React.FC = () => {
               Impressum
             </h1>
             <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-600">
-              Angaben gemaess Paragraf 5 DDG fuer den Internetauftritt von Kfz-Werkstatt
+              Angaben gemäß Paragraf 5 DDG für den Internetauftritt von Kfz-Werkstatt
               Lindner und Autoservice Lindner GmbH in Berlin-Blankenfelde.
             </p>
           </div>
@@ -49,7 +49,7 @@ export const ImpressumPage: React.FC = () => {
             <p className="font-semibold text-neutral-950">Hinweis</p>
             <p className="mt-2">
               Die EU-Plattform zur Online-Streitbeilegung wurde zum 20. Juli 2025 eingestellt.
-              Deshalb wird hier kein veralteter OS-Link mehr gefuehrt.
+              Deshalb wird hier kein veralteter OS-Link mehr geführt.
             </p>
           </div>
         </motion.header>
@@ -143,7 +143,7 @@ export const ImpressumPage: React.FC = () => {
                 </div>
                 <div>
                   <dt className="text-white/45">Vertreten durch</dt>
-                  <dd className="mt-1 font-medium">Geschaeftsfuehrerin Katrin Lindner</dd>
+                  <dd className="mt-1 font-medium">Geschäftsführerin Katrin Lindner</dd>
                 </div>
                 <div>
                   <dt className="text-white/45">Registereintrag</dt>
@@ -178,10 +178,10 @@ export const ImpressumPage: React.FC = () => {
               </div>
               <div className="space-y-4 text-sm leading-relaxed text-neutral-600">
                 <p>
-                  Zustaendige Kammer: Handwerkskammer Berlin, Bluetuetenweg 2, 12359 Berlin.
+                  Zuständige Kammer: Handwerkskammer Berlin, Blücherstr. 68, 10961 Berlin.
                 </p>
                 <p>
-                  Die ausgeuebten Leistungen betreffen insbesondere Fahrzeugservice, Reparatur,
+                  Die ausgeübten Leistungen betreffen insbesondere Fahrzeugservice, Reparatur,
                   Lackierung, Karosseriebau, Unfallinstandsetzung und verwandte Kfz-Leistungen.
                   Berufsrechtliche Grundlage ist insbesondere die Handwerksordnung, abrufbar unter{' '}
                   <a
@@ -205,7 +205,7 @@ export const ImpressumPage: React.FC = () => {
             >
               <h2 className="text-xl font-semibold text-neutral-950">Redaktionell verantwortlich</h2>
               <p className="mt-4 text-sm leading-relaxed text-neutral-600">
-                Verantwortlich fuer journalistisch-redaktionelle Inhalte im Sinne von Paragraf 18
+                Verantwortlich für journalistisch-redaktionelle Inhalte im Sinne von Paragraf 18
                 Abs. 2 MStV: Katrin Lindner, Anschrift wie oben.
               </p>
             </motion.section>
@@ -222,22 +222,22 @@ export const ImpressumPage: React.FC = () => {
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-semibold text-neutral-950">Haftung fuer Inhalte</h2>
+              <h2 className="text-xl font-semibold text-neutral-950">Haftung für Inhalte</h2>
               <p className="mt-3">
-                Als Diensteanbieter sind wir fuer eigene Inhalte auf diesen Seiten nach den
+                Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den
                 allgemeinen Gesetzen verantwortlich. Verpflichtungen zur Entfernung oder Sperrung
-                der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben unberuehrt.
-                Eine diesbezuegliche Haftung ist erst ab Kenntnis einer konkreten Rechtsverletzung
-                moeglich. Bei Bekanntwerden entsprechender Rechtsverletzungen entfernen wir diese
+                der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben unberührt.
+                Eine diesbezügliche Haftung ist erst ab Kenntnis einer konkreten Rechtsverletzung
+                möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen entfernen wir diese
                 Inhalte umgehend.
               </p>
             </div>
             <div>
-              <h2 className="text-xl font-semibold text-neutral-950">Haftung fuer Links</h2>
+              <h2 className="text-xl font-semibold text-neutral-950">Haftung für Links</h2>
               <p className="mt-3">
-                Unser Angebot enthaelt Links zu externen Websites Dritter, auf deren Inhalte wir
-                keinen Einfluss haben. Fuer diese fremden Inhalte uebernehmen wir keine Gewaehr.
-                Fuer die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder
+                Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir
+                keinen Einfluss haben. Für diese fremden Inhalte übernehmen wir keine Gewähr.
+                Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder
                 Betreiber verantwortlich.
               </p>
             </div>
@@ -245,9 +245,9 @@ export const ImpressumPage: React.FC = () => {
               <h2 className="text-xl font-semibold text-neutral-950">Urheberrecht</h2>
               <p className="mt-3">
                 Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
-                unterliegen dem deutschen Urheberrecht. Vervielfaeltigung, Bearbeitung,
-                Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des Urheberrechts
-                beduerfen der schriftlichen Zustimmung des jeweiligen Rechteinhabers.
+                unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung,
+                Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts
+                bedürfen der schriftlichen Zustimmung des jeweiligen Rechteinhabers.
               </p>
             </div>
           </div>

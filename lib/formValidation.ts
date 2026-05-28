@@ -79,7 +79,7 @@ export const validateAppointmentField = (
 
     case 'email': {
       if (!data.email) return 'Bitte geben Sie Ihre E-Mail-Adresse ein.';
-      if (!EMAIL_REGEX.test(data.email)) return 'Bitte eine gueltige E-Mail-Adresse eingeben.';
+      if (!EMAIL_REGEX.test(data.email)) return 'Bitte eine gültige E-Mail-Adresse eingeben.';
       if (data.email.length > 120) return 'Bitte maximal 120 Zeichen eingeben.';
       return undefined;
     }
@@ -135,7 +135,7 @@ export const validateApplicationField = (
 
     case 'email': {
       if (!data.email) return 'Bitte geben Sie Ihre E-Mail-Adresse ein.';
-      if (!EMAIL_REGEX.test(data.email)) return 'Bitte eine gueltige E-Mail-Adresse eingeben.';
+      if (!EMAIL_REGEX.test(data.email)) return 'Bitte eine gültige E-Mail-Adresse eingeben.';
       if (data.email.length > 120) return 'Bitte maximal 120 Zeichen eingeben.';
       return undefined;
     }
@@ -152,7 +152,7 @@ export const validateApplicationField = (
     }
 
     case 'position': {
-      if (!data.position) return 'Bitte waehlen Sie eine Position aus.';
+      if (!data.position) return 'Bitte wählen Sie eine Position aus.';
       if (data.position.length > 120) return 'Bitte maximal 120 Zeichen eingeben.';
       return undefined;
     }
