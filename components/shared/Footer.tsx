@@ -116,7 +116,7 @@ export const Footer: React.FC = () => {
             style={reveal(partnersReveal)}
             className="flex flex-col lg:flex-row justify-between items-start lg:items-center border-b border-white/10 pt-16 md:pt-20 pb-10 gap-8"
           >
-            <div className="text-neutral-500 font-medium uppercase tracking-widest text-xs md:text-sm">
+            <div className="text-white/70 font-medium uppercase tracking-widest text-xs md:text-sm">
               Zertifizierte Partner
             </div>
             <div className="flex flex-wrap items-center gap-6 md:gap-12">
@@ -140,55 +140,55 @@ export const Footer: React.FC = () => {
                 className="mb-5 w-full max-w-[150px] md:max-w-[180px] h-auto object-contain opacity-90"
               />
               <h3 className="text-lg font-semibold mb-6">KFZ Lindner</h3>
-              <p className="text-sm text-neutral-400 mb-6 max-w-xs">
+              <p className="text-sm text-neutral-300 mb-6 max-w-xs">
                 Karosserie & Lack und Autoservice - unter einem Dach in Berlin-Blankenfelde. Ihr vertrauensvoller Partner für alle Kfz-Belange.
               </p>
             </motion.div>
 
             <motion.div style={reveal(contactReveal)} className="flex flex-col">
-              <h3 className="text-neutral-500 uppercase tracking-widest text-xs font-semibold mb-6">
+              <h3 className="text-white/85 uppercase tracking-widest text-xs font-semibold mb-6">
                 Kontakt
               </h3>
-              <ul className="space-y-4 text-sm text-neutral-300">
+              <ul className="space-y-4 text-sm text-neutral-200">
                 <li className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-neutral-500 shrink-0" />
+                  <MapPin className="w-5 h-5 text-white/70 shrink-0" />
                   <span>Hauptstraße 43<br />13159 Berlin</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-neutral-500 shrink-0" />
+                  <Phone className="w-5 h-5 text-white/70 shrink-0" />
                   <a href="tel:+49309131252" className="hover:text-white transition-colors">030 913 1252</a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-neutral-500 shrink-0" />
+                  <Mail className="w-5 h-5 text-white/70 shrink-0" />
                   <a href="mailto:info@kfz-lindner.de" className="hover:text-white transition-colors">info@kfz-lindner.de</a>
                 </li>
               </ul>
             </motion.div>
 
             <motion.div style={reveal(hoursReveal)} className="flex flex-col">
-              <h3 className="text-neutral-500 uppercase tracking-widest text-xs font-semibold mb-6">
+              <h3 className="text-white/85 uppercase tracking-widest text-xs font-semibold mb-6">
                 Öffnungszeiten
               </h3>
-              <ul className="space-y-4 text-sm text-neutral-300">
+              <ul className="space-y-4 text-sm text-neutral-200">
                 <li className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-neutral-500 shrink-0" />
+                  <Clock className="w-5 h-5 text-white/70 shrink-0" />
                   <div className="flex flex-col">
                     <span className="flex justify-between gap-4"><span>Mo - Fr:</span> <span>07:00 - 18:00 Uhr</span></span>
-                    <span className="text-neutral-500 mt-1">Sa & So: Geschlossen</span>
+                    <span className="text-neutral-300 mt-1">Sa & So: Geschlossen</span>
                   </div>
                 </li>
               </ul>
             </motion.div>
 
             <motion.div style={reveal(legalReveal)} className="flex flex-col lg:items-end">
-              <h3 className="text-neutral-500 uppercase tracking-widest text-xs font-semibold mb-6">
+              <h3 className="text-white/85 uppercase tracking-widest text-xs font-semibold mb-6">
                 Rechtliches
               </h3>
-              <nav className="flex flex-col lg:items-end gap-3 text-sm text-neutral-400">
+              <nav className="flex flex-col lg:items-end gap-3 text-sm text-neutral-200">
                 <Link to="/impressum" className="hover:text-white transition-colors">Impressum</Link>
                 <Link to="/datenschutz" className="hover:text-white transition-colors">Datenschutz</Link>
               </nav>
-              <div className="mt-8 text-xs text-neutral-600 lg:text-right">
+              <div className="mt-8 text-xs text-neutral-400 lg:text-right">
                 &copy; {new Date().getFullYear()} KFZ Lindner.<br />Alle Rechte vorbehalten.
               </div>
             </motion.div>
