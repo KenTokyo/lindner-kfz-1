@@ -5,38 +5,43 @@ import {
   Body,
   Container,
   Section,
-  Row,
-  Column,
   Text,
   Link,
-  Hr,
-  Img,
+  Row,
+  Column,
   Font,
 } from "@react-email/components";
 
 export interface EmailLayoutProps {
   preview: string;
-  title: string;
   children: React.ReactNode;
 }
 
-const BRAND_DARK = "#012428";
-const BRAND_LIGHT = "#f4f6f8";
-const TEXT_PRIMARY = "#1a1a2e";
-const TEXT_SECONDARY = "#5a5f6e";
-const WHITE = "#ffffff";
+export const BRAND_DARK = "#012428";
+export const BRAND_GOLD = "#c9a84c";
+export const TEXT_PRIMARY = "#14171e";
+export const TEXT_SECONDARY = "#43454b";
+export const TEXT_MUTED = "#7b7d81";
+export const PAGE_BG = "#f3f4f6";
+export const WHITE = "#ffffff";
 
-export const EmailLayout = ({ preview, title, children }: EmailLayoutProps) => (
+export const EmailLayout = ({ preview, children }: EmailLayoutProps) => (
   <Html lang="de">
     <Head>
       <Font
         fontFamily="Manrope"
         fallbackFontFamily={["Arial", "Helvetica", "sans-serif"]}
         webFont={{
-          url: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap",
+          url: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap",
           format: "woff2",
         }}
       />
+      <style>{`
+        @media (max-width: 600px) {
+          .mobile-px-4 { padding-left: 16px !important; padding-right: 16px !important; }
+          .mobile-py-6 { padding-top: 40px !important; padding-bottom: 40px !important; }
+        }
+      `}</style>
     </Head>
     <Preview>{preview}</Preview>
     <Body style={body}>
@@ -44,42 +49,33 @@ export const EmailLayout = ({ preview, title, children }: EmailLayoutProps) => (
         {/* Header */}
         <Section style={headerSection}>
           <Row>
-            <Column align="center">
-              <Img
-                src="https://www.kfz-lindner.de/Lindner%20Logo_weiss.png"
-                alt="KFZ Lindner Berlin"
-                width="180"
-                height="auto"
-                style={logo}
-              />
+            <Column style={headerBrandCol}>
+              <Text style={headerBrandName}>KFZ LINDNER</Text>
+            </Column>
+            <Column style={headerTaglineCol}>
+              <Text style={headerTagline}>
+                Karosserie &amp; Lack &bull; Autoservice
+              </Text>
             </Column>
           </Row>
-          <Text style={headerTagline}>
-            Karosserie &amp; Lack &bull; Autoservice
-          </Text>
         </Section>
 
-        {/* Title */}
-        <Section style={titleSection}>
-          <Text style={titleText}>{title}</Text>
-        </Section>
-
-        {/* Content */}
-        <Section style={contentSection}>{children}</Section>
-
-        {/* Divider */}
-        <Hr style={hr} />
+        {children}
 
         {/* Footer */}
         <Section style={footerSection}>
-          <Text style={footerName}>KFZ Lindner &mdash; Meisterbetrieb</Text>
+          <Text style={footerDesc}>
+            KFZ Lindner &mdash; Ihr Meisterbetrieb f&uuml;r alle Kfz-Belange in
+            Berlin-Blankenfelde.
+          </Text>
           <Text style={footerAddress}>
-            Hauptstraße 43, 13159 Berlin &bull;{" "}
+            Hauptstra&szlig;e 43, 13159 Berlin-Blankenfelde
+          </Text>
+          <Text style={footerContact}>
             <Link href="tel:+49309131252" style={footerLink}>
               030 913 1252
-            </Link>
-          </Text>
-          <Text style={footerEmail}>
+            </Link>{" "}
+            &bull;{" "}
             <Link href="mailto:info@kfz-lindner.de" style={footerLink}>
               info@kfz-lindner.de
             </Link>{" "}
@@ -88,7 +84,9 @@ export const EmailLayout = ({ preview, title, children }: EmailLayoutProps) => (
               www.kfz-lindner.de
             </Link>
           </Text>
-          <Text style={footerHours}>Mo &ndash; Fr: 07:00 &ndash; 18:00 Uhr</Text>
+          <Text style={footerHours}>
+            &Ouml;ffnungszeiten: Mo &ndash; Fr &bull; 07:00 &ndash; 18:00 Uhr
+          </Text>
         </Section>
       </Container>
     </Body>
@@ -98,91 +96,86 @@ export const EmailLayout = ({ preview, title, children }: EmailLayoutProps) => (
 /* ---------- Styles ---------- */
 
 const body: React.CSSProperties = {
-  backgroundColor: "#e8ecf0",
+  backgroundColor: PAGE_BG,
   fontFamily: "Manrope, Arial, Helvetica, sans-serif",
   margin: 0,
   padding: 0,
-  WebkitFontSmoothing: "antialiased",
 };
 
 const container: React.CSSProperties = {
-  maxWidth: 600,
-  margin: "40px auto",
-  backgroundColor: WHITE,
-  borderRadius: 12,
-  overflow: "hidden",
-  boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
+  maxWidth: 640,
+  margin: "0 auto",
+  width: "100%",
 };
 
 const headerSection: React.CSSProperties = {
-  backgroundColor: BRAND_DARK,
-  padding: "36px 32px 32px",
-  textAlign: "center",
+  backgroundColor: WHITE,
+  borderRadius: 10,
+  padding: "18px 24px",
+  marginTop: 32,
 };
 
-const logo: React.CSSProperties = {
-  display: "block",
-  margin: "0 auto",
+const headerBrandCol: React.CSSProperties = {
+  verticalAlign: "middle",
+  width: "50%",
+};
+
+const headerBrandName: React.CSSProperties = {
+  color: BRAND_DARK,
+  fontSize: 16,
+  fontWeight: 700,
+  letterSpacing: 3,
+  margin: 0,
+};
+
+const headerTaglineCol: React.CSSProperties = {
+  verticalAlign: "middle",
+  width: "50%",
 };
 
 const headerTagline: React.CSSProperties = {
-  color: "rgba(255,255,255,0.7)",
-  fontSize: 13,
-  letterSpacing: 2,
-  textTransform: "uppercase",
-  margin: "16px 0 0",
-  fontWeight: 400,
-};
-
-const titleSection: React.CSSProperties = {
-  padding: "28px 32px 16px",
-};
-
-const titleText: React.CSSProperties = {
-  color: BRAND_DARK,
-  fontSize: 22,
-  fontWeight: 700,
+  color: TEXT_MUTED,
+  fontSize: 12,
+  fontWeight: 500,
+  textAlign: "right",
   margin: 0,
-  lineHeight: 1.3,
-};
-
-const contentSection: React.CSSProperties = {
-  padding: "8px 32px 28px",
-};
-
-const hr: React.CSSProperties = {
-  borderColor: "#e5e7eb",
-  margin: "0 32px",
 };
 
 const footerSection: React.CSSProperties = {
-  padding: "24px 32px 32px",
+  backgroundColor: WHITE,
+  borderRadius: 10,
+  padding: "48px 24px 40px",
+  marginTop: 24,
+  marginBottom: 32,
   textAlign: "center",
 };
 
-const footerName: React.CSSProperties = {
-  color: BRAND_DARK,
-  fontSize: 14,
-  fontWeight: 700,
-  margin: "0 0 8px",
+const footerDesc: React.CSSProperties = {
+  fontSize: 13,
+  lineHeight: 1.5,
+  color: TEXT_MUTED,
+  maxWidth: 300,
+  margin: "0 auto 32px",
 };
 
 const footerAddress: React.CSSProperties = {
-  color: TEXT_SECONDARY,
-  fontSize: 12,
-  margin: "0 0 4px",
+  fontSize: 11,
+  lineHeight: 1.5,
+  color: TEXT_MUTED,
+  margin: "0 0 20px",
 };
 
-const footerEmail: React.CSSProperties = {
-  color: TEXT_SECONDARY,
-  fontSize: 12,
-  margin: "0 0 4px",
+const footerContact: React.CSSProperties = {
+  fontSize: 13,
+  color: TEXT_MUTED,
+  margin: "0 0 8px",
 };
 
 const footerHours: React.CSSProperties = {
-  color: TEXT_SECONDARY,
-  fontSize: 12,
+  fontSize: 11,
+  color: TEXT_MUTED,
   margin: "8px 0 0",
+  fontStyle: "italic",
 };
 
 const footerLink: React.CSSProperties = {
