@@ -1,0 +1,422 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-20T22:25:11.212Z",
+  "models": [
+    {
+      "id": "opencode/big-pickle",
+      "name": "Big Pickle (OpenCode)",
+      "provider": "opencode",
+      "description": "big-pickle via OpenCode",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode/deepseek-v4-flash-free",
+      "name": "Deepseek V4 Flash Free (OpenCode)",
+      "provider": "opencode",
+      "description": "deepseek-v4-flash-free via OpenCode",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "free",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "max",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode/mimo-v2.5-free",
+      "name": "Mimo V2.5 Free (OpenCode)",
+      "provider": "opencode",
+      "description": "mimo-v2.5-free via OpenCode",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "free",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "defaultThinkingVariant": "high",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode/nemotron-3-ultra-free",
+      "name": "Nemotron 3 Ultra Free (OpenCode)",
+      "provider": "opencode",
+      "description": "nemotron-3-ultra-free via OpenCode",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "free",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "defaultThinkingVariant": "high",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode/north-mini-code-free",
+      "name": "North Mini Code Free (OpenCode)",
+      "provider": "opencode",
+      "description": "north-mini-code-free via OpenCode",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "free",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/deepseek-v4-flash",
+      "name": "Deepseek V4 Flash (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "deepseek-v4-flash via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "basic",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "max",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/deepseek-v4-pro",
+      "name": "Deepseek V4 Pro (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "deepseek-v4-pro via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "max",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/glm-5.1",
+      "name": "Glm 5.1 (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "glm-5.1 via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/glm-5.2",
+      "name": "Glm 5.2 (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "glm-5.2 via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/kimi-k2.6",
+      "name": "Kimi K2.6 (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "kimi-k2.6 via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/kimi-k2.7-code",
+      "name": "Kimi K2.7 Code (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "kimi-k2.7-code via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/mimo-v2.5",
+      "name": "Mimo V2.5 (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "mimo-v2.5 via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "defaultThinkingVariant": "high",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/mimo-v2.5-pro",
+      "name": "Mimo V2.5 Pro (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "mimo-v2.5-pro via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "defaultThinkingVariant": "high",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/minimax-m2.7",
+      "name": "Minimax M2.7 (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "minimax-m2.7 via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "basic",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/minimax-m3",
+      "name": "Minimax M3 (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "minimax-m3 via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "basic",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/qwen3.6-plus",
+      "name": "Qwen3.6 Plus (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "qwen3.6-plus via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/qwen3.7-max",
+      "name": "Qwen3.7 Max (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "qwen3.7-max via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/qwen3.7-plus",
+      "name": "Qwen3.7 Plus (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "qwen3.7-plus via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "zai-coding-plan/glm-4.5-air",
+      "name": "Glm 4.5 Air (Z.AI Coding Plan)",
+      "provider": "zai-coding-plan",
+      "description": "glm-4.5-air via Z.AI Coding Plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "zai-coding-plan/glm-4.7",
+      "name": "Glm 4.7 (Z.AI Coding Plan)",
+      "provider": "zai-coding-plan",
+      "description": "glm-4.7 via Z.AI Coding Plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "zai-coding-plan/glm-5-turbo",
+      "name": "Glm 5 Turbo (Z.AI Coding Plan)",
+      "provider": "zai-coding-plan",
+      "description": "glm-5-turbo via Z.AI Coding Plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "zai-coding-plan/glm-5.1",
+      "name": "Glm 5.1 (Z.AI Coding Plan)",
+      "provider": "zai-coding-plan",
+      "description": "glm-5.1 via Z.AI Coding Plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "toggle",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "zai-coding-plan/glm-5.2",
+      "name": "Glm 5.2 (Z.AI Coding Plan)",
+      "provider": "zai-coding-plan",
+      "description": "glm-5.2 via Z.AI Coding Plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "max",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "zai-coding-plan/glm-5v-turbo",
+      "name": "Glm 5v Turbo (Z.AI Coding Plan)",
+      "provider": "zai-coding-plan",
+      "description": "glm-5v-turbo via Z.AI Coding Plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/minimax-m2.5",
+      "name": "Minimax M2.5 (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "minimax-m2.5 via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "basic",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/kimi-k2.5",
+      "name": "Kimi K2.5 (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "kimi-k2.5 via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/glm-5",
+      "name": "Glm 5 (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "glm-5 via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/qwen3.5-plus",
+      "name": "Qwen3.5 Plus (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "qwen3.5-plus via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/mimo-v2-pro",
+      "name": "Mimo V2 Pro (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "mimo-v2-pro via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/mimo-v2-omni",
+      "name": "Mimo V2 Omni (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "mimo-v2-omni via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/hy3-preview",
+      "name": "Hy3 Preview (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "hy3-preview via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    }
+  ]
+}

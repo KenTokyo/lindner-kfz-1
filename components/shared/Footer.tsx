@@ -2,7 +2,22 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import type { MotionValue } from 'framer-motion';
-import { ShieldCheck, Award, CheckCircle, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { ShieldCheck, Award, CheckCircle, MapPin, Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react';
+
+const socialLinks = [
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/kfz_lindner',
+    icon: Instagram,
+    label: 'KFZ Lindner auf Instagram',
+  },
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/KfzWerkstattLindner/',
+    icon: Facebook,
+    label: 'KFZ Lindner auf Facebook',
+  },
+];
 
 const partners = [
   {
@@ -143,6 +158,23 @@ export const Footer: React.FC = () => {
               <p className="text-sm text-neutral-300 mb-6 max-w-xs">
                 Karosserie & Lack und Autoservice - unter einem Dach in Berlin-Blankenfelde. Ihr vertrauensvoller Partner für alle Kfz-Belange.
               </p>
+              <div className="flex items-center gap-3">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className="flex items-center justify-center w-10 h-10 rounded-full border border-white/15 bg-white/5 text-neutral-200 hover:bg-white hover:text-black hover:border-white transition-all duration-300"
+                    >
+                      <Icon className="w-5 h-5" />
+                    </a>
+                  );
+                })}
+              </div>
             </motion.div>
 
             <motion.div style={reveal(contactReveal)} className="flex flex-col">
