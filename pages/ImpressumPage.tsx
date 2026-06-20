@@ -26,12 +26,12 @@ export const ImpressumPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white pt-28 pb-24">
+    <div className="min-h-screen bg-neutral-50 pt-28 pb-24">
       <div className="mx-auto max-w-6xl px-6 md:px-12">
         <motion.header
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-12 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end"
+          className="mb-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch"
         >
           <div>
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.22em] text-neutral-400">
@@ -45,7 +45,7 @@ export const ImpressumPage: React.FC = () => {
               Lindner und Autoservice Lindner GmbH in Berlin-Blankenfelde.
             </p>
           </div>
-          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5 text-sm leading-relaxed text-neutral-600">
+          <div className="flex flex-col justify-center rounded-2xl border border-neutral-200 bg-white p-6 text-sm leading-relaxed text-neutral-600 shadow-sm">
             <p className="font-semibold text-neutral-950">Hinweis</p>
             <p className="mt-2">
               Die EU-Plattform zur Online-Streitbeilegung wurde zum 20. Juli 2025 eingestellt.
@@ -63,7 +63,7 @@ export const ImpressumPage: React.FC = () => {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.05 * index }}
-                className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm"
+                className="h-full rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm"
               >
                 <Icon className="mb-6 h-5 w-5 text-neutral-950" />
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-neutral-400">
@@ -75,28 +75,28 @@ export const ImpressumPage: React.FC = () => {
           })}
         </div>
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="mt-10 space-y-6">
           <motion.section
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl border border-neutral-200 bg-neutral-950 p-7 text-white md:p-8"
+            className="rounded-2xl border border-neutral-200 bg-white p-7 text-neutral-600 shadow-sm md:p-8"
           >
             <div className="mb-8 flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-neutral-950">
+              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-neutral-100 text-neutral-950">
                 <Building2 size={21} />
               </span>
               <div>
-                <p className="text-sm uppercase tracking-[0.18em] text-white/45">Anbieter</p>
-                <h2 className="text-2xl font-semibold">Betriebe am Standort</h2>
+                <p className="text-sm uppercase tracking-[0.18em] text-neutral-400">Anbieter</p>
+                <h2 className="text-2xl font-semibold text-neutral-950">Betriebe am Standort</h2>
               </div>
             </div>
 
             <div className="grid gap-8 text-sm leading-relaxed md:grid-cols-2">
               <dl className="space-y-5">
                 <div>
-                  <dt className="text-white/45">Kfz-Werkstatt Lindner</dt>
-                  <dd className="mt-1 font-medium">
+                  <dt className="text-neutral-400">Kfz-Werkstatt Lindner</dt>
+                  <dd className="mt-1 font-medium text-neutral-900">
                     Detlef Lindner
                     <br />
                     Hauptstr. 43
@@ -107,22 +107,22 @@ export const ImpressumPage: React.FC = () => {
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-white/45">Kontakt</dt>
-                  <dd className="mt-1 font-medium">
+                  <dt className="text-neutral-400">Kontakt</dt>
+                  <dd className="mt-1 font-medium text-neutral-900">
                     Telefon:{' '}
-                    <a href="tel:+49309131252" className="underline decoration-white/30 underline-offset-4 hover:text-white/75">
+                    <a href="tel:+49309131252" className="underline underline-offset-4 hover:text-neutral-600">
                       +49 30 913 12 52
                     </a>
                     <br />
                     E-Mail:{' '}
-                    <a href="mailto:info@kfz-lindner.de" className="underline decoration-white/30 underline-offset-4 hover:text-white/75">
+                    <a href="mailto:info@kfz-lindner.de" className="underline underline-offset-4 hover:text-neutral-600">
                       info@kfz-lindner.de
                     </a>
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-white/45">Steuerangaben</dt>
-                  <dd className="mt-1 font-medium">
+                  <dt className="text-neutral-400">Steuerangaben</dt>
+                  <dd className="mt-1 font-medium text-neutral-900">
                     Steuernummer: 35/422/62538
                     <br />
                     USt-IdNr.: DE 137047275
@@ -132,8 +132,8 @@ export const ImpressumPage: React.FC = () => {
 
               <dl className="space-y-5">
                 <div>
-                  <dt className="text-white/45">Autoservice Lindner GmbH</dt>
-                  <dd className="mt-1 font-medium">
+                  <dt className="text-neutral-400">Autoservice Lindner GmbH</dt>
+                  <dd className="mt-1 font-medium text-neutral-900">
                     Hauptstr. 43-45
                     <br />
                     13159 Berlin
@@ -142,20 +142,20 @@ export const ImpressumPage: React.FC = () => {
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-white/45">Vertreten durch</dt>
-                  <dd className="mt-1 font-medium">Geschäftsführerin Katrin Lindner</dd>
+                  <dt className="text-neutral-400">Vertreten durch</dt>
+                  <dd className="mt-1 font-medium text-neutral-900">Geschäftsführerin Katrin Lindner</dd>
                 </div>
                 <div>
-                  <dt className="text-white/45">Registereintrag</dt>
-                  <dd className="mt-1 font-medium">
+                  <dt className="text-neutral-400">Registereintrag</dt>
+                  <dd className="mt-1 font-medium text-neutral-900">
                     Handelsregister: HRB 130211 B
                     <br />
                     Registergericht: Amtsgericht Berlin (Charlottenburg)
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-white/45">Steuerangaben</dt>
-                  <dd className="mt-1 font-medium">
+                  <dt className="text-neutral-400">Steuerangaben</dt>
+                  <dd className="mt-1 font-medium text-neutral-900">
                     Steuernummer: 37/235/21624
                     <br />
                     USt-IdNr.: DE 815240659
@@ -165,12 +165,12 @@ export const ImpressumPage: React.FC = () => {
             </div>
           </motion.section>
 
-          <div className="space-y-6">
+          <div className="grid gap-6 lg:grid-cols-2">
             <motion.section
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-2xl border border-neutral-200 bg-neutral-50 p-7 md:p-8"
+              className="rounded-2xl border border-neutral-200 bg-white p-7 shadow-sm md:p-8"
             >
               <div className="mb-6 flex items-center gap-3">
                 <BadgeCheck className="h-5 w-5 text-neutral-950" />
@@ -201,7 +201,7 @@ export const ImpressumPage: React.FC = () => {
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-2xl border border-neutral-200 bg-white p-7 md:p-8"
+              className="rounded-2xl border border-neutral-200 bg-white p-7 shadow-sm md:p-8"
             >
               <h2 className="text-xl font-semibold text-neutral-950">Redaktionell verantwortlich</h2>
               <p className="mt-4 text-sm leading-relaxed text-neutral-600">
@@ -212,16 +212,15 @@ export const ImpressumPage: React.FC = () => {
           </div>
         </div>
 
-        <section className="mt-12 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <div className="space-y-8 text-sm leading-relaxed text-neutral-600">
-            <div>
+        <section className="mt-6 grid gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-neutral-200 bg-white p-7 text-sm leading-relaxed text-neutral-600 shadow-sm md:p-8">
               <h2 className="text-xl font-semibold text-neutral-950">Verbraucherstreitbeilegung</h2>
               <p className="mt-3">
                 Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor
                 einer Verbraucherschlichtungsstelle teilzunehmen.
               </p>
-            </div>
-            <div>
+          </div>
+          <div className="rounded-2xl border border-neutral-200 bg-white p-7 text-sm leading-relaxed text-neutral-600 shadow-sm md:p-8">
               <h2 className="text-xl font-semibold text-neutral-950">Haftung für Inhalte</h2>
               <p className="mt-3">
                 Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den
@@ -231,8 +230,8 @@ export const ImpressumPage: React.FC = () => {
                 möglich. Bei Bekanntwerden entsprechender Rechtsverletzungen entfernen wir diese
                 Inhalte umgehend.
               </p>
-            </div>
-            <div>
+          </div>
+          <div className="rounded-2xl border border-neutral-200 bg-white p-7 text-sm leading-relaxed text-neutral-600 shadow-sm md:p-8">
               <h2 className="text-xl font-semibold text-neutral-950">Haftung für Links</h2>
               <p className="mt-3">
                 Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir
@@ -240,8 +239,8 @@ export const ImpressumPage: React.FC = () => {
                 Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder
                 Betreiber verantwortlich.
               </p>
-            </div>
-            <div>
+          </div>
+          <div className="rounded-2xl border border-neutral-200 bg-white p-7 text-sm leading-relaxed text-neutral-600 shadow-sm md:p-8">
               <h2 className="text-xl font-semibold text-neutral-950">Urheberrecht</h2>
               <p className="mt-3">
                 Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
@@ -249,10 +248,11 @@ export const ImpressumPage: React.FC = () => {
                 Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts
                 bedürfen der schriftlichen Zustimmung des jeweiligen Rechteinhabers.
               </p>
-            </div>
           </div>
+        </section>
 
-          <GoogleMapConsent className="min-h-[520px] rounded-2xl shadow-2xl" />
+        <section className="mt-6">
+          <GoogleMapConsent variant="light" className="min-h-[440px] rounded-2xl shadow-sm" />
         </section>
       </div>
     </div>
