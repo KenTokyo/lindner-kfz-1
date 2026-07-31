@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "allowImportingTsExtensions": false
+  },
+  "include": [
+    "./forms.ts",
+    "../emails/**/*.tsx",
+    "../lib/formValidation.ts"
+  ]
+}
