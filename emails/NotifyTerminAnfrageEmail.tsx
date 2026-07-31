@@ -1,5 +1,5 @@
 import { Text, Link, Section } from "@react-email/components";
-import { EmailLayout, BRAND_DARK, TEXT_PRIMARY, TEXT_SECONDARY, TEXT_MUTED, WHITE, PAGE_BG } from "./components/EmailLayout";
+import { EmailLayout, BRAND_DARK, TEXT_PRIMARY, TEXT_SECONDARY, TEXT_MUTED, WHITE, PAGE_BG } from "./components/EmailLayout.js";
 
 interface NotifyTerminProps {
   name: string;

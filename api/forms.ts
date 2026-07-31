@@ -1,5 +1,5 @@
 import * as nodemailer from 'nodemailer';
-import { render } from '@react-email/render';
+import { render, toPlainText } from '@react-email/render';
 import {
   hasFormErrors,
   sanitizeApplicationData,
@@ -8,11 +8,11 @@ import {
   validateAppointmentForm,
   type ApplicationFormData,
   type AppointmentFormData,
-} from '../lib/formValidation';
-import { ConfirmTerminAnfrageEmail } from '../emails/ConfirmTerminAnfrageEmail';
-import { NotifyTerminAnfrageEmail } from '../emails/NotifyTerminAnfrageEmail';
-import { ConfirmBewerbungEmail } from '../emails/ConfirmBewerbungEmail';
-import { NotifyBewerbungEmail } from '../emails/NotifyBewerbungEmail';
+} from '../lib/formValidation.js';
+import { ConfirmTerminAnfrageEmail } from '../emails/ConfirmTerminAnfrageEmail.js';
+import { NotifyTerminAnfrageEmail } from '../emails/NotifyTerminAnfrageEmail.js';
+import { ConfirmBewerbungEmail } from '../emails/ConfirmBewerbungEmail.js';
+import { NotifyBewerbungEmail } from '../emails/NotifyBewerbungEmail.js';
 
 type FormType = 'appointment' | 'application';
 type AppointmentCategory = 'karosserie' | 'autoservice' | '';
@@ -72,7 +72,7 @@ const normalizeBody = (body: unknown): Record<string, unknown> => {
 };
 
 const getEnvConfig = (): EnvConfig => {
-  const host = process.env.SMTP_HOST || 'mxe989.netcup.net';
+  const host = process.env.SMTP_HOST || 'smtp.ionos.de';
   const port = Number(process.env.SMTP_PORT || 465);
   const secure = (process.env.SMTP_SECURE || 'true').toLowerCase() === 'true';
   const user = process.env.SMTP_USER || '';
@@ -103,6 +103,9 @@ const getTransporter = (): nodemailer.Transporter => {
       user: config.user,
       pass: config.pass,
     },
+    connectionTimeout: 15_000,
+    greetingTimeout: 15_000,
+    socketTimeout: 20_000,
   });
 
   return transporter;
@@ -129,9 +132,9 @@ const sendAppointmentEmail = async (
   );
 
   await mailer.sendMail({
-    from: smtpConfig.from,
+    from: { name: 'KFZ Lindner Website', address: smtpConfig.from },
     to: smtpConfig.to,
-    replyTo: data.email,
+    replyTo: { name: data.name, address: data.email },
     subject: `Neue Terminanfrage${
       category === 'karosserie'
         ? ' (Karosserie & Lack)'
@@ -139,6 +142,7 @@ const sendAppointmentEmail = async (
         ? ' (Autoservice)'
         : ''
     }`,
+    text: toPlainText(notifyHtml),
     html: notifyHtml,
   });
 
@@ -152,12 +156,21 @@ const sendAppointmentEmail = async (
     })
   );
 
-  await mailer.sendMail({
-    from: smtpConfig.from,
-    to: data.email,
-    subject: 'Ihre Terminanfrage bei KFZ Lindner',
-    html: confirmHtml,
-  });
+  try {
+    await mailer.sendMail({
+      from: { name: 'KFZ Lindner', address: smtpConfig.from },
+      to: data.email,
+      replyTo: smtpConfig.to,
+      subject: 'Ihre Terminanfrage bei KFZ Lindner',
+      text: toPlainText(confirmHtml),
+      html: confirmHtml,
+    });
+  } catch (error) {
+    console.error(
+      'Terminanfrage-Eingangsbestätigung fehlgeschlagen:',
+      error instanceof Error ? error.message : 'Unbekannter Fehler'
+    );
+  }
 };
 
 const sendApplicationEmail = async (data: ApplicationFormData) => {
@@ -176,10 +189,11 @@ const sendApplicationEmail = async (data: ApplicationFormData) => {
   );
 
   await mailer.sendMail({
-    from: smtpConfig.from,
+    from: { name: 'KFZ Lindner Website', address: smtpConfig.from },
     to: smtpConfig.to,
-    replyTo: data.email,
+    replyTo: { name: data.name, address: data.email },
     subject: `Neue Bewerbung (${data.position})`,
+    text: toPlainText(notifyHtml),
     html: notifyHtml,
   });
 
@@ -191,12 +205,21 @@ const sendApplicationEmail = async (data: ApplicationFormData) => {
     })
   );
 
-  await mailer.sendMail({
-    from: smtpConfig.from,
-    to: data.email,
-    subject: 'Ihre Bewerbung bei KFZ Lindner',
-    html: confirmHtml,
-  });
+  try {
+    await mailer.sendMail({
+      from: { name: 'KFZ Lindner', address: smtpConfig.from },
+      to: data.email,
+      replyTo: smtpConfig.to,
+      subject: 'Ihre Bewerbung bei KFZ Lindner',
+      text: toPlainText(confirmHtml),
+      html: confirmHtml,
+    });
+  } catch (error) {
+    console.error(
+      'Bewerbungs-Eingangsbestätigung fehlgeschlagen:',
+      error instanceof Error ? error.message : 'Unbekannter Fehler'
+    );
+  }
 };
 
 const handleAppointment = async (body: Record<string, unknown>) => {
