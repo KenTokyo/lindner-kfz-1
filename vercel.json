@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/dienstleistungen",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/karriere",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/impressum",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/datenschutz",
+      "destination": "/index.html"
+    }
+  ]
+}
