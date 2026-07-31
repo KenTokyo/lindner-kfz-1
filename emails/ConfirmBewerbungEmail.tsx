@@ -1,5 +1,5 @@
 import { Text, Link, Section, Row, Column } from "@react-email/components";
-import { EmailLayout, BRAND_DARK, BRAND_GOLD, TEXT_PRIMARY, TEXT_SECONDARY, TEXT_MUTED, PAGE_BG, WHITE } from "./components/EmailLayout.js";
+import { EmailLayout, BRAND_DARK, BRAND_GOLD, TEXT_PRIMARY, TEXT_SECONDARY, TEXT_MUTED, PAGE_BG, WHITE } from "./components/EmailLayout";
 
 interface ConfirmBewerbungProps {
   name: string;

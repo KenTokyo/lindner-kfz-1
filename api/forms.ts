@@ -8,11 +8,11 @@ import {
   validateAppointmentForm,
   type ApplicationFormData,
   type AppointmentFormData,
-} from '../lib/formValidation.js';
-import { ConfirmTerminAnfrageEmail } from '../emails/ConfirmTerminAnfrageEmail.js';
-import { NotifyTerminAnfrageEmail } from '../emails/NotifyTerminAnfrageEmail.js';
-import { ConfirmBewerbungEmail } from '../emails/ConfirmBewerbungEmail.js';
-import { NotifyBewerbungEmail } from '../emails/NotifyBewerbungEmail.js';
+} from '../lib/formValidation';
+import { ConfirmTerminAnfrageEmail } from '../emails/ConfirmTerminAnfrageEmail';
+import { NotifyTerminAnfrageEmail } from '../emails/NotifyTerminAnfrageEmail';
+import { ConfirmBewerbungEmail } from '../emails/ConfirmBewerbungEmail';
+import { NotifyBewerbungEmail } from '../emails/NotifyBewerbungEmail';
 
 type FormType = 'appointment' | 'application';
 type AppointmentCategory = 'karosserie' | 'autoservice' | '';
