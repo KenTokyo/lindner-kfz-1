@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "id": "session-2026-07-05-786f22",
+  "title": "Neuer Chat",
+  "profileId": "cb6a2444-f195-4a77-987e-3e309cf24fb3",
+  "createdAt": "2026-07-05T13:51:26.387Z",
+  "updatedAt": "2026-07-05T13:51:26.792Z",
+  "lastMessageAt": "2026-07-05T13:51:26.387Z",
+  "isPinned": false,
+  "isFavorite": false,
+  "isArchived": false,
+  "sessionMode": "chat",
+  "category": null,
+  "tags": null,
+  "summaryText": null,
+  "messageCount": 0,
+  "totalTokens": 0,
+  "messages": [],
+  "metadata": {
+    "avgResponseTime": null,
+    "workspaceScopeJson": "{\"browserWorkspace\":{\"support\":\"supported\",\"selectedRootId\":\"electron-root-9iwx2z\",\"roots\":[{\"rootId\":\"electron-root-15t4m5k\",\"rootName\":\"Ki-Benchmarking\",\"permission\":\"granted\",\"updatedAtMs\":1783259435555},{\"rootId\":\"ki-benchmarking-5054b79c\",\"rootName\":\"Ki-Benchmarking\",\"permission\":\"granted\",\"updatedAtMs\":1782308840492},{\"rootId\":\"electron-root-1pyydmn\",\"rootName\":\"3-crossword-core-breaker\",\"permission\":\"prompt\",\"updatedAtMs\":1782306847519},{\"rootId\":\"electron-root-6bdls\",\"rootName\":\"notedrill-backend-nextjs\",\"permission\":\"prompt\",\"updatedAtMs\":1782130645452},{\"rootId\":\"electron-root-1zb54j\",\"rootName\":\"notedrill-mitarbeiter-tutorial\",\"permission\":\"prompt\",\"updatedAtMs\":1781965814053},{\"rootId\":\"electron-root-19e7c3w\",\"rootName\":\"Learning\",\"permission\":\"granted\",\"updatedAtMs\":1780069843877},{\"rootId\":\"electron-root-9iwx2z\",\"rootName\":\"lindner-kfz-1\",\"permission\":\"granted\",\"updatedAtMs\":1780005067612},{\"rootId\":\"electron-root-rx86wv\",\"rootName\":\"7-3D-Voxel-Samurai-Quiz\",\"permission\":\"granted\",\"updatedAtMs\":1779982561610},{\"rootId\":\"electron-root-117q4jr\",\"rootName\":\"notedrill-tanstack-branch\",\"permission\":\"prompt\",\"updatedAtMs\":1779223382039}]},\"timer\":{\"accumulatedMs\":0,\"phase\":\"idle\",\"warnedAtMs\":null,\"limitReachedAtMs\":null,\"lastModelKey\":\"cli:opencode/deepseek-v4-flash-free\",\"lastThinkingLevel\":null,\"updatedAtMs\":1783259486664}}",
+    "previousSessionId": null
+  }
+}

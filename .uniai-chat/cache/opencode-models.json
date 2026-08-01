@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-20T22:25:11.212Z",
+  "updatedAt": "2026-07-31T22:15:59.245Z",
   "models": [
     {
       "id": "opencode/big-pickle",
@@ -32,6 +32,30 @@
       "dynamic": true
     },
     {
+      "id": "opencode/laguna-s-2.1-free",
+      "name": "Laguna S 2.1 Free (OpenCode)",
+      "provider": "opencode",
+      "description": "laguna-s-2.1-free via OpenCode",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "free",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode/ling-3.0-flash-free",
+      "name": "Ling 3.0 Flash Free (OpenCode)",
+      "provider": "opencode",
+      "description": "ling-3.0-flash-free via OpenCode",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "free",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
       "id": "opencode/mimo-v2.5-free",
       "name": "Mimo V2.5 Free (OpenCode)",
       "provider": "opencode",
@@ -39,13 +63,7 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "free",
-      "thinkingSource": "variant",
-      "thinkingVariants": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "defaultThinkingVariant": "high",
+      "thinkingSource": "native",
       "default": false,
       "dynamic": true
     },
@@ -57,13 +75,7 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "free",
-      "thinkingSource": "variant",
-      "thinkingVariants": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "defaultThinkingVariant": "high",
+      "thinkingSource": "native",
       "default": false,
       "dynamic": true
     },
@@ -75,7 +87,12 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "free",
-      "thinkingSource": "native",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "high"
+      ],
+      "defaultThinkingVariant": "high",
       "default": false,
       "dynamic": true
     },
@@ -138,6 +155,42 @@
       "dynamic": true
     },
     {
+      "id": "opencode-go/gpt-5.6-luna",
+      "name": "Gpt 5.6 Luna (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "gpt-5.6-luna via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/grok-4.5",
+      "name": "Grok 4.5 (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "grok-4.5 via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/hy3",
+      "name": "Hy3 (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "hy3 via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
       "id": "opencode-go/kimi-k2.6",
       "name": "Kimi K2.6 (OpenCode Go)",
       "provider": "opencode-go",
@@ -162,6 +215,18 @@
       "dynamic": true
     },
     {
+      "id": "opencode-go/kimi-k3",
+      "name": "Kimi K3 (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "kimi-k3 via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
       "id": "opencode-go/mimo-v2.5",
       "name": "Mimo V2.5 (OpenCode Go)",
       "provider": "opencode-go",
@@ -169,13 +234,7 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
-      "thinkingSource": "variant",
-      "thinkingVariants": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "defaultThinkingVariant": "high",
+      "thinkingSource": "native",
       "default": false,
       "dynamic": true
     },
@@ -187,13 +246,7 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
-      "thinkingSource": "variant",
-      "thinkingVariants": [
-        "low",
-        "medium",
-        "high"
-      ],
-      "defaultThinkingVariant": "high",
+      "thinkingSource": "native",
       "default": false,
       "dynamic": true
     },
@@ -217,7 +270,7 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "basic",
-      "thinkingSource": "native",
+      "thinkingSource": "toggle",
       "default": false,
       "dynamic": true
     },
@@ -258,10 +311,75 @@
       "dynamic": true
     },
     {
-      "id": "zai-coding-plan/glm-4.5-air",
-      "name": "Glm 4.5 Air (Z.AI Coding Plan)",
-      "provider": "zai-coding-plan",
-      "description": "glm-4.5-air via Z.AI Coding Plan",
+      "id": "bailian-token-plan/glm-5.2",
+      "name": "GLM-5.2",
+      "provider": "bailian-token-plan",
+      "description": "glm-5.2 via Bailian token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "max",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "bailian-token-plan/qwen3.6-flash",
+      "name": "Qwen3.6 Flash",
+      "provider": "bailian-token-plan",
+      "description": "qwen3.6-flash via Bailian token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "basic",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "bailian-token-plan/qwen3.6-plus",
+      "name": "Qwen3.6 Plus",
+      "provider": "bailian-token-plan",
+      "description": "qwen3.6-plus via Bailian token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "bailian-token-plan/qwen3.7-max",
+      "name": "Qwen3.7 Max",
+      "provider": "bailian-token-plan",
+      "description": "qwen3.7-max via Bailian token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "bailian-token-plan/qwen3.7-plus",
+      "name": "Qwen3.7 Plus",
+      "provider": "bailian-token-plan",
+      "description": "qwen3.7-plus via Bailian token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "bailian-token-plan/qwen3.8-max-preview",
+      "name": "Qwen3.8 Max Preview",
+      "provider": "bailian-token-plan",
+      "description": "qwen3.8-max-preview via Bailian token plan",
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
@@ -294,18 +412,6 @@
       "dynamic": true
     },
     {
-      "id": "zai-coding-plan/glm-5.1",
-      "name": "Glm 5.1 (Z.AI Coding Plan)",
-      "provider": "zai-coding-plan",
-      "description": "glm-5.1 via Z.AI Coding Plan",
-      "supportsTools": true,
-      "supportsVision": false,
-      "tier": "standard",
-      "thinkingSource": "toggle",
-      "default": false,
-      "dynamic": true
-    },
-    {
       "id": "zai-coding-plan/glm-5.2",
       "name": "Glm 5.2 (Z.AI Coding Plan)",
       "provider": "zai-coding-plan",
@@ -319,18 +425,6 @@
         "max"
       ],
       "defaultThinkingVariant": "max",
-      "default": false,
-      "dynamic": true
-    },
-    {
-      "id": "zai-coding-plan/glm-5v-turbo",
-      "name": "Glm 5v Turbo (Z.AI Coding Plan)",
-      "provider": "zai-coding-plan",
-      "description": "glm-5v-turbo via Z.AI Coding Plan",
-      "supportsTools": true,
-      "supportsVision": false,
-      "tier": "standard",
-      "thinkingSource": "native",
       "default": false,
       "dynamic": true
     },
