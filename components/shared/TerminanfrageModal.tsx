@@ -327,10 +327,10 @@ export const TerminanfrageModal: React.FC<TerminanfrageModalProps> = ({
                     </div>
                   )}
 
-                  {/* Name */}
+                  {/* Vor- und Nachname in einem gemeinsamen Feld */}
                   <div>
                     <label htmlFor="ta-name" className="block text-sm font-medium text-neutral-700 mb-1">
-                      Name *
+                      Vor- und Nachname *
                     </label>
                     <input
                       id="ta-name"
