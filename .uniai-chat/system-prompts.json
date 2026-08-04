@@ -1,5 +1,9 @@
 {
-  "version": 1,
+  "version": 2,
+  "initialSystemPromptBlocks": [
+    "custom"
+  ],
+  "initialSystemPromptCustom": "Wichtig: lese /AGENTS.md im Root und danach /shared-docs/CODING-RULES.md\n\nObwohl, brauchst du nicht, die existieren nicht, also keine Sorge",
   "initialSystemPrompt": "Wichtig: lese /AGENTS.md im Root und danach /shared-docs/CODING-RULES.md\n\nObwohl, brauchst du nicht, die existieren nicht, also keine Sorge",
-  "updatedAt": "2026-07-31T23:07:10.649Z"
+  "updatedAt": "2026-08-04T20:35:54.381Z"
 }

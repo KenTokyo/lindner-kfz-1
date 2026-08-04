@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-31T22:15:59.245Z",
+  "updatedAt": "2026-08-04T20:36:02.056Z",
   "models": [
     {
       "id": "opencode/big-pickle",
@@ -11,6 +11,8 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -22,12 +24,14 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "free",
-      "thinkingSource": "max",
+      "thinkingSource": "variant",
       "thinkingVariants": [
+        "low",
         "high",
         "max"
       ],
-      "defaultThinkingVariant": "max",
+      "defaultThinkingVariant": "low",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -39,7 +43,14 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "free",
-      "thinkingSource": "native",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "defaultThinkingVariant": "low",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -51,7 +62,14 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "free",
-      "thinkingSource": "native",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "defaultThinkingVariant": "low",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -64,6 +82,8 @@
       "supportsVision": false,
       "tier": "free",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -76,6 +96,8 @@
       "supportsVision": false,
       "tier": "free",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -92,7 +114,8 @@
         "none",
         "high"
       ],
-      "defaultThinkingVariant": "high",
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -104,12 +127,14 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "basic",
-      "thinkingSource": "max",
+      "thinkingSource": "variant",
       "thinkingVariants": [
+        "low",
         "high",
         "max"
       ],
-      "defaultThinkingVariant": "max",
+      "defaultThinkingVariant": "low",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -126,7 +151,8 @@
         "high",
         "max"
       ],
-      "defaultThinkingVariant": "max",
+      "defaultThinkingVariant": "high",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -139,6 +165,8 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -150,7 +178,13 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
-      "thinkingSource": "native",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "high",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -162,7 +196,17 @@
       "supportsTools": true,
       "supportsVision": true,
       "tier": "premium",
-      "thinkingSource": "native",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -174,7 +218,14 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
-      "thinkingSource": "native",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "defaultThinkingVariant": "low",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -186,7 +237,14 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
-      "thinkingSource": "native",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "high"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -199,6 +257,8 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -211,6 +271,8 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -222,7 +284,12 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
-      "thinkingSource": "native",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "max"
+      ],
+      "defaultThinkingVariant": "max",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -235,6 +302,8 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -247,6 +316,8 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -259,6 +330,8 @@
       "supportsVision": false,
       "tier": "basic",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -271,6 +344,12 @@
       "supportsVision": false,
       "tier": "basic",
       "thinkingSource": "toggle",
+      "thinkingVariants": [
+        "none",
+        "thinking"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -282,7 +361,13 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
-      "thinkingSource": "native",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "high",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -294,7 +379,13 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
-      "thinkingSource": "native",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "high",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -306,7 +397,393 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "high",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "opencode-go/qwen3.8-max",
+      "name": "Qwen3.8 Max (OpenCode Go)",
+      "provider": "opencode-go",
+      "description": "qwen3.8-max via OpenCode Go",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "high",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/deepseek-v3.2",
+      "name": "DeepSeek V3.2",
+      "provider": "alibaba-token-plan",
+      "description": "deepseek-v3.2 via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash",
+      "provider": "alibaba-token-plan",
+      "description": "deepseek-v4-flash via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "basic",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "high",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/deepseek-v4-flash-0731",
+      "name": "DeepSeek V4 Flash 0731",
+      "provider": "alibaba-token-plan",
+      "description": "deepseek-v4-flash-0731 via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "basic",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "high",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro",
+      "provider": "alibaba-token-plan",
+      "description": "deepseek-v4-pro via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "high",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/glm-5",
+      "name": "GLM-5",
+      "provider": "alibaba-token-plan",
+      "description": "glm-5 via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/glm-5.1",
+      "name": "GLM-5.1",
+      "provider": "alibaba-token-plan",
+      "description": "glm-5.1 via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/glm-5.2",
+      "name": "GLM-5.2",
+      "provider": "alibaba-token-plan",
+      "description": "glm-5.2 via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "high",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/happyhorse-1.1-i2v",
+      "name": "HappyHorse 1.1 Image-to-Video",
+      "provider": "alibaba-token-plan",
+      "description": "happyhorse-1.1-i2v via Alibaba token plan",
+      "supportsTools": false,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/happyhorse-1.1-r2v",
+      "name": "HappyHorse 1.1 Reference-to-Video",
+      "provider": "alibaba-token-plan",
+      "description": "happyhorse-1.1-r2v via Alibaba token plan",
+      "supportsTools": false,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/happyhorse-1.1-t2v",
+      "name": "HappyHorse 1.1 Text-to-Video",
+      "provider": "alibaba-token-plan",
+      "description": "happyhorse-1.1-t2v via Alibaba token plan",
+      "supportsTools": false,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/kimi-k2.5",
+      "name": "Kimi K2.5",
+      "provider": "alibaba-token-plan",
+      "description": "kimi-k2.5 via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/kimi-k2.6",
+      "name": "Kimi K2.6",
+      "provider": "alibaba-token-plan",
+      "description": "kimi-k2.6 via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/kimi-k2.7-code",
+      "name": "Kimi K2.7 Code",
+      "provider": "alibaba-token-plan",
+      "description": "kimi-k2.7-code via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/MiniMax-M2.5",
+      "name": "MiniMax-M2.5",
+      "provider": "alibaba-token-plan",
+      "description": "MiniMax-M2.5 via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "basic",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/qwen-image-2.0",
+      "name": "Qwen Image 2.0",
+      "provider": "alibaba-token-plan",
+      "description": "qwen-image-2.0 via Alibaba token plan",
+      "supportsTools": false,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/qwen-image-2.0-pro",
+      "name": "Qwen Image 2.0 Pro",
+      "provider": "alibaba-token-plan",
+      "description": "qwen-image-2.0-pro via Alibaba token plan",
+      "supportsTools": false,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/qwen3.6-flash",
+      "name": "Qwen3.6 Flash",
+      "provider": "alibaba-token-plan",
+      "description": "qwen3.6-flash via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "basic",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/qwen3.6-plus",
+      "name": "Qwen3.6 Plus",
+      "provider": "alibaba-token-plan",
+      "description": "qwen3.6-plus via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/qwen3.7-max",
+      "name": "Qwen3.7 Max",
+      "provider": "alibaba-token-plan",
+      "description": "qwen3.7-max via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/qwen3.7-plus",
+      "name": "Qwen3.7 Plus",
+      "provider": "alibaba-token-plan",
+      "description": "qwen3.7-plus via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/qwen3.8-max",
+      "name": "Qwen3.8 Max",
+      "provider": "alibaba-token-plan",
+      "description": "qwen3.8-max via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "low",
+        "medium",
+        "xhigh"
+      ],
+      "defaultThinkingVariant": "low",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/qwen3.8-max-preview",
+      "name": "Qwen3.8 Max Preview",
+      "provider": "alibaba-token-plan",
+      "description": "qwen3.8-max-preview via Alibaba token plan",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "low",
+        "medium",
+        "xhigh"
+      ],
+      "defaultThinkingVariant": "low",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/wan2.7-image",
+      "name": "Wan2.7 Image",
+      "provider": "alibaba-token-plan",
+      "description": "wan2.7-image via Alibaba token plan",
+      "supportsTools": false,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "alibaba-token-plan/wan2.7-image-pro",
+      "name": "Wan2.7 Image Pro",
+      "provider": "alibaba-token-plan",
+      "description": "wan2.7-image-pro via Alibaba token plan",
+      "supportsTools": false,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -318,12 +795,9 @@
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
-      "thinkingSource": "max",
-      "thinkingVariants": [
-        "high",
-        "max"
-      ],
-      "defaultThinkingVariant": "max",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -336,6 +810,8 @@
       "supportsVision": false,
       "tier": "basic",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -348,6 +824,8 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -360,6 +838,8 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -372,6 +852,22 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "bailian-token-plan/qwen3.8-max",
+      "name": "Qwen3.8 Max",
+      "provider": "bailian-token-plan",
+      "description": "qwen3.8-max via Bailian token plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -384,36 +880,478 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.3-codex-spark",
+      "name": "GPT-5.3 Codex Spark",
+      "provider": "openai",
+      "description": "gpt-5.3-codex-spark via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.4",
+      "name": "GPT-5.4",
+      "provider": "openai",
+      "description": "gpt-5.4 via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.4-fast",
+      "name": "GPT-5.4 Fast",
+      "provider": "openai",
+      "description": "gpt-5.4-fast via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.4-mini",
+      "name": "GPT-5.4 mini",
+      "provider": "openai",
+      "description": "gpt-5.4-mini via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.4-mini-fast",
+      "name": "GPT-5.4 mini Fast",
+      "provider": "openai",
+      "description": "gpt-5.4-mini-fast via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.5",
+      "name": "GPT-5.5",
+      "provider": "openai",
+      "description": "gpt-5.5 via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.5-fast",
+      "name": "GPT-5.5 Fast",
+      "provider": "openai",
+      "description": "gpt-5.5-fast via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.6-luna",
+      "name": "GPT-5.6 Luna",
+      "provider": "openai",
+      "description": "gpt-5.6-luna via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.6-luna-fast",
+      "name": "GPT-5.6 Luna Fast",
+      "provider": "openai",
+      "description": "gpt-5.6-luna-fast via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "provider": "openai",
+      "description": "gpt-5.6-sol via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.6-sol-fast",
+      "name": "GPT-5.6 Sol Fast",
+      "provider": "openai",
+      "description": "gpt-5.6-sol-fast via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.6-terra",
+      "name": "GPT-5.6 Terra",
+      "provider": "openai",
+      "description": "gpt-5.6-terra via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "openai/gpt-5.6-terra-fast",
+      "name": "GPT-5.6 Terra Fast",
+      "provider": "openai",
+      "description": "gpt-5.6-terra-fast via OpenAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "premium",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "xhigh",
+        "max"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "xai/grok-4.20-0309-non-reasoning",
+      "name": "Grok 4.20 (Non-Reasoning)",
+      "provider": "xai",
+      "description": "grok-4.20-0309-non-reasoning via xAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "xai/grok-4.20-0309-reasoning",
+      "name": "Grok 4.20 (Reasoning)",
+      "provider": "xai",
+      "description": "grok-4.20-0309-reasoning via xAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "xai/grok-4.20-multi-agent-0309",
+      "name": "Grok 4.20 Multi-Agent",
+      "provider": "xai",
+      "description": "grok-4.20-multi-agent-0309 via xAI",
+      "supportsTools": false,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "low",
+        "medium",
+        "high",
+        "xhigh"
+      ],
+      "defaultThinkingVariant": "low",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "xai/grok-4.3",
+      "name": "Grok 4.3",
+      "provider": "xai",
+      "description": "grok-4.3 via xAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "defaultThinkingVariant": "none",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "xai/grok-4.5",
+      "name": "Grok 4.5",
+      "provider": "xai",
+      "description": "grok-4.5 via xAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "variant",
+      "thinkingVariants": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "defaultThinkingVariant": "low",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "xai/grok-build-0.1",
+      "name": "Grok Build 0.1",
+      "provider": "xai",
+      "description": "grok-build-0.1 via xAI",
+      "supportsTools": true,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "xai/grok-imagine-image",
+      "name": "Grok Imagine Image",
+      "provider": "xai",
+      "description": "grok-imagine-image via xAI",
+      "supportsTools": false,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "xai/grok-imagine-image-quality",
+      "name": "Grok Imagine Image Quality",
+      "provider": "xai",
+      "description": "grok-imagine-image-quality via xAI",
+      "supportsTools": false,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "xai/grok-imagine-video",
+      "name": "Grok Imagine Video",
+      "provider": "xai",
+      "description": "grok-imagine-video via xAI",
+      "supportsTools": false,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "xai/grok-imagine-video-1.5",
+      "name": "Grok Imagine Video 1.5",
+      "provider": "xai",
+      "description": "grok-imagine-video-1.5 via xAI",
+      "supportsTools": false,
+      "supportsVision": true,
+      "tier": "standard",
+      "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
     {
       "id": "zai-coding-plan/glm-4.7",
-      "name": "Glm 4.7 (Z.AI Coding Plan)",
+      "name": "GLM-4.7",
       "provider": "zai-coding-plan",
       "description": "glm-4.7 via Z.AI Coding Plan",
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
     {
       "id": "zai-coding-plan/glm-5-turbo",
-      "name": "Glm 5 Turbo (Z.AI Coding Plan)",
+      "name": "GLM-5-Turbo",
       "provider": "zai-coding-plan",
       "description": "glm-5-turbo via Z.AI Coding Plan",
       "supportsTools": true,
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingVariants": [],
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
     {
       "id": "zai-coding-plan/glm-5.2",
-      "name": "Glm 5.2 (Z.AI Coding Plan)",
+      "name": "GLM-5.2",
       "provider": "zai-coding-plan",
       "description": "glm-5.2 via Z.AI Coding Plan",
       "supportsTools": true,
@@ -424,7 +1362,26 @@
         "high",
         "max"
       ],
-      "defaultThinkingVariant": "max",
+      "defaultThinkingVariant": "high",
+      "thinkingMetadataSource": "resolved",
+      "default": false,
+      "dynamic": true
+    },
+    {
+      "id": "zai-coding-plan/glm-5.2-highspeed",
+      "name": "GLM-5.2 Highspeed",
+      "provider": "zai-coding-plan",
+      "description": "glm-5.2-highspeed via Z.AI Coding Plan",
+      "supportsTools": true,
+      "supportsVision": false,
+      "tier": "standard",
+      "thinkingSource": "max",
+      "thinkingVariants": [
+        "high",
+        "max"
+      ],
+      "defaultThinkingVariant": "high",
+      "thinkingMetadataSource": "resolved",
       "default": false,
       "dynamic": true
     },
@@ -437,6 +1394,7 @@
       "supportsVision": false,
       "tier": "basic",
       "thinkingSource": "native",
+      "thinkingMetadataSource": "inferred",
       "default": false,
       "dynamic": true
     },
@@ -449,6 +1407,7 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingMetadataSource": "inferred",
       "default": false,
       "dynamic": true
     },
@@ -461,6 +1420,7 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingMetadataSource": "inferred",
       "default": false,
       "dynamic": true
     },
@@ -473,6 +1433,7 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingMetadataSource": "inferred",
       "default": false,
       "dynamic": true
     },
@@ -485,6 +1446,7 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingMetadataSource": "inferred",
       "default": false,
       "dynamic": true
     },
@@ -497,6 +1459,7 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingMetadataSource": "inferred",
       "default": false,
       "dynamic": true
     },
@@ -509,6 +1472,7 @@
       "supportsVision": false,
       "tier": "standard",
       "thinkingSource": "native",
+      "thinkingMetadataSource": "inferred",
       "default": false,
       "dynamic": true
     }
