@@ -17,22 +17,22 @@ export const ConfirmBewerbungEmail = ({
         Bewerbungseingang
       </Text>
       <Text style={heroTitle}>
-        Vielen Dank f&uuml;r Ihre Bewerbung, {name}!
+        Vielen Dank für Ihre Bewerbung, {name}!
       </Text>
       <Text style={heroText}>
-        Wir freuen uns &uuml;ber Ihr Interesse an unserem Team und haben Ihre
-        Unterlagen f&uuml;r die Position{" "}
+        Wir freuen uns über Ihr Interesse an unserem Team und haben Ihre
+        Unterlagen für die Position{" "}
         <strong>{position}</strong> sicher erhalten.
       </Text>
     </Section>
 
     {/* Next Steps */}
     <Section style={contentCard}>
-      <Text style={featureTitle}>Was passiert als N&auml;chstes?</Text>
+      <Text style={featureTitle}>Was passiert als Nächstes?</Text>
       <Text style={featureText}>
-        Wir nehmen uns die Zeit, Ihre Erfahrungen sorgf&auml;ltig zu pr&uuml;fen,
-        und melden uns innerhalb weniger Werktage bei Ihnen &mdash; telefonisch
-        oder f&uuml;r ein pers&ouml;nliches Kennenlernen direkt in unserer
+        Wir nehmen uns die Zeit, Ihre Erfahrungen sorgfältig zu prüfen,
+        und melden uns innerhalb weniger Werktage bei Ihnen — telefonisch
+        oder für ein persönliches Kennenlernen direkt in unserer
         Werkstatt in Berlin-Blankenfelde.
       </Text>
       <Text style={featureText}>
@@ -70,7 +70,7 @@ export const ConfirmBewerbungEmail = ({
     {/* Sign-off */}
     <Section style={signoffSection}>
       <Text style={signoffText}>
-        Wir w&uuml;nschen Ihnen einen sch&ouml;nen Tag!
+        Wir wünschen Ihnen einen schönen Tag!
       </Text>
       <Text style={signoffName}>Ihr Team von KFZ Lindner</Text>
     </Section>

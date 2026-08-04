@@ -16,15 +16,15 @@ export const NotifyBewerbungEmail = ({
   position,
   nachricht,
 }: NotifyBewerbungProps) => (
-  <EmailLayout preview={`Neue Bewerbung von ${name} f&uuml;r ${position}`}>
+  <EmailLayout preview={`Neue Bewerbung von ${name} für ${position}`}>
     {/* Hero */}
     <Section style={heroCard}>
-      <Text style={heroLabel}>Neue Bewerbung &bull; kfz-lindner.de</Text>
+      <Text style={heroLabel}>Neue Bewerbung • kfz-lindner.de</Text>
       <Text style={heroTitle}>
         <strong>{name}</strong> hat sich beworben
       </Text>
       <Text style={heroText}>
-        Position: <strong>{position}</strong> &mdash; bitte zeitnah pr&uuml;fen.
+        Position: <strong>{position}</strong> — bitte zeitnah prüfen.
       </Text>
     </Section>
 
@@ -78,7 +78,9 @@ const InfoRow = ({
   highlight?: boolean;
 }) => (
   <Text style={infoRow}>
-    <span style={highlight ? infoLabelHighlight : infoLabel}>{label}</span>
+    <span style={highlight ? infoLabelHighlight : infoLabel}>
+      {label}:{" "}
+    </span>
     <span style={infoValue}>
       {href ? (
         <Link href={href} style={infoLink}>

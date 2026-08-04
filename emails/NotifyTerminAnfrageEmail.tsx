@@ -29,7 +29,7 @@ export const NotifyTerminAnfrageEmail = ({
   <EmailLayout preview={`Neue Terminanfrage von ${name} – ${categoryLabel(category)}`}>
     {/* Hero */}
     <Section style={heroCard}>
-      <Text style={heroLabel}>Neue Terminanfrage &bull; kfz-lindner.de</Text>
+      <Text style={heroLabel}>Neue Terminanfrage • kfz-lindner.de</Text>
       <Text style={heroTitle}>
         <strong>{name}</strong> hat eine Terminanfrage gestellt
       </Text>
@@ -38,7 +38,7 @@ export const NotifyTerminAnfrageEmail = ({
 
     {/* Info Card */}
     <Section style={infoCard}>
-      <Text style={infoCardTitle}>KUNDENDATEN &amp; ANFRAGE</Text>
+      <Text style={infoCardTitle}>KUNDENDATEN & ANFRAGE</Text>
       <Section style={infoRowWrapper}>
         <InfoRow label="Bereich" value={categoryLabel(category)} highlight />
         <InfoRow label="Name" value={name} />
@@ -88,7 +88,9 @@ const InfoRow = ({
   highlight?: boolean;
 }) => (
   <Text style={infoRow}>
-    <span style={highlight ? infoLabelHighlight : infoLabel}>{label}</span>
+    <span style={highlight ? infoLabelHighlight : infoLabel}>
+      {label}:{" "}
+    </span>
     <span style={infoValue}>
       {href ? (
         <Link href={href} style={infoLink}>

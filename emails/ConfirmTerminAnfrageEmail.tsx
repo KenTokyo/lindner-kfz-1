@@ -16,10 +16,10 @@ const categoryLabel = (c: string): string => {
 
 const categoryDetails = (c: string): string => {
   if (c === "karosserie")
-    return "Wir nehmen uns gerne Zeit f&uuml;r eine professionelle Schadensbegutachtung und die bestm&ouml;gliche Instandsetzung Ihres Fahrzeugs.";
+    return "Wir nehmen uns gerne Zeit für eine professionelle Schadensbegutachtung und die bestmögliche Instandsetzung Ihres Fahrzeugs.";
   if (c === "autoservice")
-    return "Von der Inspektion &uuml;ber den &Ouml;lwechsel bis zur Hauptuntersuchung &mdash; wir k&uuml;mmern uns mit Sorgfalt um Ihr Fahrzeug.";
-  return "Wir k&uuml;mmern uns mit Sorgfalt um Ihr Anliegen.";
+    return "Von der Inspektion über den Ölwechsel bis zur Hauptuntersuchung — wir kümmern uns mit Sorgfalt um Ihr Fahrzeug.";
+  return "Wir kümmern uns mit Sorgfalt um Ihr Anliegen.";
 };
 
 export const ConfirmTerminAnfrageEmail = ({
@@ -32,10 +32,10 @@ export const ConfirmTerminAnfrageEmail = ({
     {/* Hero */}
     <Section style={heroCard}>
       <Text style={heroLabel}>
-        Terminanfrage &bull; {categoryLabel(category)}
+        Terminanfrage • {categoryLabel(category)}
       </Text>
       <Text style={heroTitle}>
-        Vielen Dank f&uuml;r Ihre Anfrage, {name}!
+        Vielen Dank für Ihre Anfrage, {name}!
       </Text>
       <Text style={heroText}>
         Wir haben alle Informationen erhalten und melden uns zeitnah bei Ihnen.
@@ -81,7 +81,7 @@ export const ConfirmTerminAnfrageEmail = ({
     {/* Callout */}
     <Section style={calloutCard}>
       <Text style={calloutText}>
-        Sie h&ouml;ren in der Regel innerhalb eines Werktages von uns &mdash;
+        Sie hören in der Regel innerhalb eines Werktages von uns —
         oft geht es auch schneller. Sollten Sie vorab Fragen haben, rufen Sie
         uns einfach an oder schreiben Sie eine kurze Mail.
       </Text>
@@ -116,7 +116,7 @@ export const ConfirmTerminAnfrageEmail = ({
     {/* Sign-off */}
     <Section style={signoffSection}>
       <Text style={signoffText}>
-        Herzliche Gr&uuml;&szlig;e aus Berlin-Blankenfelde
+        Herzliche Grüße aus Berlin-Blankenfelde
       </Text>
       <Text style={signoffName}>Ihr Team von KFZ Lindner</Text>
     </Section>

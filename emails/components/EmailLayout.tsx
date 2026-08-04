@@ -54,7 +54,7 @@ export const EmailLayout = ({ preview, children }: EmailLayoutProps) => (
             </Column>
             <Column style={headerTaglineCol}>
               <Text style={headerTagline}>
-                Karosserie &amp; Lack &bull; Autoservice
+                Karosserie & Lack • Autoservice
               </Text>
             </Column>
           </Row>
@@ -65,27 +65,27 @@ export const EmailLayout = ({ preview, children }: EmailLayoutProps) => (
         {/* Footer */}
         <Section style={footerSection}>
           <Text style={footerDesc}>
-            KFZ Lindner &mdash; Ihr Meisterbetrieb f&uuml;r alle Kfz-Belange in
+            KFZ Lindner — Ihr Meisterbetrieb für alle Kfz-Belange in
             Berlin-Blankenfelde.
           </Text>
           <Text style={footerAddress}>
-            Hauptstra&szlig;e 43, 13159 Berlin-Blankenfelde
+            Hauptstraße 43, 13159 Berlin-Blankenfelde
           </Text>
           <Text style={footerContact}>
             <Link href="tel:+49309131252" style={footerLink}>
               030 913 1252
             </Link>{" "}
-            &bull;{" "}
+            •{" "}
             <Link href="mailto:info@kfz-lindner.de" style={footerLink}>
               info@kfz-lindner.de
             </Link>{" "}
-            &bull;{" "}
+            •{" "}
             <Link href="https://www.kfz-lindner.de" style={footerLink}>
               www.kfz-lindner.de
             </Link>
           </Text>
           <Text style={footerHours}>
-            &Ouml;ffnungszeiten: Mo &ndash; Fr &bull; 07:00 &ndash; 18:00 Uhr
+            Öffnungszeiten: Mo – Fr • 07:00 – 18:00 Uhr
           </Text>
         </Section>
       </Container>
