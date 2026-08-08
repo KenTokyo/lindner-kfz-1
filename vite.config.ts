@@ -101,6 +101,7 @@ export default defineConfig(({ mode }) => {
       port: 5173,
       host: '0.0.0.0',
       strictPort: false,
+      hmr: false,
     },
     plugins: [formsApiDevPlugin(), react(), tailwindcss()],
     resolve: {
